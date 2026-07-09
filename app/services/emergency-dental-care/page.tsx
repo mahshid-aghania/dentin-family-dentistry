@@ -22,7 +22,7 @@ export default function EmergencyDentalCarePage() {
           </p>
           <a
             href="tel:4379002200"
-            className="mt-6 inline-flex items-center gap-2 bg-white text-red-600 font-bold px-7 py-3 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors"
+            className="mt-6 inline-flex items-center gap-2 bg-white text-red-600 font-bold px-7 py-3 rounded-full hover:bg-yellow-300 hover:text-[#002C29] transition-colors"
           >
             <Phone size={18} /> Call Now: (437) 900-2200
           </a>
@@ -34,14 +34,14 @@ export default function EmergencyDentalCarePage() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <AlertCircle size={32} className="text-red-500" />
-              <h2 className="text-2xl font-bold text-gray-900">What Is a Dental Emergency?</h2>
+              <h2 className="text-2xl font-bold text-[#002C29]">What Is a Dental Emergency?</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               A dental emergency is any situation that requires immediate attention to save a tooth, stop bleeding,
               relieve severe pain, or prevent an infection from spreading. Do not wait — call us right away.
             </p>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Common Dental Emergencies We Treat:</h3>
+            <h3 className="text-lg font-bold text-[#002C29] mb-4">Common Dental Emergencies We Treat:</h3>
             <div className="grid grid-cols-1 gap-3">
               {[
                 { title: "Severe Toothache", desc: "Intense, persistent pain that won't subside with over-the-counter medication." },
@@ -53,8 +53,8 @@ export default function EmergencyDentalCarePage() {
               ].map((item) => (
                 <div key={item.title} className="flex gap-3 border-l-4 border-red-400 pl-4 py-1">
                   <div>
-                    <div className="font-semibold text-gray-900 text-sm">{item.title}</div>
-                    <div className="text-gray-500 text-xs">{item.desc}</div>
+                    <div className="font-semibold text-[#002C29] text-sm">{item.title}</div>
+                    <div className="text-[#555574] text-xs">{item.desc}</div>
                   </div>
                 </div>
               ))}
@@ -65,9 +65,9 @@ export default function EmergencyDentalCarePage() {
             <div className="bg-red-50 border border-red-200 rounded-2xl p-8 mb-6">
               <div className="flex items-center gap-3 mb-4">
                 <Clock size={24} className="text-red-500" />
-                <h3 className="text-xl font-bold text-gray-900">Available 24/7</h3>
+                <h3 className="text-xl font-bold text-[#002C29]">Available 24/7</h3>
               </div>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-[#555574] text-sm mb-4">
                 Our emergency line is available around the clock. Don&apos;t suffer through dental pain — call us now.
               </p>
               <a
@@ -79,7 +79,7 @@ export default function EmergencyDentalCarePage() {
             </div>
 
             <div className="bg-[#F0F0FF] rounded-2xl p-8">
-              <h3 className="font-bold text-gray-900 mb-4">What to Do Before You Arrive</h3>
+              <h3 className="font-bold text-[#002C29] mb-4">What to Do Before You Arrive</h3>
               <ul className="space-y-3">
                 {[
                   "Call us immediately — we will guide you through first steps.",
@@ -88,7 +88,7 @@ export default function EmergencyDentalCarePage() {
                   "For swelling: apply a cold pack to the outside of the cheek.",
                   "Do NOT take aspirin for dental pain before treatment.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                  <li key={item} className="flex items-start gap-2 text-sm text-[#555574]">
                     <CheckCircle size={16} className="text-[#0D9488] shrink-0 mt-0.5" /> {item}
                   </li>
                 ))}
@@ -105,7 +105,7 @@ export default function EmergencyDentalCarePage() {
         </p>
         <a
           href="tel:4379002200"
-          className="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors inline-flex items-center gap-2"
+          className="bg-white text-red-600 font-bold px-8 py-3 rounded-full hover:bg-yellow-300 hover:text-[#002C29] transition-colors inline-flex items-center gap-2"
         >
           <Phone size={18} /> Call (437) 900-2200 Now
         </a>

@@ -28,8 +28,8 @@ export default function AboutPage() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Doctor photo */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-sm mx-auto md:mx-0">
+          <div className="relative max-w-sm mx-auto md:mx-0">
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
               <Image
                 src="/images/drMehdiRad-e1773681597167.jpg"
                 alt="Dr Mehdi Adibrad - Head and Implant Surgeon at Dentin Family Dentistry"
@@ -37,13 +37,13 @@ export default function AboutPage() {
                 className="object-cover"
                 priority
               />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs py-3 text-center font-medium">
+                Dr Mehdi Adibrad — Head &amp; Implant Surgeon
+              </div>
             </div>
-            <div className="absolute bottom-6 right-0 md:right-[-20px] bg-[#0D9488] text-white rounded-2xl px-5 py-4 shadow-lg">
+            <div className="absolute top-6 right-[-12px] bg-[#0D9488] text-white rounded-2xl px-5 py-4 shadow-lg text-center">
               <div className="text-2xl font-bold">12+</div>
-              <div className="text-xs font-medium">Years Experience</div>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 text-center bg-black/60 text-white text-xs py-2 rounded-b-3xl">
-              Dr Mehdi Adibrad - Head and Implant Surgeon
+              <div className="text-xs font-medium">Years Exp.</div>
             </div>
           </div>
 

@@ -99,11 +99,11 @@ export default function ServicesPage() {
                     {s.icon}
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-gray-900 mb-2">{s.title}</h2>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.description}</p>
+                    <h2 className="text-xl font-bold text-[#002C29] mb-2">{s.title}</h2>
+                    <p className="text-[#555574] text-sm leading-relaxed mb-4">{s.description}</p>
                     <ul className="grid grid-cols-2 gap-1 mb-4">
                       {s.items.map((item) => (
-                        <li key={item} className="text-xs text-gray-600 flex items-center gap-1">
+                        <li key={item} className="text-xs text-[#555574] flex items-center gap-1">
                           <div className="w-1.5 h-1.5 bg-[#0D9488] rounded-full shrink-0" />
                           {item}
                         </li>

@@ -37,20 +37,20 @@ export default function DentalImplantsPage() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Smile size={32} className="text-[#0D9488]" />
-              <h2 className="text-2xl font-bold text-gray-900">What Are Dental Implants?</h2>
+              <h2 className="text-2xl font-bold text-[#002C29]">What Are Dental Implants?</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-[#555574] leading-relaxed mb-4">
               Dental implants are titanium posts surgically placed into the jawbone to act as synthetic tooth
               roots. Once integrated with the bone, they support crowns, bridges, or dentures — providing a
               stable, permanent foundation for replacement teeth.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               Dr. Adibrad specializes in One-Day Implant procedures, meaning in many cases you can walk out
               with a functional tooth the same day as your surgery. Using advanced 3D imaging and precision
               surgical techniques, we deliver outstanding results with minimal downtime.
             </p>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Implant Solutions We Offer</h3>
+            <h3 className="text-lg font-bold text-[#002C29] mb-3">Implant Solutions We Offer</h3>
             <ul className="space-y-2 mb-6">
               {[
                 "Single Tooth Implants",
@@ -60,7 +60,7 @@ export default function DentalImplantsPage() {
                 "Bone Grafting",
                 "Sinus Lifts",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                   <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
@@ -68,19 +68,19 @@ export default function DentalImplantsPage() {
 
             <Link
               href="/appointment"
-              className="bg-[#0D9488] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#09625C] transition-colors inline-block"
+              className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors" style={{ borderRadius: "100px", padding: "16px 28px" }}
             >
               Book an Implant Consultation
             </Link>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Implants?</h3>
+            <h3 className="text-2xl font-bold text-[#002C29] mb-6">Why Choose Implants?</h3>
             <div className="space-y-4">
               {benefits.map((b) => (
                 <div key={b.title} className="bg-[#F0F0FF] rounded-xl p-4">
-                  <div className="font-semibold text-gray-900 mb-1">{b.title}</div>
-                  <div className="text-sm text-gray-500">{b.desc}</div>
+                  <div className="font-semibold text-[#002C29] mb-1">{b.title}</div>
+                  <div className="text-sm text-[#555574]">{b.desc}</div>
                 </div>
               ))}
             </div>
@@ -88,9 +88,9 @@ export default function DentalImplantsPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-[#F8F8FF]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-[#002C29] mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-2xl">
             {[
               {
@@ -111,8 +111,8 @@ export default function DentalImplantsPage() {
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-gray-500 text-sm">{faq.a}</p>
+                <h3 className="font-semibold text-[#002C29] mb-2">{faq.q}</h3>
+                <p className="text-[#555574] text-sm">{faq.a}</p>
               </div>
             ))}
           </div>

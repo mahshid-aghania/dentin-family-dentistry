@@ -28,37 +28,37 @@ export default function RegularDentalCheckupPage() {
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-gray max-w-none">
             <div className="bg-[#F0F0FF] rounded-2xl p-6 mb-8">
-              <p className="text-gray-700 text-lg leading-relaxed font-medium">
+              <p className="text-[#555574] text-lg leading-relaxed font-medium">
                 &ldquo;Maintain a healthy smile by brushing and flossing daily, visiting the dentist regularly,
                 eating a balanced diet, avoiding sugary foods, staying hydrated, and using mouthwash.&rdquo;
               </p>
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Regular Checkups Matter</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-[#002C29] mb-4">Why Regular Checkups Matter</h2>
+            <p className="text-[#555574] leading-relaxed mb-4">
               Maintaining a healthy smile requires more than good home hygiene. Regular dental checkups —
               ideally every six months — are one of the most effective ways to prevent dental disease,
               detect problems early, and save money on treatment in the long run.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               Brushing and flossing daily removes soft plaque, but over time plaque hardens into calculus
               (tartar) that only a professional cleaning can remove. Left untreated, tartar leads to gum
               disease, bone loss, and eventually tooth loss.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Nutrition and Your Oral Health</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-[#002C29] mb-4">Nutrition and Your Oral Health</h2>
+            <p className="text-[#555574] leading-relaxed mb-4">
               What you eat significantly impacts oral wellness. Calcium and vitamin D from dairy products,
               fruits, and vegetables strengthen your teeth and jawbone. On the other hand, sugary and acidic
               foods accelerate enamel erosion and create an environment where cavity-causing bacteria thrive.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               Drinking plenty of water throughout the day naturally rinses away food debris and bacteria,
               maintains saliva production, and helps neutralize acid attacks after meals. It is one of the
               simplest habits you can adopt for better oral health.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Benefits of Professional Dental Care</h2>
+            <h2 className="text-2xl font-bold text-[#002C29] mb-4">Key Benefits of Professional Dental Care</h2>
             <div className="grid sm:grid-cols-2 gap-3 mb-8">
               {[
                 "Early detection of dental issues",
@@ -70,24 +70,24 @@ export default function RegularDentalCheckupPage() {
                 "Systemic health improvement",
                 "Orthodontic evaluations",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-gray-700 bg-[#F0F0FF] rounded-lg p-3">
+                <div key={item} className="flex items-center gap-2 text-sm text-[#555574] bg-[#F0F0FF] rounded-lg p-3">
                   <CheckCircle size={16} className="text-[#0D9488] shrink-0" /> {item}
                 </div>
               ))}
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">What Happens at a Dental Checkup?</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-[#002C29] mb-4">What Happens at a Dental Checkup?</h2>
+            <p className="text-[#555574] leading-relaxed mb-4">
               During a routine checkup at Dentin Family Dentistry, our team will perform a thorough
               professional cleaning to remove plaque and tartar buildup, followed by a comprehensive
               examination of your teeth, gums, and oral tissues.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-[#555574] leading-relaxed mb-4">
               We check for signs of cavities, gum disease, cracked teeth, and oral cancer. Dental X-rays,
               taken when clinically appropriate, allow us to detect problems between teeth and below the
               gumline that aren&apos;t visible to the naked eye.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-[#555574] leading-relaxed mb-8">
               Your visit concludes with personalized recommendations — whether that&apos;s adjusting your brushing
               technique, dietary changes, or scheduling a follow-up treatment. Our goal is to give you the
               knowledge and tools to maintain a healthy smile between visits.
@@ -110,18 +110,18 @@ export default function RegularDentalCheckupPage() {
         </div>
       </section>
 
-      <section className="py-12 px-4 bg-gray-50">
+      <section className="py-12 px-4 bg-[#F8F8FF]">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">More Articles</h3>
+          <h3 className="text-lg font-bold text-[#002C29] mb-4">More Articles</h3>
           <Link
             href="/essential-tips-for-a-healthy-smile"
             className="block border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow group"
           >
             <div className="text-xs text-gray-400 mb-1">Oral Health Tips · 4 min read</div>
-            <div className="font-bold text-gray-900 group-hover:text-[#0D9488] transition-colors">
+            <div className="font-bold text-[#002C29] group-hover:text-[#0D9488] transition-colors">
               Essential Tips for a Healthy Smile
             </div>
-            <div className="text-sm text-gray-500 mt-1">
+            <div className="text-sm text-[#555574] mt-1">
               The top habits dental professionals recommend for optimal oral health.
             </div>
           </Link>

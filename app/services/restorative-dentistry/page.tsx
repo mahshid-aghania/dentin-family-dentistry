@@ -29,20 +29,20 @@ export default function RestorativeDentistryPage() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <Shield size={32} className="text-[#0D9488]" />
-                <h2 className="text-2xl font-bold text-gray-900">Restore Your Smile</h2>
+                <h2 className="text-2xl font-bold text-[#002C29]">Restore Your Smile</h2>
               </div>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <p className="text-[#555574] leading-relaxed mb-4">
                 Restorative dentistry focuses on repairing and replacing damaged or missing teeth to restore both
                 function and aesthetics. Our comprehensive approach ensures you can eat, speak, and smile with
                 confidence again.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-[#555574] leading-relaxed">
                 From simple fillings to complex full-mouth rehabilitation, Dr. Adibrad and our team use the latest
                 materials and techniques to deliver long-lasting, natural-looking results.
               </p>
             </div>
             <div className="bg-[#F0F0FF] rounded-2xl p-8">
-              <h3 className="font-bold text-gray-900 mb-4">Key Benefits of Restorative Care</h3>
+              <h3 className="font-bold text-[#002C29] mb-4">Key Benefits of Restorative Care</h3>
               <ul className="space-y-3">
                 {[
                   "Restore ability to chew and speak normally",
@@ -51,7 +51,7 @@ export default function RestorativeDentistryPage() {
                   "Improve overall oral health",
                   "Boost confidence and quality of life",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                  <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                     <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                   </li>
                 ))}
@@ -87,8 +87,8 @@ export default function RestorativeDentistryPage() {
               },
             ].map((item) => (
               <div key={item.title} className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="font-bold text-[#002C29] text-lg mb-2">{item.title}</h3>
+                <p className="text-[#555574] text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

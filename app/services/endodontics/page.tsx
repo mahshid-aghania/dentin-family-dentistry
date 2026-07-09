@@ -37,20 +37,20 @@ export default function EndodonticsPage() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <HeartPulse size={32} className="text-[#0D9488]" />
-              <h2 className="text-2xl font-bold text-gray-900">What Is Endodontics?</h2>
+              <h2 className="text-2xl font-bold text-[#002C29]">What Is Endodontics?</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-[#555574] leading-relaxed mb-4">
               Endodontics is the branch of dentistry focused on diagnosing and treating diseases of the dental
               pulp — the soft tissue inside your teeth containing nerves, blood vessels, and connective tissue.
               When the pulp becomes infected or inflamed, endodontic treatment is necessary to save the tooth.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               The most common endodontic procedure is root canal therapy. Despite its reputation, a modern
               root canal is a routine, comfortable procedure that relieves the severe pain of an infected tooth
               and preserves it for years to come.
             </p>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Endodontic Treatments</h3>
+            <h3 className="text-lg font-bold text-[#002C29] mb-3">Endodontic Treatments</h3>
             <ul className="space-y-2 mb-6">
               {[
                 "Root Canal Therapy",
@@ -59,13 +59,13 @@ export default function EndodonticsPage() {
                 "Pulp Capping",
                 "Pulpotomy (Partial Pulp Removal)",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                   <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
             </ul>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Signs You May Need Treatment</h3>
+            <h3 className="text-lg font-bold text-[#002C29] mb-3">Signs You May Need Treatment</h3>
             <ul className="space-y-2 mb-6">
               {[
                 "Severe toothache or prolonged sensitivity",
@@ -74,7 +74,7 @@ export default function EndodonticsPage() {
                 "Persistent pimple on the gums",
                 "Pain when biting or touching the tooth",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                   <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
@@ -82,19 +82,19 @@ export default function EndodonticsPage() {
 
             <Link
               href="/appointment"
-              className="bg-[#0D9488] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#09625C] transition-colors inline-block"
+              className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors" style={{ borderRadius: "100px", padding: "16px 28px" }}
             >
               Book an Endodontic Consultation
             </Link>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Benefits of Root Canal Therapy</h3>
+            <h3 className="text-2xl font-bold text-[#002C29] mb-6">Benefits of Root Canal Therapy</h3>
             <div className="space-y-4">
               {benefits.map((b) => (
                 <div key={b.title} className="bg-[#F0F0FF] rounded-xl p-4">
-                  <div className="font-semibold text-gray-900 mb-1">{b.title}</div>
-                  <div className="text-sm text-gray-500">{b.desc}</div>
+                  <div className="font-semibold text-[#002C29] mb-1">{b.title}</div>
+                  <div className="text-sm text-[#555574]">{b.desc}</div>
                 </div>
               ))}
             </div>
@@ -102,9 +102,9 @@ export default function EndodonticsPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-[#F8F8FF]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-[#002C29] mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-2xl">
             {[
               {
@@ -125,8 +125,8 @@ export default function EndodonticsPage() {
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-gray-500 text-sm">{faq.a}</p>
+                <h3 className="font-semibold text-[#002C29] mb-2">{faq.q}</h3>
+                <p className="text-[#555574] text-sm">{faq.a}</p>
               </div>
             ))}
           </div>

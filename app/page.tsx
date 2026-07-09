@@ -84,22 +84,21 @@ export default function HomePage() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
           {/* Doctor image */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-sm mx-auto lg:mx-0">
+          <div className="relative max-w-sm mx-auto lg:mx-0">
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
               <Image
                 src="/images/drMehdiRad-e1773681597167.jpg"
                 alt="Dr Mehdi Adibrad - Head and Implant Surgeon at Dentin Family Dentistry"
                 fill
                 className="object-cover"
               />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs py-3 text-center font-medium">
+                Dr Mehdi Adibrad — Head &amp; Implant Surgeon
+              </div>
             </div>
-            {/* Floating badge */}
-            <div className="absolute bottom-6 right-0 lg:right-[-20px] bg-[#0D9488] text-white rounded-2xl px-5 py-3 shadow-lg">
+            <div className="absolute top-6 right-[-12px] bg-[#0D9488] text-white rounded-2xl px-5 py-3 shadow-lg text-center">
               <div className="text-2xl font-bold">12+</div>
-              <div className="text-xs font-medium">experience in medical services</div>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 text-center bg-black/60 text-white text-xs py-2 rounded-b-3xl">
-              Dr Mehdi Adibrad - Head and Implant Surgeon
+              <div className="text-xs font-medium">Years Exp.</div>
             </div>
           </div>
 
@@ -383,6 +382,73 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── APPOINTMENT CTA ── */}
+      <section className="py-20 px-4 bg-[#F8F8FF]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">BOOK YOUR APPOINTMENT</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] mb-4 leading-tight">
+              Book your dental visit online
+            </h2>
+            <p className="text-[#555574] leading-relaxed mb-6">
+              Ready to take the next step towards a healthier smile? Use our easy online booking system to schedule your dental appointment.
+            </p>
+            <div className="space-y-2 text-sm text-[#555574] mb-8">
+              <div className="flex justify-between border-b border-gray-200 pb-2">
+                <span className="font-medium text-[#002C29]">Monday – Saturday</span>
+                <span>9:00 AM – 9:00 PM</span>
+              </div>
+              <div className="flex justify-between border-b border-gray-200 pb-2">
+                <span className="font-medium text-[#002C29]">Sunday</span>
+                <span>Closed</span>
+              </div>
+              <div className="flex items-center gap-2 pt-1 text-[#0D9488] font-semibold">
+                <Phone size={14} /> 24/7 Emergency: (437) 900-2200
+              </div>
+            </div>
+            <Link
+              href="/appointment"
+              className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
+              style={{ borderRadius: "100px", padding: "19px 30px" }}
+            >
+              Book Now
+            </Link>
+          </div>
+          <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <h3 className="text-xl font-bold text-[#002C29] mb-6">Request an Appointment</h3>
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                <input type="text" placeholder="First Name" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29]" />
+                <input type="text" placeholder="Last Name" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29]" />
+              </div>
+              <input type="tel" placeholder="Phone Number" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29]" />
+              <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#555574]">
+                <option value="">Reason For Visit</option>
+                <option>Routine Checkup</option>
+                <option>New Patient Visit</option>
+                <option>Specific Concern</option>
+                <option>Emergency</option>
+              </select>
+              <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#555574]">
+                <option value="">Choose Time</option>
+                <option>10:00 – 11:00</option>
+                <option>11:00 – 12:00</option>
+                <option>12:00 – 13:00</option>
+                <option>13:00 – 14:00</option>
+                <option>14:00 – 15:00</option>
+              </select>
+              <button
+                type="button"
+                className="w-full bg-[#0D9488] text-white font-bold py-3 hover:bg-[#09625C] transition-colors text-sm"
+                style={{ borderRadius: "100px" }}
+              >
+                Request Appointment
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -28,9 +28,9 @@ export default function CosmeticDentistryPage() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Sparkles size={32} className="text-[#0D9488]" />
-              <h2 className="text-2xl font-bold text-gray-900">Smile Transformation</h2>
+              <h2 className="text-2xl font-bold text-[#002C29]">Smile Transformation</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               Cosmetic dentistry combines art and science to enhance the appearance of your teeth, gums, and
               overall smile. Whether you want to brighten discolored teeth, fix chipped enamel, or completely
               redesign your smile, we have solutions tailored to you.
@@ -60,8 +60,8 @@ export default function CosmeticDentistryPage() {
                 },
               ].map((item) => (
                 <div key={item.title} className="border-l-4 border-[#0D9488] pl-4">
-                  <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-[#002C29] mb-1">{item.title}</h3>
+                  <p className="text-[#555574] text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -69,8 +69,8 @@ export default function CosmeticDentistryPage() {
 
           <div>
             <div className="bg-[#F0F0FF] rounded-2xl p-8 mb-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Is Cosmetic Dentistry Right for You?</h3>
-              <p className="text-gray-600 text-sm mb-4">You may be a great candidate if you want to address:</p>
+              <h3 className="text-xl font-bold text-[#002C29] mb-4">Is Cosmetic Dentistry Right for You?</h3>
+              <p className="text-[#555574] text-sm mb-4">You may be a great candidate if you want to address:</p>
               <ul className="space-y-2">
                 {[
                   "Stained or discolored teeth",
@@ -80,7 +80,7 @@ export default function CosmeticDentistryPage() {
                   "Worn-down teeth",
                   "A gummy smile",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                  <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                     <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                   </li>
                 ))}

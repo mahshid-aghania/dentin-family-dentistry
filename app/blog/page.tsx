@@ -51,7 +51,7 @@ export default function BlogPage() {
             <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">LATEST NEWS</div>
             <h2 className="text-3xl font-bold text-[#002C29]">Latest dental news insights and oral health advice</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {posts.map((post) => (
               <Link key={post.title} href={post.href}>
                 <article className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow group h-full bg-white">

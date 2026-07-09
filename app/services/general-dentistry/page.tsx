@@ -37,31 +37,31 @@ export default function GeneralDentistryPage() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Stethoscope size={32} className="text-[#0D9488]" />
-              <h2 className="text-2xl font-bold text-gray-900">What Is General Dentistry?</h2>
+              <h2 className="text-2xl font-bold text-[#002C29]">What Is General Dentistry?</h2>
             </div>
-            <p className="text-gray-600 leading-relaxed mb-4">
+            <p className="text-[#555574] leading-relaxed mb-4">
               General dentistry focuses on the prevention, diagnosis, and treatment of common oral health issues.
               Our practice provides personalized care across all ages, addressing cavities, gum disease, and oral
               hygiene education.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-[#555574] leading-relaxed mb-6">
               Regular dental visits — we recommend every six months — are the foundation of a healthy smile. Early
               detection allows us to treat small problems before they become major (and costly) ones.
             </p>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Preventive Care</h3>
+            <h3 className="text-lg font-bold text-[#002C29] mb-3">Preventive Care</h3>
             <ul className="space-y-2 mb-6">
               {["Dental Cleanings", "Comprehensive Exams", "Fluoride Treatments", "Dental X-Rays", "Oral Cancer Screening"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                   <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
             </ul>
 
-            <h3 className="text-lg font-bold text-gray-900 mb-3">Restorative Procedures</h3>
+            <h3 className="text-lg font-bold text-[#002C29] mb-3">Restorative Procedures</h3>
             <ul className="space-y-2 mb-6">
               {["Tooth-Colored Fillings", "Crowns & Bridges", "Root Canal Therapy", "Dental Sealants", "Gum Disease Treatment"].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                <li key={item} className="flex items-center gap-2 text-sm text-[#555574]">
                   <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
@@ -69,19 +69,19 @@ export default function GeneralDentistryPage() {
 
             <Link
               href="/appointment"
-              className="bg-[#0D9488] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#09625C] transition-colors inline-block"
+              className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors" style={{ borderRadius: "100px", padding: "16px 28px" }}
             >
               Book a Cleaning
             </Link>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Benefits</h3>
+            <h3 className="text-2xl font-bold text-[#002C29] mb-6">Key Benefits</h3>
             <div className="space-y-4">
               {benefits.map((b) => (
                 <div key={b.title} className="bg-[#F0F0FF] rounded-xl p-4">
-                  <div className="font-semibold text-gray-900 mb-1">{b.title}</div>
-                  <div className="text-sm text-gray-500">{b.desc}</div>
+                  <div className="font-semibold text-[#002C29] mb-1">{b.title}</div>
+                  <div className="text-sm text-[#555574]">{b.desc}</div>
                 </div>
               ))}
             </div>
@@ -89,9 +89,9 @@ export default function GeneralDentistryPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-[#F8F8FF]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-[#002C29] mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-2xl">
             {[
               {
@@ -108,8 +108,8 @@ export default function GeneralDentistryPage() {
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-                <p className="text-gray-500 text-sm">{faq.a}</p>
+                <h3 className="font-semibold text-[#002C29] mb-2">{faq.q}</h3>
+                <p className="text-[#555574] text-sm">{faq.a}</p>
               </div>
             ))}
           </div>

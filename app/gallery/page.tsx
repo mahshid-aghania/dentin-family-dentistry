@@ -3,10 +3,45 @@ import Link from "next/link";
 export const metadata = {
   title: "Gallery | Dentin Family Dentistry Vaughan",
   description:
-    "View before and after photos and our dental office gallery at Dentin Family Dentistry in Vaughan.",
+    "View before and after smile transformation photos at Dentin Family Dentistry in Vaughan. Dental implants, composite veneers, and laminate veneer cases.",
 };
 
-const categories = ["All", "Dental Implants", "Cosmetic", "Restorative", "Office"];
+const cases = [
+  {
+    title: "Dental Implant with Composite Veneers",
+    description: "Full smile restoration combining implant placement with composite veneer coverage.",
+    beforeAfter: [
+      { label: "Before", note: "Missing tooth & uneven smile" },
+      { label: "After", note: "Implant + composite veneers" },
+    ],
+  },
+  {
+    title: "Implant with Laminate Veneers — Case 1",
+    description: "Single implant paired with porcelain laminate veneers for a complete smile makeover.",
+    beforeAfter: [
+      { label: "Before", note: "Gaps and discolouration" },
+      { label: "After", note: "Implant + laminate veneers" },
+    ],
+  },
+  {
+    title: "Implant with Laminate Veneers — Case 2",
+    description: "Multiple-angle documentation of implant and laminate veneer transformation.",
+    beforeAfter: [
+      { label: "Before (Front)", note: "Crowding and missing teeth" },
+      { label: "After (Front)", note: "Natural-looking result" },
+      { label: "Before (Side)", note: "Profile view before" },
+      { label: "After (Side)", note: "Profile view after" },
+    ],
+  },
+  {
+    title: "Implant with Laminate Veneers — Case 3",
+    description: "Advanced implant rehabilitation with full laminate veneer set.",
+    beforeAfter: [
+      { label: "Before", note: "Worn and damaged teeth" },
+      { label: "After", note: "Implant + full veneer set" },
+    ],
+  },
+];
 
 export default function GalleryPage() {
   return (
@@ -16,70 +51,59 @@ export default function GalleryPage() {
           <div className="text-blue-200 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> / Gallery
           </div>
-          <h1 className="text-4xl font-bold">Our Gallery</h1>
+          <h1 className="text-4xl font-bold">Patient Transformations</h1>
           <p className="text-blue-100 mt-2 max-w-xl">
-            Browse before & after transformations and take a look at our modern dental office.
+            Real before & after results from our implant, veneer, and smile makeover patients.
           </p>
         </div>
       </section>
 
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Filter tabs */}
-          <div className="flex flex-wrap gap-2 mb-10 justify-center">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors ${
-                  cat === "All"
-                    ? "bg-[#1a6fb5] text-white border-[#1a6fb5]"
-                    : "border-gray-200 text-gray-600 hover:border-[#1a6fb5] hover:text-[#1a6fb5]"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          <p className="text-gray-500 text-center max-w-2xl mx-auto mb-14">
+            We offer a comprehensive range of dental services including oral surgeries, dental implants,
+            endodontics, cosmetic dentistry, and restorative dentistry. The cases below showcase real patient
+            outcomes achieved at our Vaughan clinic.
+          </p>
 
-          {/* Gallery grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              { label: "Smile Transformation", category: "Cosmetic", color: "bg-blue-100" },
-              { label: "Dental Implant Result", category: "Dental Implants", color: "bg-sky-100" },
-              { label: "Veneers Before & After", category: "Cosmetic", color: "bg-indigo-100" },
-              { label: "Crown Restoration", category: "Restorative", color: "bg-teal-100" },
-              { label: "Full Smile Makeover", category: "Cosmetic", color: "bg-cyan-100" },
-              { label: "Implant Surgery", category: "Dental Implants", color: "bg-blue-50" },
-              { label: "Whitening Results", category: "Cosmetic", color: "bg-sky-50" },
-              { label: "Bridge Placement", category: "Restorative", color: "bg-indigo-50" },
-              { label: "Office Reception", category: "Office", color: "bg-gray-100" },
-              { label: "Treatment Room", category: "Office", color: "bg-gray-100" },
-              { label: "Patient Consultation", category: "Office", color: "bg-slate-100" },
-              { label: "Dr. Adibrad at Work", category: "Office", color: "bg-blue-100" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className={`${item.color} rounded-2xl aspect-square flex flex-col items-center justify-center text-center p-4 hover:shadow-md transition-shadow cursor-pointer`}
-              >
-                <div className="text-3xl mb-2">🦷</div>
-                <div className="text-xs font-medium text-gray-700">{item.label}</div>
-                <div className="text-xs text-gray-400 mt-0.5">{item.category}</div>
+          <div className="space-y-16">
+            {cases.map((c) => (
+              <div key={c.title} className="border border-gray-100 rounded-3xl p-8 hover:shadow-md transition-shadow">
+                <h2 className="text-xl font-bold text-gray-900 mb-1">{c.title}</h2>
+                <p className="text-gray-500 text-sm mb-6">{c.description}</p>
+                <div className={`grid gap-4 ${c.beforeAfter.length === 4 ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"}`}>
+                  {c.beforeAfter.map((img) => (
+                    <div key={img.label} className="space-y-2">
+                      <div
+                        className={`aspect-square rounded-2xl flex flex-col items-center justify-center text-center p-4 ${
+                          img.label.startsWith("Before") ? "bg-gray-100" : "bg-[#e8f2fc]"
+                        }`}
+                      >
+                        <div className="text-3xl mb-2">🦷</div>
+                        <div className={`text-xs font-bold uppercase tracking-wide ${img.label.startsWith("Before") ? "text-gray-500" : "text-[#1a6fb5]"}`}>
+                          {img.label}
+                        </div>
+                        <div className="text-xs text-gray-400 mt-1">{img.note}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-10 text-gray-500 text-sm">
+          <div className="text-center mt-14 text-gray-500 text-sm">
             <p>
               Follow us on{" "}
               <a
                 href="https://www.instagram.com/dentin_family_dentistry/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1a6fb5] hover:underline"
+                className="text-[#1a6fb5] hover:underline font-medium"
               >
                 Instagram @dentin_family_dentistry
               </a>{" "}
-              for more patient transformations and office updates.
+              for more patient transformations and clinic updates.
             </p>
           </div>
         </div>
@@ -88,7 +112,7 @@ export default function GalleryPage() {
       <section className="py-16 px-4 bg-[#1a6fb5] text-white text-center">
         <h2 className="text-3xl font-bold mb-3">Your Transformation Starts Here</h2>
         <p className="text-blue-100 mb-6 max-w-lg mx-auto">
-          Ready to see results like these? Book a consultation today.
+          Ready to see results like these? Book a consultation with Dr. Adibrad today.
         </p>
         <Link
           href="/appointment"

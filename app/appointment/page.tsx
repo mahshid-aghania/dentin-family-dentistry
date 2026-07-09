@@ -93,9 +93,9 @@ export default function AppointmentPage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
                   <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]">
-                    <option>Morning (8am–12pm)</option>
+                    <option>Morning (9am–12pm)</option>
                     <option>Afternoon (12pm–5pm)</option>
-                    <option>Evening (5pm–7pm)</option>
+                    <option>Evening (5pm–9pm)</option>
                   </select>
                 </div>
               </div>
@@ -151,12 +151,8 @@ export default function AppointmentPage() {
               </h3>
               <div className="space-y-2 text-sm text-gray-700">
                 <div className="flex justify-between">
-                  <span>Mon – Fri</span>
-                  <span>8:00 AM – 7:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>9:00 AM – 4:00 PM</span>
+                  <span>Mon – Sat</span>
+                  <span>9:00 AM – 9:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>

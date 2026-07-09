@@ -72,12 +72,8 @@ export default function ContactPage() {
                   <div className="font-semibold text-gray-900 mb-2">Hours of Operation</div>
                   <div className="space-y-1 text-sm text-gray-600">
                     <div className="flex justify-between gap-8">
-                      <span>Monday – Friday</span>
-                      <span>8:00 AM – 7:00 PM</span>
-                    </div>
-                    <div className="flex justify-between gap-8">
-                      <span>Saturday</span>
-                      <span>9:00 AM – 4:00 PM</span>
+                      <span>Monday – Saturday</span>
+                      <span>9:00 AM – 9:00 PM</span>
                     </div>
                     <div className="flex justify-between gap-8">
                       <span>Sunday</span>

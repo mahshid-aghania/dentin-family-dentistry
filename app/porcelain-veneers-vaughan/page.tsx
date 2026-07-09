@@ -10,13 +10,13 @@ export const metadata = {
 export default function PorcelainVeneersPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> / Porcelain Veneers Vaughan
           </div>
           <h1 className="text-4xl font-bold">Porcelain Veneers in Vaughan</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             Achieve a flawless, natural-looking smile with our premium porcelain veneers — crafted with precision by Dr. Adibrad.
           </p>
         </div>
@@ -48,21 +48,21 @@ export default function PorcelainVeneersPage() {
                 "Irregular or asymmetrical shapes",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckCircle size={16} className="text-[#1a6fb5]" /> {item}
+                  <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
             </ul>
 
             <Link
               href="/appointment"
-              className="bg-[#1a6fb5] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#145a95] transition-colors inline-block"
+              className="bg-[#0D9488] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#09625C] transition-colors inline-block"
             >
               Book a Veneer Consultation
             </Link>
           </div>
 
           <div className="space-y-6">
-            <div className="bg-[#e8f2fc] rounded-2xl p-8">
+            <div className="bg-[#F0F0FF] rounded-2xl p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">The Veneer Process</h3>
               <div className="space-y-4">
                 {[
@@ -72,7 +72,7 @@ export default function PorcelainVeneersPage() {
                   { step: "04", title: "Bonding", desc: "Your new porcelain veneers are permanently bonded to your teeth for a flawless finish." },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
-                    <div className="w-10 h-10 bg-[#1a6fb5] text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">
+                    <div className="w-10 h-10 bg-[#0D9488] text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">
                       {item.step}
                     </div>
                     <div>
@@ -87,7 +87,7 @@ export default function PorcelainVeneersPage() {
             <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
               <div className="flex gap-1 mb-3">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="#1a6fb5" className="text-[#1a6fb5]" />
+                  <Star key={i} size={16} fill="#0D9488" className="text-[#0D9488]" />
                 ))}
               </div>
               <blockquote className="italic text-gray-600 text-sm mb-3">
@@ -134,21 +134,21 @@ export default function PorcelainVeneersPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-[#1a6fb5] text-white text-center">
+      <section className="py-16 px-4 bg-[#0D9488] text-white text-center">
         <h2 className="text-3xl font-bold mb-3">Ready for Your Dream Smile?</h2>
-        <p className="text-blue-100 mb-6 max-w-lg mx-auto">
+        <p className="text-gray-300 mb-6 max-w-lg mx-auto">
           Book a porcelain veneer consultation at our Vaughan office today.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/appointment"
-            className="bg-white text-[#1a6fb5] font-bold px-8 py-3 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors"
+            className="bg-white text-[#0D9488] font-bold px-8 py-3 rounded-full hover:bg-[#002C29] hover:text-white transition-colors"
           >
             Book Consultation
           </Link>
           <a
             href="tel:4379002200"
-            className="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-[#1a6fb5] transition-colors"
+            className="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-[#0D9488] transition-colors"
           >
             Call (437) 900-2200
           </a>

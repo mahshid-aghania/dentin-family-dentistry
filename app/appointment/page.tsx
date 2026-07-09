@@ -10,13 +10,13 @@ export const metadata = {
 export default function AppointmentPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> / Book Appointment
           </div>
           <h1 className="text-4xl font-bold">Book an Appointment</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             Ready for a healthier smile? Schedule your visit with Dr. Adibrad and our team today.
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function AppointmentPage() {
                   <input
                     type="text"
                     required
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
                     placeholder="First Name"
                   />
                 </div>
@@ -43,7 +43,7 @@ export default function AppointmentPage() {
                   <input
                     type="text"
                     required
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
                     placeholder="Last Name"
                   />
                 </div>
@@ -53,7 +53,7 @@ export default function AppointmentPage() {
                 <input
                   type="email"
                   required
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
                   placeholder="your@email.com"
                 />
               </div>
@@ -62,13 +62,13 @@ export default function AppointmentPage() {
                 <input
                   type="tel"
                   required
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
                   placeholder="(000) 000-0000"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
-                <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]">
+                <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]">
                   <option value="">Select a Service</option>
                   <option>General Dentistry / Cleaning</option>
                   <option>Cosmetic Dentistry</option>
@@ -87,12 +87,12 @@ export default function AppointmentPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
                   <input
                     type="date"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Time</label>
-                  <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5]">
+                  <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488]">
                     <option>Morning (9am–12pm)</option>
                     <option>Afternoon (12pm–5pm)</option>
                     <option>Evening (5pm–9pm)</option>
@@ -103,10 +103,10 @@ export default function AppointmentPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Are You a New Patient?</label>
                 <div className="flex gap-6">
                   <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-                    <input type="radio" name="new_patient" value="yes" className="accent-[#1a6fb5]" /> Yes, new patient
+                    <input type="radio" name="new_patient" value="yes" className="accent-[#0D9488]" /> Yes, new patient
                   </label>
                   <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-                    <input type="radio" name="new_patient" value="no" className="accent-[#1a6fb5]" /> Returning patient
+                    <input type="radio" name="new_patient" value="no" className="accent-[#0D9488]" /> Returning patient
                   </label>
                 </div>
               </div>
@@ -114,13 +114,13 @@ export default function AppointmentPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
                 <textarea
                   rows={3}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] resize-none"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] resize-none"
                   placeholder="Tell us anything we should know..."
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#1a6fb5] text-white font-bold py-3 rounded-full hover:bg-[#145a95] transition-colors text-base"
+                className="w-full bg-[#0D9488] text-white font-bold py-3 rounded-full hover:bg-[#09625C] transition-colors text-base"
               >
                 Request Appointment
               </button>
@@ -132,11 +132,11 @@ export default function AppointmentPage() {
 
           {/* Side info — 2 cols */}
           <div className="md:col-span-2 space-y-6">
-            <div className="bg-[#e8f2fc] rounded-2xl p-6">
+            <div className="bg-[#F0F0FF] rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-4">Prefer to Call?</h3>
               <a
                 href="tel:4379002200"
-                className="flex items-center gap-3 text-[#1a6fb5] font-bold text-lg hover:underline"
+                className="flex items-center gap-3 text-[#0D9488] font-bold text-lg hover:underline"
               >
                 <Phone size={20} /> (437) 900-2200
               </a>
@@ -145,9 +145,9 @@ export default function AppointmentPage() {
               </p>
             </div>
 
-            <div className="bg-[#e8f2fc] rounded-2xl p-6">
+            <div className="bg-[#F0F0FF] rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                <Clock size={18} className="text-[#1a6fb5]" /> Office Hours
+                <Clock size={18} className="text-[#0D9488]" /> Office Hours
               </h3>
               <div className="space-y-2 text-sm text-gray-700">
                 <div className="flex justify-between">
@@ -174,13 +174,13 @@ export default function AppointmentPage() {
               </a>
             </div>
 
-            <div className="bg-[#e8f2fc] rounded-2xl p-6">
+            <div className="bg-[#F0F0FF] rounded-2xl p-6">
               <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                <Mail size={18} className="text-[#1a6fb5]" /> Email Us
+                <Mail size={18} className="text-[#0D9488]" /> Email Us
               </h3>
               <a
                 href="mailto:dfdentistry3300@gmail.com"
-                className="text-[#1a6fb5] text-sm hover:underline"
+                className="text-[#0D9488] text-sm hover:underline"
               >
                 dfdentistry3300@gmail.com
               </a>

@@ -10,13 +10,13 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> / Contact Us
           </div>
           <h1 className="text-4xl font-bold">Contact Us</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             We&apos;d love to hear from you. Reach out to book an appointment, ask a question, or just say hello.
           </p>
         </div>
@@ -29,8 +29,8 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h2>
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-[#e8f2fc] rounded-xl flex items-center justify-center shrink-0">
-                  <MapPin size={20} className="text-[#1a6fb5]" />
+                <div className="w-12 h-12 bg-[#F0F0FF] rounded-xl flex items-center justify-center shrink-0">
+                  <MapPin size={20} className="text-[#0D9488]" />
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 mb-1">Address</div>
@@ -42,31 +42,31 @@ export default function ContactPage() {
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-[#e8f2fc] rounded-xl flex items-center justify-center shrink-0">
-                  <Phone size={20} className="text-[#1a6fb5]" />
+                <div className="w-12 h-12 bg-[#F0F0FF] rounded-xl flex items-center justify-center shrink-0">
+                  <Phone size={20} className="text-[#0D9488]" />
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 mb-1">Phone</div>
-                  <a href="tel:4379002200" className="text-[#1a6fb5] hover:underline">(437) 900-2200</a>
+                  <a href="tel:4379002200" className="text-[#0D9488] hover:underline">(437) 900-2200</a>
                   <div className="text-gray-500 text-xs mt-0.5">24/7 Emergency Line Available</div>
                 </div>
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-[#e8f2fc] rounded-xl flex items-center justify-center shrink-0">
-                  <Mail size={20} className="text-[#1a6fb5]" />
+                <div className="w-12 h-12 bg-[#F0F0FF] rounded-xl flex items-center justify-center shrink-0">
+                  <Mail size={20} className="text-[#0D9488]" />
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 mb-1">Email</div>
-                  <a href="mailto:dfdentistry3300@gmail.com" className="text-[#1a6fb5] hover:underline text-sm">
+                  <a href="mailto:dfdentistry3300@gmail.com" className="text-[#0D9488] hover:underline text-sm">
                     dfdentistry3300@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-[#e8f2fc] rounded-xl flex items-center justify-center shrink-0">
-                  <Clock size={20} className="text-[#1a6fb5]" />
+                <div className="w-12 h-12 bg-[#F0F0FF] rounded-xl flex items-center justify-center shrink-0">
+                  <Clock size={20} className="text-[#0D9488]" />
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900 mb-2">Hours of Operation</div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-8 bg-[#e8f2fc] rounded-2xl p-5">
+            <div className="mt-8 bg-[#F0F0FF] rounded-2xl p-5">
               <div className="font-semibold text-gray-900 mb-2">Canadian Dental Care Plan (CDCP)</div>
               <p className="text-gray-600 text-sm">
                 We are proud to accept the Canadian Dental Care Plan. Contact us to verify your coverage.
@@ -101,7 +101,7 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                   <input
                     type="text"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] focus:border-transparent"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent"
                     placeholder="John"
                   />
                 </div>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                   <input
                     type="text"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] focus:border-transparent"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent"
                     placeholder="Doe"
                   />
                 </div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                 <input
                   type="email"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] focus:border-transparent"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent"
                   placeholder="john@example.com"
                 />
               </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                 <input
                   type="tel"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] focus:border-transparent"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent"
                   placeholder="(000) 000-0000"
                 />
               </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                 <input
                   type="text"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] focus:border-transparent"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent"
                   placeholder="Appointment Request"
                 />
               </div>
@@ -142,13 +142,13 @@ export default function ContactPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                 <textarea
                   rows={4}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#1a6fb5] focus:border-transparent resize-none"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent resize-none"
                   placeholder="How can we help you?"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#1a6fb5] text-white font-semibold py-3 rounded-full hover:bg-[#145a95] transition-colors"
+                className="w-full bg-[#0D9488] text-white font-semibold py-3 rounded-full hover:bg-[#09625C] transition-colors"
               >
                 Send Message
               </button>
@@ -168,7 +168,7 @@ export default function ContactPage() {
                 href="https://maps.google.com/?q=3300+Steeles+Ave+W,+Vaughan,+ON+L4K+2Y4"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1a6fb5] text-sm hover:underline mt-1 block"
+                className="text-[#0D9488] text-sm hover:underline mt-1 block"
               >
                 Open in Google Maps →
               </a>

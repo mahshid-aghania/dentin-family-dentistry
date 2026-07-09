@@ -10,9 +10,9 @@ export const metadata = {
 export default function EssentialTipsPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> /{" "}
             <Link href="/blog" className="hover:text-white">Blog</Link> / Essential Tips for a Healthy Smile
           </div>
@@ -20,14 +20,14 @@ export default function EssentialTipsPage() {
             Oral Health Tips
           </div>
           <h1 className="text-4xl font-bold mb-3">Essential Tips for a Healthy Smile</h1>
-          <p className="text-blue-200 text-sm">September 10, 2024 · 4 min read</p>
+          <p className="text-gray-300 text-sm">September 10, 2024 · 4 min read</p>
         </div>
       </section>
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-gray max-w-none">
-            <div className="bg-[#e8f2fc] rounded-2xl p-6 mb-8">
+            <div className="bg-[#F0F0FF] rounded-2xl p-6 mb-8">
               <p className="text-gray-700 text-lg leading-relaxed font-medium">
                 Maintaining a healthy smile requires consistent care and good habits. Brush and floss daily
                 to remove plaque and prevent cavities — but great oral health goes beyond just the basics.
@@ -77,8 +77,8 @@ export default function EssentialTipsPage() {
                 "Orthodontic evaluations",
                 "Fresh breath and confidence",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-gray-700 bg-[#e8f2fc] rounded-lg p-3">
-                  <CheckCircle size={16} className="text-[#1a6fb5] shrink-0" /> {item}
+                <div key={item} className="flex items-center gap-2 text-sm text-gray-700 bg-[#F0F0FF] rounded-lg p-3">
+                  <CheckCircle size={16} className="text-[#0D9488] shrink-0" /> {item}
                 </div>
               ))}
             </div>
@@ -97,14 +97,14 @@ export default function EssentialTipsPage() {
               mouthwash as part of your evening routine.
             </p>
 
-            <div className="bg-[#1a6fb5] rounded-2xl p-8 text-white text-center">
+            <div className="bg-[#0D9488] rounded-2xl p-8 text-white text-center">
               <h3 className="text-xl font-bold mb-2">Ready to Protect Your Smile?</h3>
-              <p className="text-blue-100 mb-4">
+              <p className="text-gray-300 mb-4">
                 Book a cleaning and exam at Dentin Family Dentistry in Vaughan today.
               </p>
               <Link
                 href="/appointment"
-                className="inline-block bg-white text-[#1a6fb5] font-bold px-7 py-3 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors"
+                className="inline-block bg-white text-[#0D9488] font-bold px-7 py-3 rounded-full hover:bg-[#002C29] hover:text-white transition-colors"
               >
                 Book an Appointment
               </Link>
@@ -121,7 +121,7 @@ export default function EssentialTipsPage() {
             className="block border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow group"
           >
             <div className="text-xs text-gray-400 mb-1">Oral Health Tips · 4 min read</div>
-            <div className="font-bold text-gray-900 group-hover:text-[#1a6fb5] transition-colors">
+            <div className="font-bold text-gray-900 group-hover:text-[#0D9488] transition-colors">
               Benefit of Regular Dental Checkup
             </div>
             <div className="text-sm text-gray-500 mt-1">

@@ -1,284 +1,446 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Phone,
-  CheckCircle,
-  Star,
-  Clock,
-  Shield,
-  Users,
-  Smile,
-  Stethoscope,
-  Sparkles,
-  AlertCircle,
-} from "lucide-react";
-
-const services = [
-  {
-    icon: <Stethoscope size={32} className="text-[#1a6fb5]" />,
-    title: "General Dentistry",
-    description: "Routine cleanings, exams, fillings, and preventive care for the whole family.",
-    href: "/services/general-dentistry",
-  },
-  {
-    icon: <Sparkles size={32} className="text-[#1a6fb5]" />,
-    title: "Cosmetic Dentistry",
-    description: "Veneers, teeth whitening, and smile makeovers to boost your confidence.",
-    href: "/services/cosmetic-dentistry",
-  },
-  {
-    icon: <Shield size={32} className="text-[#1a6fb5]" />,
-    title: "Restorative Dentistry",
-    description: "Crowns, bridges, dental implants, and full-mouth restoration solutions.",
-    href: "/services/restorative-dentistry",
-  },
-  {
-    icon: <AlertCircle size={32} className="text-[#1a6fb5]" />,
-    title: "Emergency Dental Care",
-    description: "Same-day emergency appointments available for urgent dental needs.",
-    href: "/services/emergency-dental-care",
-  },
-  {
-    icon: <Smile size={32} className="text-[#1a6fb5]" />,
-    title: "Dental Implants",
-    description: "State-of-the-art one-day implant solutions by our expert implant surgeon.",
-    href: "/services",
-  },
-  {
-    icon: <Users size={32} className="text-[#1a6fb5]" />,
-    title: "Pediatric Dentistry",
-    description: "Gentle, friendly care for children to build healthy smiles from day one.",
-    href: "/services",
-  },
-];
-
-const whyUs = [
-  "Accurate diagnosis of dental diseases",
-  "24/7 emergency dental services",
-  "5-star patient reviews",
-  "Experienced & compassionate professionals",
-  "Accepts Canadian Dental Care Plan (CDCP)",
-  "Advanced diagnostic technology",
-];
+import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle } from "lucide-react";
+import FAQAccordion from "./components/FAQAccordion";
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-24 px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
-              {"Vaughan's Trusted Dental Practice"}
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-              Your Healthy Smile <br />
-              <span className="text-yellow-300">Is Our Mission</span>
+      {/* ── HERO ── */}
+      <section className="relative bg-[#F8F8FF] overflow-hidden py-16 px-4">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+          {/* Left content */}
+          <div className="order-2 lg:order-1">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#002C29] leading-tight mb-5">
+              Trusted Dentist &amp; Implant Surgeon in Vaughan
             </h1>
-            <p className="text-blue-100 text-lg mb-6 leading-relaxed">
-              Compassionate, high-quality dental care for the whole family. From routine cleanings to advanced
-              implant surgery — we&apos;re here for every step of your dental journey.
+            <p className="text-[#555574] text-lg mb-8 leading-relaxed">
+              Expert dental care in Vaughan, from routine checkups to advanced dental implants, designed for a healthier, confident smile.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 href="/appointment"
-                className="bg-white text-[#1a6fb5] font-bold px-7 py-3 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors"
+                className="bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
+                style={{ borderRadius: "100px", padding: "19px 30px" }}
               >
-                Book Appointment
+                Book Now
               </Link>
-              <a
-                href="tel:4379002200"
-                className="border-2 border-white text-white font-bold px-7 py-3 rounded-full hover:bg-white hover:text-[#1a6fb5] transition-colors flex items-center gap-2"
-              >
-                <Phone size={18} /> Call Now
-              </a>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { value: "12+", label: "Years Experience" },
-              { value: "5★", label: "Patient Rating" },
-              { value: "24/7", label: "Emergency Care" },
-              { value: "CDCP", label: "Plan Accepted" },
-            ].map((stat) => (
-              <div key={stat.label} className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center">
-                <div className="text-3xl font-bold text-yellow-300">{stat.value}</div>
-                <div className="text-sm text-blue-100 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Announcement Bar */}
-      <div className="bg-yellow-400 text-gray-900 text-center py-3 px-4 text-sm font-semibold">
-        🦷 We Now Accept the Canadian Dental Care Plan (CDCP) — Call{" "}
-        <a href="tel:4379002200" className="underline">(437) 900-2200</a> to learn more
-      </div>
-
-      {/* Services */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Our Dental Services</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              We are excited to meet you and provide the best dental care for your family.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
               <Link
-                key={s.title}
-                href={s.href}
-                className="group border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-[#1a6fb5] transition-all"
+                href="/contact"
+                className="border-2 border-[#0D9488] text-[#0D9488] font-semibold hover:bg-[#0D9488] hover:text-white transition-colors"
+                style={{ borderRadius: "100px", padding: "19px 30px" }}
               >
-                <div className="mb-4">{s.icon}</div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-[#1a6fb5] transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{s.description}</p>
+                Enquires
               </Link>
-            ))}
+            </div>
+
+            {/* Stats bar */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex items-center gap-3 bg-white rounded-xl px-5 py-3 shadow-sm border border-gray-100">
+                <AlertCircle size={20} className="text-[#0D9488] shrink-0" />
+                <div>
+                  <div className="font-bold text-[#002C29] text-sm">Emergency Service</div>
+                  <div className="text-[#0D9488] text-xs font-semibold">24/7</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 bg-white rounded-xl px-5 py-3 shadow-sm border border-gray-100">
+                <CheckCircle size={20} className="text-[#0D9488] shrink-0" />
+                <div>
+                  <div className="font-bold text-[#002C29] text-sm">Recover Patients</div>
+                  <div className="text-[#0D9488] text-xs font-semibold">5k+</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact info under hero */}
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 text-sm text-[#555574]">
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-[#0D9488]" />
+                <span>Need Dental Services? <a href="tel:4379002200" className="font-semibold text-[#002C29] hover:text-[#0D9488]">(437) 900-2200</a></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock size={14} className="text-[#0D9488]" />
+                <span>Opening Hours Mon to Sat 9:00AM to 9:00PM</span>
+              </div>
+            </div>
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/services"
-              className="border-2 border-[#1a6fb5] text-[#1a6fb5] font-semibold px-8 py-3 rounded-full hover:bg-[#1a6fb5] hover:text-white transition-colors"
-            >
-              View All Services
-            </Link>
+
+          {/* Right image */}
+          <div className="order-1 lg:order-2 flex justify-center">
+            <div className="relative w-full max-w-md aspect-[4/5]">
+              <Image
+                src="/images/Screenshot-2025-01-27-at-7.00-Photoroom-1.png"
+                alt="Dental smile transformation at Dentin Family Dentistry Vaughan"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About Dr. Adibrad */}
-      <section className="py-20 px-4 bg-[#e8f2fc]">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="bg-[#1a6fb5] rounded-3xl aspect-square flex items-center justify-center">
-            <div className="text-center text-white p-8">
-              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 text-5xl">
-                👨‍⚕️
-              </div>
-              <div className="font-bold text-xl">Dr. Mehdi Adibrad</div>
-              <div className="text-blue-200 text-sm mt-1">Head &amp; Implant Surgeon</div>
-              <div className="mt-4 flex justify-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="white" className="text-white" />
-                ))}
-              </div>
+      {/* ── ABOUT SECTION ── */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+          {/* Doctor image */}
+          <div className="relative">
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-sm mx-auto lg:mx-0">
+              <Image
+                src="/images/drMehdiRad-e1773681597167.jpg"
+                alt="Dr Mehdi Adibrad - Head and Implant Surgeon at Dentin Family Dentistry"
+                fill
+                className="object-cover"
+              />
+            </div>
+            {/* Floating badge */}
+            <div className="absolute bottom-6 right-0 lg:right-[-20px] bg-[#0D9488] text-white rounded-2xl px-5 py-3 shadow-lg">
+              <div className="text-2xl font-bold">12+</div>
+              <div className="text-xs font-medium">experience in medical services</div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 text-center bg-black/60 text-white text-xs py-2 rounded-b-3xl">
+              Dr Mehdi Adibrad - Head and Implant Surgeon
             </div>
           </div>
+
+          {/* Content */}
           <div>
-            <div className="text-[#1a6fb5] font-semibold uppercase text-sm tracking-wide mb-2">Meet Your Dentist</div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Your Trusted Dentist in Vaughan
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">ABOUT US</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] mb-5 leading-tight">
+              Expert Dentist &amp; Implant Surgeon in Vaughan
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Dr. Mehdi Adibrad brings over 12 years of experience as head instructor at the ConfiDentist Group,
-              helping internationally trained dentists achieve Canadian licensing. He is a respected periodontist
-              and oral surgeon.
+            <p className="text-[#555574] leading-relaxed mb-8">
+              Dr. Mehdi Adibrad is a top-rated dentist in Vaughan, specializing in precision dentistry and advanced dental care. A graduate with honors from the National University, he offers expert services in cosmetic, restorative, and implant dentistry. With years of experience and a patient-first approach, Dr. Adibrad uses cutting-edge technology to deliver exceptional results.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Specializing in One-Day Implant solutions, Dr. Adibrad employs a patient-centered approach with
-              advanced diagnostic tools and high-quality materials to deliver precision care every time.
-            </p>
-            <ul className="space-y-2 mb-6">
-              {[
-                "Active General Dentistry License (RCDSO)",
-                "Ontario Dental Association Member",
-                "International Team for Implantology (ITI) Member",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckCircle size={16} className="text-[#1a6fb5]" /> {item}
-                </li>
-              ))}
-            </ul>
+
+            {/* Progress bars */}
+            <div className="space-y-5 mb-8">
+              <div>
+                <div className="flex justify-between mb-2 text-sm font-semibold text-[#002C29]">
+                  <span>Invisalign Treatment Complete</span>
+                  <span>95%</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#0D9488] rounded-full" style={{ width: "95%" }} />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between mb-2 text-sm font-semibold text-[#002C29]">
+                  <span>Patient Satisfaction Rate</span>
+                  <span>98%</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#0D9488] rounded-full" style={{ width: "98%" }} />
+                </div>
+              </div>
+            </div>
+
             <Link
               href="/about"
-              className="bg-[#1a6fb5] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#145a95] transition-colors inline-block"
+              className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
+              style={{ borderRadius: "100px", padding: "19px 30px" }}
             >
-              Learn More About Us
+              More About
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* ── SERVICES SECTION ── */}
+      <section className="py-20 px-4 bg-[#F0F0FF]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div>
+              <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">OUR SERVICES</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight max-w-xl">
+                Restoring Smiles: Expert Dental Implants &amp; Comprehensive Care
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="inline-block border-2 border-[#0D9488] text-[#0D9488] font-semibold hover:bg-[#0D9488] hover:text-white transition-colors shrink-0"
+              style={{ borderRadius: "100px", padding: "14px 28px" }}
+            >
+              All Services
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "General Dentistry",
+                image: "/images/service-img-1-1.jpg",
+                href: "/services/general-dentistry",
+              },
+              {
+                title: "Cosmetic Dentistry",
+                image: "/images/Screenshot-2026-03-14-at-4.13.07-PM.png",
+                href: "/services/cosmetic-dentistry",
+              },
+              {
+                title: "Restorative Dentistry",
+                image: "/images/restorative-dentistry.png",
+                href: "/services/restorative-dentistry",
+              },
+            ].map((service) => (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} at Dentin Family Dentistry Vaughan`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-[#002C29] text-lg mb-2 group-hover:text-[#0D9488] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-[#555574] text-sm leading-relaxed">
+                    We are excited to meet you and provide the best dental care for your family.
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── EXPERTISE SECTION ── */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+          {/* Images */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
+              <Image
+                src="/images/4d8ccd35-434e-49fd-8ed0-c6bd7b132369-768x625-1.jpg"
+                alt="Dentin Family Dentistry clinic team"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] mt-8">
+              <Image
+                src="/images/11.png"
+                alt="Dental care expertise at Dentin Family Dentistry"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Content */}
+          <div>
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">EXPERTISE</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] mb-5 leading-tight">
+              Commitment to your oral health and smile aesthetics
+            </h2>
+            <p className="text-[#555574] leading-relaxed mb-6">
+              A specialist doctor is available for any need. We are available in 150+ locations with modern facilities and experienced doctors.
+            </p>
+            <div className="space-y-3">
+              {[
+                "Advanced dental technology and equipment",
+                "Patient-centered compassionate care",
+                "Experienced team of dental specialists",
+                "Comprehensive services under one roof",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircle size={18} className="text-[#0D9488] shrink-0" />
+                  <span className="text-[#555574] text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE US ── */}
+      <section className="py-20 px-4 bg-[#002C29] text-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+          <div>
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">WHY CHOOSE US</div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight">
+              Excellence results you can trust
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-8">
+              Accurate diagnosis of dental diseases ensures effective treatment plans, helping to maintain oral health and prevent further complications.
+            </p>
+            <div className="space-y-6 mb-8">
+              {[
+                {
+                  icon: <AlertCircle size={22} className="text-[#0D9488]" />,
+                  title: "Emergency Services",
+                  desc: "Available 24/7 for urgent dental emergencies, ensuring you get care when you need it most.",
+                },
+                {
+                  icon: <Star size={22} className="text-[#0D9488]" fill="#0D9488" />,
+                  title: "Positive Patient Reviews",
+                  desc: "Our patients consistently rate us 5 stars for care, professionalism, and results.",
+                },
+                {
+                  icon: <Shield size={22} className="text-[#0D9488]" />,
+                  title: "Experienced Professionals",
+                  desc: "Led by Dr. Adibrad with 12+ years of expertise in implants, surgery, and general dentistry.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-4">
+                  <div className="w-11 h-11 bg-[#0D9488]/20 rounded-full flex items-center justify-center shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white mb-1">{item.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/contact"
+              className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
+              style={{ borderRadius: "100px", padding: "19px 30px" }}
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Right side image */}
+          <div className="relative rounded-3xl overflow-hidden aspect-square hidden lg:block">
+            <Image
+              src="/images/Screenshot-2025-02-05-at-3.21.38-PM-1.png"
+              alt="Dentin Family Dentistry team expertise"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ SECTION ── */}
+      <section className="py-20 px-4 bg-[#F8F8FF]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">HOW IT WORK</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight">
+              Everything you need to know about dental care
+            </h2>
+          </div>
+          <FAQAccordion />
+        </div>
+      </section>
+
+      {/* ── TESTIMONIAL SECTION ── */}
+      <section className="py-20 px-4 bg-[#0D9488] text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-xs font-semibold uppercase tracking-widest mb-3 text-white/80">TESTIMONIAL</div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 leading-tight">
+            Real stories of exceptional care and transformative smiles
+          </h2>
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} size={22} fill="white" className="text-white" />
+            ))}
+          </div>
+          <blockquote className="text-lg text-white/90 leading-relaxed mb-6 italic max-w-2xl mx-auto">
+            &ldquo;I recently had implants done and I am very satisfied with the very professional staff of this center. The procedure was excellent and I had no pain at all... The follow-ups were excellent. The administrators were very patient, precise, and responsible. I would like to thank dear Dr. Adib Rad and dear dr.Meschi and their incredibly excellent staff.&rdquo;
+          </blockquote>
+          <div className="font-bold text-white">Nastaran Shamsi</div>
+          <div className="text-white/60 text-sm mt-1">Verified Patient</div>
+        </div>
+      </section>
+
+      {/* ── TRANSFORMATION GALLERY ── */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Why Choose Dentin Family Dentistry?</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              We combine experience, technology, and compassion to deliver exceptional dental care.
-            </p>
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">SEE THE TRANSFORMATION</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight">
+              Stunning results that showcase the life changing impact
+            </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {whyUs.map((item) => (
-              <div key={item} className="flex items-center gap-3 bg-[#e8f2fc] rounded-xl p-4">
-                <CheckCircle size={20} className="text-[#1a6fb5] shrink-0" />
-                <span className="text-gray-800 font-medium text-sm">{item}</span>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { src: "/images/transformation-img-1.jpg", label: "Before", alt: "Before dental transformation - case 1" },
+              { src: "/images/transformation-img-2.jpg", label: "After", alt: "After dental transformation - case 1" },
+              { src: "/images/transformation-img-3-1.jpg", label: "Before", alt: "Before dental transformation - case 2" },
+              { src: "/images/transformation-img-4-1.jpg", label: "After", alt: "After dental transformation - case 2" },
+            ].map((img, i) => (
+              <div key={i} className="relative group overflow-hidden rounded-2xl">
+                <div className="relative aspect-square">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full ${img.label === "Before" ? "bg-gray-800/80 text-white" : "bg-[#0D9488] text-white"}`}>
+                  {img.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-16 px-4 bg-[#1a6fb5] text-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex justify-center gap-1 mb-4">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={24} fill="white" className="text-white" />
-            ))}
-          </div>
-          <blockquote className="text-xl italic text-blue-100 mb-6">
-            &ldquo;Dentin dentistry is 10/10! The staff and dentists are not only great, but very professional and
-            friendly.&rdquo;
-          </blockquote>
-          <div className="font-semibold">— Kimia KH</div>
-          <div className="text-blue-200 text-sm">Verified Patient</div>
-        </div>
-      </section>
-
-      {/* Hours & CTA */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Office Hours</h2>
-            <div className="space-y-3">
-              {[
-                { day: "Monday – Saturday", hours: "9:00 AM – 9:00 PM" },
-                { day: "Sunday", hours: "Closed" },
-              ].map((h) => (
-                <div key={h.day} className="flex justify-between items-center border-b border-gray-200 pb-3">
-                  <span className="flex items-center gap-2 font-medium text-gray-700">
-                    <Clock size={16} className="text-[#1a6fb5]" /> {h.day}
-                  </span>
-                  <span className="text-gray-600">{h.hours}</span>
-                </div>
-              ))}
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-4 flex items-start gap-3">
-                <AlertCircle size={20} className="text-red-500 shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-semibold text-red-700">24/7 Emergency Available</div>
-                  <div className="text-red-600 text-sm mt-1">Call us anytime for dental emergencies.</div>
-                </div>
-              </div>
+      {/* ── BLOG SECTION ── */}
+      <section className="py-20 px-4 bg-[#F0F0FF]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <div>
+              <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">LATEST NEWS</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight max-w-xl">
+                Latest dental news insights and oral health advice
+              </h2>
             </div>
-          </div>
-          <div className="bg-[#1a6fb5] rounded-3xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-3">Ready for a Healthier Smile?</h3>
-            <p className="text-blue-100 mb-6">
-              Book your appointment today and experience the Dentin difference.
-            </p>
-            <Link
-              href="/appointment"
-              className="block bg-white text-[#1a6fb5] font-bold py-3 px-8 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors mb-4"
-            >
-              Book an Appointment
+            <Link href="/blog" className="text-[#0D9488] font-semibold hover:text-[#09625C] transition-colors shrink-0 flex items-center gap-1">
+              View All Post →
             </Link>
-            <a href="tel:4379002200" className="text-blue-200 text-sm hover:text-white transition-colors">
-              Or call (437) 900-2200
-            </a>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Essential tips for a healthy smile",
+                href: "/essential-tips-for-a-healthy-smile",
+                date: "September 10, 2024",
+                category: "Oral Health Tips",
+              },
+              {
+                title: "Benefit of regular Dental Checkup",
+                href: "/benefit-of-regular-dental-checkup",
+                date: "September 10, 2024",
+                category: "Oral Health Tips",
+              },
+            ].map((post) => (
+              <Link
+                key={post.title}
+                href={post.href}
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src="/images/post-1-1.jpg"
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="inline-block bg-[#F0F0FF] text-[#0D9488] text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    {post.category}
+                  </span>
+                  <h3 className="font-bold text-[#002C29] text-lg mb-2 group-hover:text-[#0D9488] transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                  <div className="text-[#555574] text-xs">{post.date}</div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

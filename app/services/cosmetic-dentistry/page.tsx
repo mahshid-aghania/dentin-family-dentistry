@@ -10,14 +10,14 @@ export const metadata = {
 export default function CosmeticDentistryPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> /{" "}
             <Link href="/services" className="hover:text-white">Services</Link> / Cosmetic Dentistry
           </div>
           <h1 className="text-4xl font-bold">Cosmetic Dentistry</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             Beautiful smiles are crafted here. Explore our cosmetic dental treatments designed to transform your smile.
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function CosmeticDentistryPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Sparkles size={32} className="text-[#1a6fb5]" />
+              <Sparkles size={32} className="text-[#0D9488]" />
               <h2 className="text-2xl font-bold text-gray-900">Smile Transformation</h2>
             </div>
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -59,7 +59,7 @@ export default function CosmeticDentistryPage() {
                   desc: "Reshape uneven gumlines to create a more balanced, proportional smile.",
                 },
               ].map((item) => (
-                <div key={item.title} className="border-l-4 border-[#1a6fb5] pl-4">
+                <div key={item.title} className="border-l-4 border-[#0D9488] pl-4">
                   <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                 </div>
@@ -68,7 +68,7 @@ export default function CosmeticDentistryPage() {
           </div>
 
           <div>
-            <div className="bg-[#e8f2fc] rounded-2xl p-8 mb-6">
+            <div className="bg-[#F0F0FF] rounded-2xl p-8 mb-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Is Cosmetic Dentistry Right for You?</h3>
               <p className="text-gray-600 text-sm mb-4">You may be a great candidate if you want to address:</p>
               <ul className="space-y-2">
@@ -81,21 +81,21 @@ export default function CosmeticDentistryPage() {
                   "A gummy smile",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                    <CheckCircle size={16} className="text-[#1a6fb5]" /> {item}
+                    <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-[#1a6fb5] text-white rounded-2xl p-8">
+            <div className="bg-[#0D9488] text-white rounded-2xl p-8">
               <h3 className="text-xl font-bold mb-3">Ready to Transform Your Smile?</h3>
-              <p className="text-blue-100 text-sm mb-4">
+              <p className="text-gray-300 text-sm mb-4">
                 Book a cosmetic consultation with Dr. Adibrad to discuss your options and create a personalized
                 treatment plan.
               </p>
               <Link
                 href="/appointment"
-                className="block bg-white text-[#1a6fb5] font-bold py-3 px-6 rounded-full text-center hover:bg-yellow-300 hover:text-gray-900 transition-colors"
+                className="block bg-white text-[#0D9488] font-bold py-3 px-6 rounded-full text-center hover:bg-[#002C29] hover:text-white transition-colors"
               >
                 Book Cosmetic Consultation
               </Link>

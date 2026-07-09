@@ -19,14 +19,14 @@ const benefits = [
 export default function EndodonticsPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> /{" "}
             <Link href="/services" className="hover:text-white">Services</Link> / Endodontics
           </div>
           <h1 className="text-4xl font-bold">Endodontics</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             Specialized root canal therapy and endodontic treatments to relieve pain and save your natural teeth.
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function EndodonticsPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <HeartPulse size={32} className="text-[#1a6fb5]" />
+              <HeartPulse size={32} className="text-[#0D9488]" />
               <h2 className="text-2xl font-bold text-gray-900">What Is Endodontics?</h2>
             </div>
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -60,7 +60,7 @@ export default function EndodonticsPage() {
                 "Pulpotomy (Partial Pulp Removal)",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckCircle size={16} className="text-[#1a6fb5]" /> {item}
+                  <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
             </ul>
@@ -75,14 +75,14 @@ export default function EndodonticsPage() {
                 "Pain when biting or touching the tooth",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                  <CheckCircle size={16} className="text-[#1a6fb5]" /> {item}
+                  <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                 </li>
               ))}
             </ul>
 
             <Link
               href="/appointment"
-              className="bg-[#1a6fb5] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#145a95] transition-colors inline-block"
+              className="bg-[#0D9488] text-white font-semibold px-7 py-3 rounded-full hover:bg-[#09625C] transition-colors inline-block"
             >
               Book an Endodontic Consultation
             </Link>
@@ -92,7 +92,7 @@ export default function EndodonticsPage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Benefits of Root Canal Therapy</h3>
             <div className="space-y-4">
               {benefits.map((b) => (
-                <div key={b.title} className="bg-[#e8f2fc] rounded-xl p-4">
+                <div key={b.title} className="bg-[#F0F0FF] rounded-xl p-4">
                   <div className="font-semibold text-gray-900 mb-1">{b.title}</div>
                   <div className="text-sm text-gray-500">{b.desc}</div>
                 </div>

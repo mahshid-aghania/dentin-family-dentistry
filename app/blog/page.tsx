@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -15,6 +16,7 @@ const posts = [
     category: "Oral Health Tips",
     readTime: "4 min read",
     href: "/essential-tips-for-a-healthy-smile",
+    image: "/images/post-1-1.jpg",
   },
   {
     title: "Benefit of Regular Dental Checkup",
@@ -24,29 +26,20 @@ const posts = [
     category: "Oral Health Tips",
     readTime: "4 min read",
     href: "/benefit-of-regular-dental-checkup",
+    image: "/images/post-1-1.jpg",
   },
 ];
-
-const categoryColors: Record<string, string> = {
-  "Oral Health Tips": "bg-green-100 text-green-700",
-  "Dental Implants": "bg-blue-100 text-blue-700",
-  "Patient Guide": "bg-purple-100 text-purple-700",
-  "Insurance & Coverage": "bg-yellow-100 text-yellow-700",
-  "Cosmetic Dentistry": "bg-pink-100 text-pink-700",
-  "Pediatric Dentistry": "bg-orange-100 text-orange-700",
-};
-
 
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
-            <Link href="/" className="hover:text-white">Home</Link> / Blog
+          <div className="text-[#0D9488] text-sm mb-2">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link> / Blog
           </div>
           <h1 className="text-4xl font-bold">Dental Health Blog</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             Tips, guides, and news to help you maintain a healthy, beautiful smile.
           </p>
         </div>
@@ -54,29 +47,38 @@ export default function BlogPage() {
 
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">LATEST NEWS</div>
+            <h2 className="text-3xl font-bold text-[#002C29]">Latest dental news insights and oral health advice</h2>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <Link key={post.title} href={post.href}>
-                <article className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow group h-full">
-                  <div className="bg-[#e8f2fc] aspect-video flex items-center justify-center text-5xl">
-                    🦷
+                <article className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow group h-full bg-white">
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${categoryColors[post.category] || "bg-gray-100 text-gray-600"}`}>
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#F0F0FF] text-[#0D9488]">
                         {post.category}
                       </span>
                       <span className="text-xs text-gray-400">{post.readTime}</span>
                     </div>
-                    <h2 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-[#1a6fb5] transition-colors leading-snug">
+                    <h2 className="font-bold text-[#002C29] text-lg mb-2 group-hover:text-[#0D9488] transition-colors leading-snug">
                       {post.title}
                     </h2>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+                    <p className="text-[#555574] text-sm leading-relaxed mb-4">{post.excerpt}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-400">
                         {new Date(post.date).toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}
                       </span>
-                      <span className="text-[#1a6fb5] text-sm font-semibold group-hover:underline">Read More →</span>
+                      <span className="text-[#0D9488] text-sm font-semibold group-hover:underline">Read More →</span>
                     </div>
                   </div>
                 </article>
@@ -86,14 +88,15 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-[#e8f2fc] text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-3">Have a Dental Question?</h2>
-        <p className="text-gray-600 mb-6 max-w-md mx-auto">
+      <section className="py-16 px-4 bg-[#F0F0FF] text-center">
+        <h2 className="text-2xl font-bold text-[#002C29] mb-3">Have a Dental Question?</h2>
+        <p className="text-[#555574] mb-6 max-w-md mx-auto">
           Can&apos;t find what you&apos;re looking for? Contact our team — we&apos;re happy to help.
         </p>
         <Link
           href="/contact"
-          className="bg-[#1a6fb5] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#145a95] transition-colors inline-block"
+          className="inline-block bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
+          style={{ borderRadius: "100px", padding: "19px 30px" }}
         >
           Contact Us
         </Link>

@@ -10,14 +10,14 @@ export const metadata = {
 export default function RestorativeDentistryPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
+          <div className="text-gray-300 text-sm mb-2">
             <Link href="/" className="hover:text-white">Home</Link> /{" "}
             <Link href="/services" className="hover:text-white">Services</Link> / Restorative Dentistry
           </div>
           <h1 className="text-4xl font-bold">Restorative Dentistry</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
+          <p className="text-gray-300 mt-2 max-w-xl">
             Rebuild your smile and restore full function with our comprehensive restorative dental treatments.
           </p>
         </div>
@@ -28,7 +28,7 @@ export default function RestorativeDentistryPage() {
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <Shield size={32} className="text-[#1a6fb5]" />
+                <Shield size={32} className="text-[#0D9488]" />
                 <h2 className="text-2xl font-bold text-gray-900">Restore Your Smile</h2>
               </div>
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -41,7 +41,7 @@ export default function RestorativeDentistryPage() {
                 materials and techniques to deliver long-lasting, natural-looking results.
               </p>
             </div>
-            <div className="bg-[#e8f2fc] rounded-2xl p-8">
+            <div className="bg-[#F0F0FF] rounded-2xl p-8">
               <h3 className="font-bold text-gray-900 mb-4">Key Benefits of Restorative Care</h3>
               <ul className="space-y-3">
                 {[
@@ -52,7 +52,7 @@ export default function RestorativeDentistryPage() {
                   "Boost confidence and quality of life",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
-                    <CheckCircle size={16} className="text-[#1a6fb5]" /> {item}
+                    <CheckCircle size={16} className="text-[#0D9488]" /> {item}
                   </li>
                 ))}
               </ul>
@@ -96,7 +96,7 @@ export default function RestorativeDentistryPage() {
           <div className="text-center mt-12">
             <Link
               href="/appointment"
-              className="bg-[#1a6fb5] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#145a95] transition-colors inline-block"
+              className="bg-[#0D9488] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#09625C] transition-colors inline-block"
             >
               Book a Restorative Consultation
             </Link>

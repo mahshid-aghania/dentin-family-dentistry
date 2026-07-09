@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -6,100 +7,85 @@ export const metadata = {
     "View before and after smile transformation photos at Dentin Family Dentistry in Vaughan. Dental implants, composite veneers, and laminate veneer cases.",
 };
 
-const cases = [
+const transformations = [
   {
-    title: "Dental Implant with Composite Veneers",
-    description: "Full smile restoration combining implant placement with composite veneer coverage.",
-    beforeAfter: [
-      { label: "Before", note: "Missing tooth & uneven smile" },
-      { label: "After", note: "Implant + composite veneers" },
-    ],
+    label: "Before",
+    src: "/images/transformation-img-1.jpg",
+    alt: "Before dental transformation case 1",
   },
   {
-    title: "Implant with Laminate Veneers — Case 1",
-    description: "Single implant paired with porcelain laminate veneers for a complete smile makeover.",
-    beforeAfter: [
-      { label: "Before", note: "Gaps and discolouration" },
-      { label: "After", note: "Implant + laminate veneers" },
-    ],
+    label: "After",
+    src: "/images/transformation-img-2.jpg",
+    alt: "After dental transformation case 1",
   },
   {
-    title: "Implant with Laminate Veneers — Case 2",
-    description: "Multiple-angle documentation of implant and laminate veneer transformation.",
-    beforeAfter: [
-      { label: "Before (Front)", note: "Crowding and missing teeth" },
-      { label: "After (Front)", note: "Natural-looking result" },
-      { label: "Before (Side)", note: "Profile view before" },
-      { label: "After (Side)", note: "Profile view after" },
-    ],
+    label: "Before",
+    src: "/images/transformation-img-3-1.jpg",
+    alt: "Before dental transformation case 2",
   },
   {
-    title: "Implant with Laminate Veneers — Case 3",
-    description: "Advanced implant rehabilitation with full laminate veneer set.",
-    beforeAfter: [
-      { label: "Before", note: "Worn and damaged teeth" },
-      { label: "After", note: "Implant + full veneer set" },
-    ],
+    label: "After",
+    src: "/images/transformation-img-4-1.jpg",
+    alt: "After dental transformation case 2",
   },
 ];
 
 export default function GalleryPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#1a6fb5] to-[#0d4a80] text-white py-16 px-4">
+      <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-blue-200 text-sm mb-2">
-            <Link href="/" className="hover:text-white">Home</Link> / Gallery
+          <div className="text-[#0D9488] text-sm mb-2">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link> / Gallery
           </div>
           <h1 className="text-4xl font-bold">Patient Transformations</h1>
-          <p className="text-blue-100 mt-2 max-w-xl">
-            Real before & after results from our implant, veneer, and smile makeover patients.
+          <p className="text-gray-300 mt-2 max-w-xl">
+            Real before &amp; after results from our implant, veneer, and smile makeover patients.
           </p>
         </div>
       </section>
 
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <p className="text-gray-500 text-center max-w-2xl mx-auto mb-14">
-            We offer a comprehensive range of dental services including oral surgeries, dental implants,
-            endodontics, cosmetic dentistry, and restorative dentistry. The cases below showcase real patient
-            outcomes achieved at our Vaughan clinic.
-          </p>
+          <div className="text-center mb-14">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">SEE THE TRANSFORMATION</div>
+            <h2 className="text-3xl font-bold text-[#002C29] mb-4 leading-tight">
+              Stunning results that showcase the life changing impact
+            </h2>
+            <p className="text-[#555574] max-w-2xl mx-auto">
+              We offer a comprehensive range of dental services including oral surgeries, dental implants,
+              endodontics, cosmetic dentistry, and restorative dentistry. The cases below showcase real patient
+              outcomes achieved at our Vaughan clinic.
+            </p>
+          </div>
 
-          <div className="space-y-16">
-            {cases.map((c) => (
-              <div key={c.title} className="border border-gray-100 rounded-3xl p-8 hover:shadow-md transition-shadow">
-                <h2 className="text-xl font-bold text-gray-900 mb-1">{c.title}</h2>
-                <p className="text-gray-500 text-sm mb-6">{c.description}</p>
-                <div className={`grid gap-4 ${c.beforeAfter.length === 4 ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"}`}>
-                  {c.beforeAfter.map((img) => (
-                    <div key={img.label} className="space-y-2">
-                      <div
-                        className={`aspect-square rounded-2xl flex flex-col items-center justify-center text-center p-4 ${
-                          img.label.startsWith("Before") ? "bg-gray-100" : "bg-[#e8f2fc]"
-                        }`}
-                      >
-                        <div className="text-3xl mb-2">🦷</div>
-                        <div className={`text-xs font-bold uppercase tracking-wide ${img.label.startsWith("Before") ? "text-gray-500" : "text-[#1a6fb5]"}`}>
-                          {img.label}
-                        </div>
-                        <div className="text-xs text-gray-400 mt-1">{img.note}</div>
-                      </div>
-                    </div>
-                  ))}
+          {/* 2x2 Grid of transformation images */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
+            {transformations.map((img, i) => (
+              <div key={i} className="relative group overflow-hidden rounded-2xl">
+                <div className="relative aspect-square">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full ${img.label === "Before" ? "bg-gray-800/80 text-white" : "bg-[#0D9488] text-white"}`}>
+                  {img.label}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-14 text-gray-500 text-sm">
+          <div className="text-center text-[#555574] text-sm">
             <p>
               Follow us on{" "}
               <a
                 href="https://www.instagram.com/dentin_family_dentistry/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1a6fb5] hover:underline font-medium"
+                className="text-[#0D9488] hover:underline font-medium"
               >
                 Instagram @dentin_family_dentistry
               </a>{" "}
@@ -109,14 +95,15 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-[#1a6fb5] text-white text-center">
+      <section className="py-16 px-4 bg-[#0D9488] text-white text-center">
         <h2 className="text-3xl font-bold mb-3">Your Transformation Starts Here</h2>
-        <p className="text-blue-100 mb-6 max-w-lg mx-auto">
+        <p className="text-white/80 mb-6 max-w-lg mx-auto">
           Ready to see results like these? Book a consultation with Dr. Adibrad today.
         </p>
         <Link
           href="/appointment"
-          className="bg-white text-[#1a6fb5] font-bold px-8 py-3 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-colors inline-block"
+          className="inline-block bg-white text-[#0D9488] font-bold hover:bg-[#002C29] hover:text-white transition-colors"
+          style={{ borderRadius: "100px", padding: "19px 30px" }}
         >
           Book an Appointment
         </Link>

@@ -78,7 +78,7 @@ export default function EmergencyDentalCarePage() {
               </a>
             </div>
 
-            <div className="bg-[#e8f2fc] rounded-2xl p-8">
+            <div className="bg-[#F0F0FF] rounded-2xl p-8">
               <h3 className="font-bold text-gray-900 mb-4">What to Do Before You Arrive</h3>
               <ul className="space-y-3">
                 {[
@@ -89,7 +89,7 @@ export default function EmergencyDentalCarePage() {
                   "Do NOT take aspirin for dental pain before treatment.",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle size={16} className="text-[#1a6fb5] shrink-0 mt-0.5" /> {item}
+                    <CheckCircle size={16} className="text-[#0D9488] shrink-0 mt-0.5" /> {item}
                   </li>
                 ))}
               </ul>

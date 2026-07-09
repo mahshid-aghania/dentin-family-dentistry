@@ -212,24 +212,14 @@ export default function HomePage() {
       {/* ── EXPERTISE SECTION ── */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-          {/* Images */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-              <Image
-                src="/images/4d8ccd35-434e-49fd-8ed0-c6bd7b132369-768x625-1.jpg"
-                alt="Dentin Family Dentistry clinic team"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] mt-8">
-              <Image
-                src="/images/11.png"
-                alt="Dental care expertise at Dentin Family Dentistry"
-                fill
-                className="object-cover"
-              />
-            </div>
+          {/* Image */}
+          <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full">
+            <Image
+              src="/images/4d8ccd35-434e-49fd-8ed0-c6bd7b132369-768x625-1.jpg"
+              alt="Dentin Family Dentistry clinic team"
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Content */}

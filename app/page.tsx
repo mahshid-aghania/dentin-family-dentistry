@@ -246,8 +246,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Office Hours</h2>
             <div className="space-y-3">
               {[
-                { day: "Monday – Friday", hours: "8:00 AM – 7:00 PM" },
-                { day: "Saturday", hours: "9:00 AM – 4:00 PM" },
+                { day: "Monday – Saturday", hours: "9:00 AM – 9:00 PM" },
                 { day: "Sunday", hours: "Closed" },
               ].map((h) => (
                 <div key={h.day} className="flex justify-between items-center border-b border-gray-200 pb-3">

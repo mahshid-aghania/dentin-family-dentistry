@@ -45,7 +45,7 @@ const services = [
     title: "Dental Implants",
     description:
       "Expert One-Day Implant solutions by Dr. Adibrad using the latest technology and surgical techniques.",
-    href: "/services",
+    href: "/services/dental-implants",
     items: ["Single Tooth Implants", "Implant-Supported Bridges", "All-on-4 Implants", "Bone Grafting", "Sinus Lifts"],
   },
   {
@@ -53,7 +53,7 @@ const services = [
     title: "Pediatric Dentistry",
     description:
       "Gentle, age-appropriate care for children to establish healthy oral habits and positive dental experiences.",
-    href: "/services",
+    href: "/services/pediatric-dentistry",
     items: ["First Dental Visits", "Children's Cleanings", "Sealants", "Fluoride", "Orthodontic Referrals"],
   },
   {
@@ -61,7 +61,7 @@ const services = [
     title: "Oral Surgery",
     description:
       "Expert surgical procedures including wisdom teeth extractions, bone grafting, and complex extractions.",
-    href: "/services",
+    href: "/services/oral-surgery",
     items: ["Wisdom Teeth", "Tooth Extractions", "Bone Grafting", "Gum Surgery", "Biopsy"],
   },
   {
@@ -69,7 +69,7 @@ const services = [
     title: "Endodontics",
     description:
       "Specialized root canal therapy and endodontic treatments to save damaged or infected teeth.",
-    href: "/services",
+    href: "/services/endodontics",
     items: ["Root Canal Therapy", "Retreatment", "Apicoectomy", "Pulp Capping", "Cracked Tooth Treatment"],
   },
 ];

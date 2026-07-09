@@ -11,49 +11,19 @@ const posts = [
     title: "Essential Tips for a Healthy Smile",
     excerpt:
       "Maintaining a healthy smile goes beyond brushing twice a day. Learn the top habits that dental professionals recommend for optimal oral health.",
-    date: "2024-06-15",
+    date: "2024-09-10",
     category: "Oral Health Tips",
     readTime: "4 min read",
+    href: "/essential-tips-for-a-healthy-smile",
   },
   {
-    title: "Dental Implants vs. Bridges: Which Is Right for You?",
+    title: "Benefit of Regular Dental Checkup",
     excerpt:
-      "Both implants and bridges can replace missing teeth effectively. Understand the differences, benefits, and which option suits your specific needs.",
-    date: "2024-05-22",
-    category: "Dental Implants",
-    readTime: "5 min read",
-  },
-  {
-    title: "What to Expect During Your First Dental Visit",
-    excerpt:
-      "New to Dentin Family Dentistry? Here's a complete guide to what happens during your first appointment, from check-in to treatment planning.",
-    date: "2024-04-10",
-    category: "Patient Guide",
-    readTime: "3 min read",
-  },
-  {
-    title: "The Canadian Dental Care Plan (CDCP) Explained",
-    excerpt:
-      "We now accept the CDCP! Learn who qualifies, what's covered, and how to use your CDCP benefits at our Vaughan dental office.",
-    date: "2024-03-28",
-    category: "Insurance & Coverage",
+      "Regular dental checkups are one of the most effective ways to prevent dental disease, detect problems early, and save money on treatment in the long run.",
+    date: "2024-09-10",
+    category: "Oral Health Tips",
     readTime: "4 min read",
-  },
-  {
-    title: "Porcelain Veneers: Transform Your Smile in Two Visits",
-    excerpt:
-      "Porcelain veneers are one of the most popular cosmetic dental treatments. Discover the process, benefits, and whether you're a good candidate.",
-    date: "2024-02-14",
-    category: "Cosmetic Dentistry",
-    readTime: "5 min read",
-  },
-  {
-    title: "Children's Dental Health: Starting Early for a Lifetime of Smiles",
-    excerpt:
-      "Good dental habits start in childhood. Learn how to care for your child's teeth from infancy through adolescence and when to schedule their first dental visit.",
-    date: "2024-01-20",
-    category: "Pediatric Dentistry",
-    readTime: "4 min read",
+    href: "/benefit-of-regular-dental-checkup",
   },
 ];
 
@@ -65,6 +35,7 @@ const categoryColors: Record<string, string> = {
   "Cosmetic Dentistry": "bg-pink-100 text-pink-700",
   "Pediatric Dentistry": "bg-orange-100 text-orange-700",
 };
+
 
 export default function BlogPage() {
   return (
@@ -85,29 +56,31 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
-              <article key={post.title} className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
-                <div className="bg-[#e8f2fc] aspect-video flex items-center justify-center text-5xl">
-                  🦷
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${categoryColors[post.category] || "bg-gray-100 text-gray-600"}`}>
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-gray-400">{post.readTime}</span>
+              <Link key={post.title} href={post.href}>
+                <article className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow group h-full">
+                  <div className="bg-[#e8f2fc] aspect-video flex items-center justify-center text-5xl">
+                    🦷
                   </div>
-                  <h2 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-[#1a6fb5] transition-colors leading-snug">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400">
-                      {new Date(post.date).toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}
-                    </span>
-                    <span className="text-[#1a6fb5] text-sm font-semibold group-hover:underline">Read More →</span>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${categoryColors[post.category] || "bg-gray-100 text-gray-600"}`}>
+                        {post.category}
+                      </span>
+                      <span className="text-xs text-gray-400">{post.readTime}</span>
+                    </div>
+                    <h2 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-[#1a6fb5] transition-colors leading-snug">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-400">
+                        {new Date(post.date).toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}
+                      </span>
+                      <span className="text-[#1a6fb5] text-sm font-semibold group-hover:underline">Read More →</span>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
         </div>

@@ -68,6 +68,10 @@ export default function Footer() {
               { href: "/services/general-dentistry", label: "General Dentistry" },
               { href: "/services/cosmetic-dentistry", label: "Cosmetic Dentistry" },
               { href: "/services/restorative-dentistry", label: "Restorative Dentistry" },
+              { href: "/services/dental-implants", label: "Dental Implants" },
+              { href: "/services/oral-surgery", label: "Oral Surgery" },
+              { href: "/services/endodontics", label: "Endodontics" },
+              { href: "/services/pediatric-dentistry", label: "Pediatric Dentistry" },
               { href: "/services/emergency-dental-care", label: "Emergency Dental Care" },
               { href: "/porcelain-veneers-vaughan", label: "Porcelain Veneers" },
             ].map((link) => (
@@ -100,8 +104,7 @@ export default function Footer() {
             <li className="flex gap-3">
               <Clock size={16} className="text-[#1a6fb5] shrink-0 mt-0.5" />
               <div>
-                <div>Mon–Fri: 8am – 7pm</div>
-                <div>Saturday: 9am – 4pm</div>
+                <div>Mon–Sat: 9am – 9pm</div>
                 <div>Sunday: Closed</div>
                 <div className="text-red-400 mt-1">24/7 Emergency Available</div>
               </div>

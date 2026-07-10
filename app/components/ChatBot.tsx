@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { MessageCircle, X, Send, ChevronDown, Phone } from "lucide-react";
+import { MessageCircle, X, Send, ChevronDown, ChevronUp, Phone } from "lucide-react";
 
 type Message = {
   from: "bot" | "user";
@@ -238,17 +238,18 @@ function getBotReply(input: string): Message {
 }
 
 export default function ChatBot() {
-  const [open, setOpen] = useState(true);
-  const [messages, setMessages] = useState<Message[]>([
+  const [open, setOpen]           = useState(true);
+  const [minimized, setMinimized] = useState(true); // starts as slim bar so hero video shows
+  const [messages, setMessages]   = useState<Message[]>([
     {
       from: "bot",
       text: "Hi! I'm Denny 👋, your virtual assistant at Dentin Family Dentistry. I can help with implants, bookings, insurance, or anything dental. What's on your mind?",
     },
   ]);
-  const [input, setInput] = useState("");
-  const [typing, setTyping] = useState(false);
-  const [unread, setUnread] = useState(0);
-  const [showBubble, setShowBubble] = useState(false);
+  const [input, setInput]                   = useState("");
+  const [typing, setTyping]                 = useState(false);
+  const [unread, setUnread]                 = useState(0);
+  const [showBubble, setShowBubble]         = useState(false);
   const [bubbleDismissed, setBubbleDismissed] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -262,12 +263,12 @@ export default function ChatBot() {
   }, [open, bubbleDismissed]);
 
   useEffect(() => {
-    if (open) {
+    if (open && !minimized) {
       setUnread(0);
       setShowBubble(false);
       setTimeout(() => inputRef.current?.focus(), 100);
     }
-  }, [open]);
+  }, [open, minimized]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -315,8 +316,31 @@ export default function ChatBot() {
         </div>
       )}
 
-      {/* Chat window */}
-      {open && (
+      {/* Minimized bar — shows when open but minimized */}
+      {open && minimized && (
+        <button
+          onClick={() => setMinimized(false)}
+          className="fixed bottom-20 right-4 sm:right-6 z-50 w-72 bg-[#002C29] rounded-2xl shadow-xl flex items-center gap-3 px-4 py-3 hover:bg-[#003D38] transition-colors text-left"
+          aria-label="Open Denny chat assistant"
+        >
+          <div className="w-8 h-8 bg-[#0D9488] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0 relative">
+            D
+            {unread > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                {unread}
+              </span>
+            )}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-white text-xs font-semibold leading-none">Denny · Virtual Dental Assistant</p>
+            <p className="text-white/50 text-[10px] mt-1 truncate">Ask me anything about our services…</p>
+          </div>
+          <ChevronUp size={14} className="text-white/50 shrink-0" />
+        </button>
+      )}
+
+      {/* Full chat window */}
+      {open && !minimized && (
         <div
           className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm shadow-2xl rounded-2xl overflow-hidden flex flex-col bg-white border border-gray-100"
           style={{ height: "500px" }}
@@ -343,6 +367,13 @@ export default function ChatBot() {
               >
                 <Phone size={16} />
               </a>
+              <button
+                onClick={() => setMinimized(true)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Minimise chat"
+              >
+                <ChevronDown size={18} />
+              </button>
               <button
                 onClick={() => setOpen(false)}
                 className="text-white/70 hover:text-white transition-colors"
@@ -431,19 +462,21 @@ export default function ChatBot() {
         </div>
       )}
 
-      {/* Toggle button */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-5 right-4 sm:right-6 z-50 w-14 h-14 bg-[#0D9488] hover:bg-[#09625C] text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105"
-        aria-label={open ? "Close chat" : "Open chat"}
-      >
-        {open ? <ChevronDown size={22} /> : <MessageCircle size={22} />}
-        {!open && unread > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
-            {unread}
-          </span>
-        )}
-      </button>
+      {/* Toggle button — only visible when chat is fully closed */}
+      {!open && (
+        <button
+          onClick={() => { setOpen(true); setMinimized(true); }}
+          className="fixed bottom-5 right-4 sm:right-6 z-50 w-14 h-14 bg-[#0D9488] hover:bg-[#09625C] text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105"
+          aria-label="Open chat"
+        >
+          <MessageCircle size={22} />
+          {unread > 0 && (
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
+              {unread}
+            </span>
+          )}
+        </button>
+      )}
     </>
   );
 }

@@ -101,7 +101,7 @@ export default function HomePage() {
               <div className="relative rounded-t-[2.5rem] lg:rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-white/5 to-transparent"
                 style={{ height: "clamp(420px, 70vh, 620px)" }}>
                 <Image
-                  src="/images/Screenshot-2025-01-27-at-7.00-Photoroom-1.png"
+                  src="/images/hero-smile.png"
                   alt="Happy patient with a beautiful smile at Dentin Family Dentistry Vaughan"
                   fill
                   className="object-cover object-top scale-105"

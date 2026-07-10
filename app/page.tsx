@@ -7,35 +7,55 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #001A18 0%, #002C29 50%, #003D38 100%)" }}
-      >
-        {/* Decorative background blobs */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-20"
-            style={{ background: "radial-gradient(circle, #0D9488 0%, transparent 70%)" }} />
-          <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full opacity-10"
-            style={{ background: "radial-gradient(circle, #0D9488 0%, transparent 70%)" }} />
-          {/* Subtle dot grid */}
-          <div className="absolute inset-0 opacity-5"
-            style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
-        </div>
+      <section className="relative overflow-hidden min-h-[88vh] flex items-center"
+        style={{ background: "#001A18" }}>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-16 lg:py-0 grid lg:grid-cols-2 gap-10 lg:gap-0 items-stretch min-h-[88vh]">
+        {/* Full-bleed video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
 
-          {/* Left — text content */}
-          <div className="order-2 lg:order-1 flex flex-col justify-center py-12 lg:py-20 lg:pr-12">
-            <div className="inline-flex items-center gap-2 bg-[#0D9488]/20 border border-[#0D9488]/40 text-[#4ECDC4] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-7 self-start">
+        {/* Layered overlay: very dark on left → lighter right so video reads through */}
+        <div className="absolute inset-0" style={{
+          zIndex: 1,
+          background: "linear-gradient(to right, rgba(0,26,24,0.93) 0%, rgba(0,26,24,0.82) 38%, rgba(0,26,24,0.45) 62%, rgba(0,26,24,0.10) 100%)"
+        }} />
+
+        {/* Bottom vignette for polish */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{
+          zIndex: 1,
+          background: "linear-gradient(to top, rgba(0,26,24,0.7) 0%, transparent 100%)"
+        }} />
+
+        {/* Subtle dot grid — texture on dark left side */}
+        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
+          zIndex: 1,
+          backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
+          backgroundSize: "32px 32px"
+        }} />
+
+        {/* Content */}
+        <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-24" style={{ zIndex: 2 }}>
+          <div className="max-w-xl xl:max-w-2xl">
+
+            {/* Trust pill */}
+            <div className="inline-flex items-center gap-2 bg-[#0D9488]/20 border border-[#0D9488]/40 text-[#4ECDC4] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-7">
               <Shield size={11} /> Vaughan&rsquo;s Trusted Dental Practice
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.8rem] font-bold text-white leading-[1.08] mb-6">
               Trusted Dentist &amp;<br />Implant Surgeon<br />
               <span className="text-[#4ECDC4]">in Vaughan</span>
             </h1>
 
-            <p className="text-white/70 text-lg mb-10 leading-relaxed max-w-lg">
+            <p className="text-white/72 text-lg mb-10 leading-relaxed max-w-lg">
               From routine checkups to advanced dental implants and full smile makeovers — compassionate, high-quality care for every patient.
             </p>
 
@@ -57,18 +77,18 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Stat numbers */}
-            <div className="flex gap-8 mb-8 pt-2 border-t border-white/10">
+            {/* Stats row */}
+            <div className="flex flex-wrap gap-6 mb-8 pt-5 border-t border-white/10">
               <div>
                 <div className="text-3xl font-bold text-white">24 / 7</div>
                 <div className="text-white/50 text-sm mt-0.5">Emergency Service</div>
               </div>
-              <div className="w-px bg-white/10" />
+              <div className="w-px bg-white/10 hidden sm:block" />
               <div>
                 <div className="text-3xl font-bold text-white">500+</div>
                 <div className="text-white/50 text-sm mt-0.5">Happy Patients</div>
               </div>
-              <div className="w-px bg-white/10" />
+              <div className="w-px bg-white/10 hidden sm:block" />
               <div>
                 <div className="flex gap-0.5 mb-0.5">
                   {[...Array(5)].map((_, i) => (
@@ -79,50 +99,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Hours */}
-            <div className="flex items-center gap-2 text-white/50 text-sm">
-              <Clock size={13} className="text-[#0D9488] shrink-0" />
-              Mon – Sat: 9:00 AM – 9:00 PM &nbsp;·&nbsp; Sunday: Closed
-            </div>
-          </div>
-
-          {/* Right — image */}
-          <div className="order-1 lg:order-2 flex items-center justify-center lg:justify-end relative">
-            {/* Glow ring behind the card */}
-            <div className="absolute right-0 bottom-0 w-full h-full pointer-events-none"
-              style={{ background: "radial-gradient(ellipse 60% 80% at 70% 80%, rgba(13,148,136,0.18) 0%, transparent 70%)" }} />
-
-            {/* Image card */}
-            <div className="hero-image-animate relative w-full max-w-sm lg:max-w-none lg:w-[480px] xl:w-[520px]">
-              <div className="relative rounded-t-[2.5rem] lg:rounded-[2.5rem] overflow-hidden"
-                style={{ height: "clamp(420px, 70vh, 620px)" }}>
-                <Image
-                  src="/images/hero-smile.png"
-                  alt="Happy patient with a beautiful smile at Dentin Family Dentistry Vaughan"
-                  fill
-                  className="object-cover object-top scale-105"
-                  priority
-                />
-                {/* Bottom gradient fade into section bg */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-                  style={{ background: "linear-gradient(to top, #002C29 0%, transparent 100%)" }} />
+            {/* Hours + CDCP */}
+            <div className="flex flex-wrap items-center gap-5">
+              <div className="flex items-center gap-2 text-white/50 text-sm">
+                <Clock size={13} className="text-[#0D9488] shrink-0" />
+                Mon – Sat: 9:00 AM – 9:00 PM &nbsp;·&nbsp; Sunday: Closed
               </div>
-
-              {/* Floating badge — top left */}
-              <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
-                <div className="w-9 h-9 bg-[#0D9488] rounded-full flex items-center justify-center shrink-0">
-                  <Shield size={16} className="text-white" />
-                </div>
-                <div>
-                  <div className="font-bold text-[#002C29] text-xs">CDCP Accepted</div>
-                  <div className="text-[#555574] text-[10px]">Canadian Dental Care Plan</div>
-                </div>
-              </div>
-
-              {/* Floating badge — bottom right */}
-              <div className="absolute bottom-8 right-5 bg-[#0D9488] rounded-2xl px-4 py-3 shadow-xl">
-                <div className="text-white font-bold text-lg leading-none">12+</div>
-                <div className="text-white/80 text-[10px] mt-0.5">Years Experience</div>
+              <div className="flex items-center gap-2 bg-white/10 border border-white/15 backdrop-blur-sm rounded-full px-4 py-2">
+                <Shield size={12} className="text-[#4ECDC4]" />
+                <span className="text-white/80 text-xs font-semibold">CDCP Accepted</span>
               </div>
             </div>
           </div>

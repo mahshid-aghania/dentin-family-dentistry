@@ -131,7 +131,7 @@ export default function HomePage() {
 
       {/* ── ABOUT / DOCTOR ── */}
       <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
 
           {/* Doctor image */}
           <div className="relative max-w-sm mx-auto lg:mx-0">

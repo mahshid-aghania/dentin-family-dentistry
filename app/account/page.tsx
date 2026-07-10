@@ -346,14 +346,14 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
           { n: 3, label: "Confirm" },
         ].map(({ n, label }, i) => (
           <div key={n} className="flex items-center gap-2">
-            {i > 0 && <div className={`h-px w-8 ${step >= n ? "bg-[#0D9488]" : "bg-gray-200"}`} />}
+            {i > 0 && <div className={`h-px w-8 ${(step as number) >= n ? "bg-[#0D9488]" : "bg-gray-200"}`} />}
             <div className="flex items-center gap-1.5">
               <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                step > n ? "bg-[#0D9488] text-white" : step === n ? "bg-[#0D9488] text-white" : "bg-gray-100 text-gray-400"
+                (step as number) > n ? "bg-[#0D9488] text-white" : step === n ? "bg-[#0D9488] text-white" : "bg-gray-100 text-gray-400"
               }`}>
-                {step > n ? <CheckCircle size={13} /> : n}
+                {(step as number) > n ? <CheckCircle size={13} /> : n}
               </div>
-              <span className={`text-xs font-semibold hidden sm:inline ${step >= n ? "text-[#002C29]" : "text-gray-400"}`}>{label}</span>
+              <span className={`text-xs font-semibold hidden sm:inline ${(step as number) >= n ? "text-[#002C29]" : "text-gray-400"}`}>{label}</span>
             </div>
           </div>
         ))}

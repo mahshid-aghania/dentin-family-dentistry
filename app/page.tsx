@@ -7,79 +7,127 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative bg-[#F8F8FF] overflow-hidden py-16 lg:py-24 px-4">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section
+        className="relative overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #001A18 0%, #002C29 50%, #003D38 100%)" }}
+      >
+        {/* Decorative background blobs */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-20"
+            style={{ background: "radial-gradient(circle, #0D9488 0%, transparent 70%)" }} />
+          <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full opacity-10"
+            style={{ background: "radial-gradient(circle, #0D9488 0%, transparent 70%)" }} />
+          {/* Subtle dot grid */}
+          <div className="absolute inset-0 opacity-5"
+            style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        </div>
 
-          {/* Left content */}
-          <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 bg-[#0D9488]/10 text-[#0D9488] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-              <Shield size={12} /> Vaughan&rsquo;s Trusted Dental Practice
+        <div className="relative max-w-7xl mx-auto px-4 py-16 lg:py-0 grid lg:grid-cols-2 gap-10 lg:gap-0 items-stretch min-h-[88vh]">
+
+          {/* Left — text content */}
+          <div className="order-2 lg:order-1 flex flex-col justify-center py-12 lg:py-20 lg:pr-12">
+            <div className="inline-flex items-center gap-2 bg-[#0D9488]/20 border border-[#0D9488]/40 text-[#4ECDC4] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-7 self-start">
+              <Shield size={11} /> Vaughan&rsquo;s Trusted Dental Practice
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#002C29] leading-tight mb-5">
-              Expert Dentist &amp; Implant Surgeon in Vaughan
+
+            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.1] mb-6">
+              Trusted Dentist &amp;<br />Implant Surgeon<br />
+              <span className="text-[#4ECDC4]">in Vaughan</span>
             </h1>
-            <p className="text-[#555574] text-lg mb-8 leading-relaxed">
-              From routine checkups to advanced dental implants and full smile makeovers — Dentin Family Dentistry delivers compassionate, high-quality care for every patient.
+
+            <p className="text-white/70 text-lg mb-10 leading-relaxed max-w-lg">
+              From routine checkups to advanced dental implants and full smile makeovers — compassionate, high-quality care for every patient.
             </p>
 
+            {/* CTA buttons */}
             <div className="flex flex-wrap gap-3 mb-10">
               <Link
                 href="/appointment"
-                className="bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
-                style={{ borderRadius: "100px", padding: "16px 28px" }}
+                className="inline-flex items-center gap-2 bg-[#0D9488] text-white font-bold hover:bg-[#0BB8A8] transition-colors shadow-lg shadow-[#0D9488]/30"
+                style={{ borderRadius: "100px", padding: "17px 32px" }}
               >
-                Book Appointment
+                <Phone size={16} /> Book Appointment
               </Link>
               <a
                 href="tel:4379002200"
-                className="flex items-center gap-2 border-2 border-[#002C29] text-[#002C29] font-semibold hover:bg-[#002C29] hover:text-white transition-colors"
-                style={{ borderRadius: "100px", padding: "14px 28px" }}
+                className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold hover:border-white hover:bg-white/10 transition-colors backdrop-blur-sm"
+                style={{ borderRadius: "100px", padding: "15px 28px" }}
               >
-                <Phone size={15} /> (437) 900-2200
+                (437) 900-2200
               </a>
             </div>
 
-            {/* Trust badges */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="flex items-center gap-3 bg-white rounded-xl px-5 py-3 shadow-sm border border-gray-100">
-                <AlertCircle size={20} className="text-[#0D9488] shrink-0" />
-                <div>
-                  <div className="font-bold text-[#002C29] text-sm">24 / 7 Emergency Care</div>
-                  <div className="text-[#555574] text-xs">Same-day urgent appointments</div>
-                </div>
+            {/* Stat numbers */}
+            <div className="flex gap-8 mb-8 pt-2 border-t border-white/10">
+              <div>
+                <div className="text-3xl font-bold text-white">24 / 7</div>
+                <div className="text-white/50 text-sm mt-0.5">Emergency Service</div>
               </div>
-              <div className="flex items-center gap-3 bg-white rounded-xl px-5 py-3 shadow-sm border border-gray-100">
-                <div className="flex gap-0.5 shrink-0">
+              <div className="w-px bg-white/10" />
+              <div>
+                <div className="text-3xl font-bold text-white">500+</div>
+                <div className="text-white/50 text-sm mt-0.5">Happy Patients</div>
+              </div>
+              <div className="w-px bg-white/10" />
+              <div>
+                <div className="flex gap-0.5 mb-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} fill="#0D9488" className="text-[#0D9488]" />
+                    <Star key={i} size={14} fill="#0D9488" className="text-[#0D9488]" />
                   ))}
                 </div>
-                <div>
-                  <div className="font-bold text-[#002C29] text-sm">5-Star Google Reviews</div>
-                  <div className="text-[#555574] text-xs">500+ happy patients</div>
-                </div>
+                <div className="text-white/50 text-sm">Google Rating</div>
               </div>
             </div>
 
-            {/* Hours strip */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-4 text-sm text-[#555574]">
-              <div className="flex items-center gap-2">
-                <Clock size={14} className="text-[#0D9488] shrink-0" />
-                <span>Mon – Sat: 9:00 AM – 9:00 PM &nbsp;·&nbsp; Sunday: Closed</span>
-              </div>
+            {/* Hours */}
+            <div className="flex items-center gap-2 text-white/50 text-sm">
+              <Clock size={13} className="text-[#0D9488] shrink-0" />
+              Mon – Sat: 9:00 AM – 9:00 PM &nbsp;·&nbsp; Sunday: Closed
             </div>
           </div>
 
-          {/* Hero image */}
-          <div className="order-1 lg:order-2 flex justify-center">
-            <div className="relative w-full max-w-md aspect-[4/5]">
-              <Image
-                src="/images/Screenshot-2025-01-27-at-7.00-Photoroom-1.png"
-                alt="Dental smile transformation at Dentin Family Dentistry Vaughan"
-                fill
-                className="object-contain"
-                priority
-              />
+          {/* Right — image */}
+          <div className="order-1 lg:order-2 flex items-end justify-center lg:justify-end relative">
+            {/* Glow ring behind the card */}
+            <div className="absolute right-0 bottom-0 w-full h-full pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 60% 80% at 70% 80%, rgba(13,148,136,0.18) 0%, transparent 70%)" }} />
+
+            {/* Image card */}
+            <div className="relative w-full max-w-sm lg:max-w-none lg:w-[480px] xl:w-[520px]">
+              {/* White glow border */}
+              <div className="absolute inset-0 rounded-t-[2.5rem] lg:rounded-[2.5rem] opacity-20"
+                style={{ boxShadow: "0 0 80px 20px rgba(13,148,136,0.4), inset 0 0 0 1px rgba(255,255,255,0.1)" }} />
+
+              <div className="relative rounded-t-[2.5rem] lg:rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-white/5 to-transparent"
+                style={{ height: "clamp(420px, 70vh, 620px)" }}>
+                <Image
+                  src="/images/Screenshot-2025-01-27-at-7.00-Photoroom-1.png"
+                  alt="Happy patient with a beautiful smile at Dentin Family Dentistry Vaughan"
+                  fill
+                  className="object-cover object-top scale-105"
+                  priority
+                />
+                {/* Bottom gradient fade into section bg */}
+                <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, #002C29 0%, transparent 100%)" }} />
+              </div>
+
+              {/* Floating badge — top left */}
+              <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
+                <div className="w-9 h-9 bg-[#0D9488] rounded-full flex items-center justify-center shrink-0">
+                  <Shield size={16} className="text-white" />
+                </div>
+                <div>
+                  <div className="font-bold text-[#002C29] text-xs">CDCP Accepted</div>
+                  <div className="text-[#555574] text-[10px]">Canadian Dental Care Plan</div>
+                </div>
+              </div>
+
+              {/* Floating badge — bottom right */}
+              <div className="absolute bottom-8 right-5 bg-[#0D9488] rounded-2xl px-4 py-3 shadow-xl">
+                <div className="text-white font-bold text-lg leading-none">12+</div>
+                <div className="text-white/80 text-[10px] mt-0.5">Years Experience</div>
+              </div>
             </div>
           </div>
         </div>

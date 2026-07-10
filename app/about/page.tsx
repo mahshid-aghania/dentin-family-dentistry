@@ -34,7 +34,7 @@ export default function AboutPage() {
           <div className="relative max-w-sm mx-auto md:mx-0">
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
               <Image
-                src="/images/drMehdiRad-e1773681597167.jpg"
+                src="/images/dr-adibrad.jpg"
                 alt="Dr Mehdi Adibrad — Head and Implant Surgeon at Dentin Family Dentistry Vaughan"
                 fill
                 className="object-cover"

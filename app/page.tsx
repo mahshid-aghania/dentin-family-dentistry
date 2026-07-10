@@ -137,7 +137,7 @@ export default function HomePage() {
 
               <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
                 <Image
-                  src="/images/drMehdiRad-e1773681597167.jpg"
+                  src="/images/dr-adibrad.jpg"
                   alt="Dr. Mehdi Adibrad — Implant Surgeon and Head Dentist at Dentin Family Dentistry, Vaughan Ontario"
                   fill
                   className="object-cover object-top"

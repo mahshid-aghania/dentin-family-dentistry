@@ -4,97 +4,101 @@ import Link from "next/link";
 export const metadata = {
   title: "Gallery | Dentin Family Dentistry Vaughan",
   description:
-    "View before and after smile transformation photos at Dentin Family Dentistry in Vaughan. Dental implants, composite veneers, and laminate veneer cases.",
+    "Explore our Dental Gallery featuring captivating before-and-after images highlighting the artistry and precision of our cosmetic dentistry.",
 };
 
-const transformations = [
+const cases = [
   {
-    label: "Before",
-    src: "/images/transformation-img-1.jpg",
-    alt: "Before dental transformation case 1",
+    title: "Dental Implant: Implant and Composite Veneers",
+    pairs: [
+      {
+        before: { src: "/images/Implant-and-composite-veneers.jpg", alt: "Implant and Composite Veneers — Before" },
+        after:  { src: "/images/Implant-and-composite-veneers-2.jpg", alt: "Implant and Composite Veneers — After" },
+      },
+    ],
   },
   {
-    label: "After",
-    src: "/images/transformation-img-2.jpg",
-    alt: "After dental transformation case 1",
+    title: "Implant",
+    pairs: [
+      {
+        before: { src: "/images/Implant-and-Laminate-Veneers.jpg", alt: "Implant — Before" },
+        after:  { src: "/images/Implant-and-Laminate-Veneers-2.jpg", alt: "Implant — After" },
+      },
+      {
+        before: { src: "/images/PHOTO-2026-02-20-15-20-10.jpg", alt: "Implant case 2 — Before" },
+        after:  { src: "/images/PHOTO-2026-02-20-15-20-10-2.jpg", alt: "Implant case 2 — After" },
+      },
+    ],
   },
   {
-    label: "Before",
-    src: "/images/transformation-img-3-1.jpg",
-    alt: "Before dental transformation case 2",
-  },
-  {
-    label: "After",
-    src: "/images/transformation-img-4-1.jpg",
-    alt: "After dental transformation case 2",
+    title: "Implant and Laminate Veneers",
+    pairs: [
+      {
+        before: { src: "/images/Implant-and-Laminate-Veneers-after.jpg", alt: "Implant and Laminate Veneers — Before" },
+        after:  { src: "/images/Implant-and-Laminate-Veneers-new.jpg", alt: "Implant and Laminate Veneers — After" },
+      },
+    ],
   },
 ];
 
 export default function GalleryPage() {
   return (
     <>
+      {/* Page Header */}
       <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-[#0D9488] text-sm mb-2">
             <Link href="/" className="hover:text-white transition-colors">Home</Link> / Gallery
           </div>
-          <h1 className="text-4xl font-bold">Patient Transformations</h1>
-          <p className="text-gray-300 mt-2 max-w-xl">
-            Real before &amp; after results from our implant, veneer, and smile makeover patients.
-          </p>
+          <h1 className="text-4xl font-bold">Gallery</h1>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">SEE THE TRANSFORMATION</div>
-            <h2 className="text-3xl font-bold text-[#002C29] mb-4 leading-tight">
-              Stunning results that showcase the life changing impact
-            </h2>
-            <p className="text-[#555574] max-w-2xl mx-auto">
-              We offer a comprehensive range of dental services including oral surgeries, dental implants,
-              endodontics, cosmetic dentistry, and restorative dentistry. The cases below showcase real patient
-              outcomes achieved at our Vaughan clinic.
-            </p>
-          </div>
+      {/* Cases */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {cases.map((c) => (
+            <div key={c.title}>
+              {/* Case title */}
+              <h2 className="text-2xl font-bold text-[#002C29] mb-6">{c.title}</h2>
 
-          {/* 2x2 Grid of transformation images */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-            {transformations.map((img, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-2xl">
-                <div className="relative aspect-square">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full ${img.label === "Before" ? "bg-gray-800/80 text-white" : "bg-[#0D9488] text-white"}`}>
-                  {img.label}
-                </div>
+              {/* Before / After column headers */}
+              <div className="grid grid-cols-2 gap-4 mb-3">
+                <div className="text-center font-bold text-[#002C29] text-lg">Before</div>
+                <div className="text-center font-bold text-[#002C29] text-lg">After</div>
               </div>
-            ))}
-          </div>
 
-          <div className="text-center text-[#555574] text-sm">
-            <p>
-              Follow us on{" "}
-              <a
-                href="https://www.instagram.com/dentin_family_dentistry/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#0D9488] hover:underline font-medium"
-              >
-                Instagram @dentin_family_dentistry
-              </a>{" "}
-              for more patient transformations and clinic updates.
-            </p>
-          </div>
+              {/* Image pairs */}
+              <div className="space-y-4">
+                {c.pairs.map((pair, i) => (
+                  <div key={i} className="grid grid-cols-2 gap-4">
+                    <div className="relative w-full aspect-[3/2] overflow-hidden rounded-lg">
+                      <Image
+                        src={pair.before.src}
+                        alt={pair.before.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 600px"
+                      />
+                    </div>
+                    <div className="relative w-full aspect-[3/2] overflow-hidden rounded-lg">
+                      <Image
+                        src={pair.after.src}
+                        alt={pair.after.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 600px"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-16 px-4 bg-[#0D9488] text-white text-center">
         <h2 className="text-3xl font-bold mb-3">Your Transformation Starts Here</h2>
         <p className="text-white/80 mb-6 max-w-lg mx-auto">

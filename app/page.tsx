@@ -93,7 +93,7 @@ export default function HomePage() {
               style={{ background: "radial-gradient(ellipse 60% 80% at 70% 80%, rgba(13,148,136,0.18) 0%, transparent 70%)" }} />
 
             {/* Image card */}
-            <div className="relative w-full max-w-sm lg:max-w-none lg:w-[480px] xl:w-[520px]">
+            <div className="hero-image-animate relative w-full max-w-sm lg:max-w-none lg:w-[480px] xl:w-[520px]">
               <div className="relative rounded-t-[2.5rem] lg:rounded-[2.5rem] overflow-hidden"
                 style={{ height: "clamp(420px, 70vh, 620px)" }}>
                 <Image

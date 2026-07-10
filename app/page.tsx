@@ -94,11 +94,7 @@ export default function HomePage() {
 
             {/* Image card */}
             <div className="relative w-full max-w-sm lg:max-w-none lg:w-[480px] xl:w-[520px]">
-              {/* White glow border */}
-              <div className="absolute inset-0 rounded-t-[2.5rem] lg:rounded-[2.5rem] opacity-20"
-                style={{ boxShadow: "0 0 80px 20px rgba(13,148,136,0.4), inset 0 0 0 1px rgba(255,255,255,0.1)" }} />
-
-              <div className="relative rounded-t-[2.5rem] lg:rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-white/5 to-transparent"
+              <div className="relative rounded-t-[2.5rem] lg:rounded-[2.5rem] overflow-hidden"
                 style={{ height: "clamp(420px, 70vh, 620px)" }}>
                 <Image
                   src="/images/hero-smile.png"

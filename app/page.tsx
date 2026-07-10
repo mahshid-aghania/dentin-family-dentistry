@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle, Sparkles, Layers, ArrowRight, Globe, Award, Users } from "lucide-react";
+import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle, Sparkles, Layers, ArrowRight, Globe, Award, Users, BookOpen, Calendar } from "lucide-react";
 import FAQAccordion from "./components/FAQAccordion";
 import InstagramReels from "./components/InstagramReels";
 
@@ -615,70 +615,98 @@ export default function HomePage() {
       <InstagramReels />
 
       {/* ── PATIENT EDUCATION ── */}
-      <section className="py-20 px-4 bg-[#F0F0FF]">
+      <section className="py-24 px-4" style={{ background: "linear-gradient(180deg,#ffffff 0%,#F0F0FF 100%)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
-              <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">Patient Education</div>
+              <div className="inline-flex items-center gap-2 bg-[#F0F0FF] text-[#0D9488] font-bold uppercase text-xs tracking-widest px-3 py-1.5 rounded-full mb-4">
+                <BookOpen size={11} />
+                Patient Education
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight max-w-xl">
-                Dental health tips &amp; oral care advice
+                Dental health tips &amp;<br className="hidden md:block" /> oral care advice
               </h2>
+              <p className="text-[#555574] mt-3 text-sm max-w-md leading-relaxed">
+                Evidence-based guidance from Dr. Adibrad to help you and your family maintain excellent oral health.
+              </p>
             </div>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-[#0D9488] font-semibold hover:text-[#09625C] transition-colors shrink-0"
+              className="inline-flex items-center gap-2 bg-[#002C29] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#0D9488] transition-colors shrink-0"
             >
-              View All Articles <ArrowRight size={15} />
+              View All Articles <ArrowRight size={14} />
             </Link>
           </div>
 
+          {/* Cards */}
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 title: "Essential Tips for a Healthy Smile",
                 excerpt: "Maintaining a healthy smile goes beyond brushing twice a day. Learn the top habits that dental professionals recommend for optimal oral health.",
                 href: "/essential-tips-for-a-healthy-smile",
+                image: "/images/service-img-1-1.jpg",
                 date: "September 10, 2024",
                 category: "Oral Health Tips",
                 readTime: "4 min read",
+                accent: "#0D9488",
               },
               {
                 title: "The Benefits of Regular Dental Checkups",
                 excerpt: "Regular dental checkups are one of the most effective ways to prevent dental disease, detect problems early, and save money on treatment long-term.",
                 href: "/benefit-of-regular-dental-checkup",
+                image: "/images/PHOTO-2026-02-20-15-20-10.jpg",
                 date: "September 10, 2024",
                 category: "Preventive Care",
                 readTime: "4 min read",
+                accent: "#2563EB",
               },
             ].map((post) => (
               <Link
                 key={post.title}
                 href={post.href}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+                className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col"
               >
-                <div className="relative aspect-[16/9] overflow-hidden">
+                {/* Image */}
+                <div className="relative overflow-hidden" style={{ height: 240 }}>
                   <Image
-                    src="/images/post-1-1.jpg"
+                    src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="inline-block bg-[#F0F0FF] text-[#0D9488] text-xs font-semibold px-3 py-1 rounded-full">
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                  {/* Floating pills on image */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md text-white"
+                      style={{ background: `${post.accent}cc` }}>
                       {post.category}
                     </span>
-                    <span className="text-xs text-gray-400">{post.readTime}</span>
+                    <span className="text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-md bg-black/30 text-white/90">
+                      {post.readTime}
+                    </span>
                   </div>
-                  <h3 className="font-bold text-[#002C29] text-lg mb-2 group-hover:text-[#0D9488] transition-colors leading-snug">
+                </div>
+
+                {/* Body */}
+                <div className="flex flex-col flex-1 p-7">
+                  <h3 className="font-bold text-[#002C29] text-xl leading-snug mb-3 group-hover:text-[#0D9488] transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-[#555574] text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400">{post.date}</span>
-                    <span className="text-[#0D9488] text-xs font-semibold flex items-center gap-1 group-hover:underline">
-                      Read Article <ArrowRight size={12} />
+                  <p className="text-[#555574] text-sm leading-relaxed flex-1 mb-6">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <span className="flex items-center gap-1.5 text-xs text-gray-400">
+                      <Calendar size={12} />
+                      {post.date}
+                    </span>
+                    <span className="text-sm font-semibold flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
+                      style={{ color: post.accent }}>
+                      Read Article <ArrowRight size={14} />
                     </span>
                   </div>
                 </div>

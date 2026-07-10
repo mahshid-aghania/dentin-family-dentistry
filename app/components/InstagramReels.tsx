@@ -1,46 +1,54 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, ExternalLink } from "lucide-react";
 
-function IgIcon({ size = 14 }: { size?: number }) {
+const REELS = [
+  { id: "DZvgqjsJByB", label: "Smile Transformation",   tag: "Cosmetic"   },
+  { id: "DZp4KIyM4sA", label: "Implant Results",         tag: "Implants"   },
+  { id: "DZav4zuJ_a7", label: "Patient Experience",       tag: "Care"       },
+  { id: "DYFmNYWpwKH", label: "Before & After",           tag: "Results"    },
+  { id: "DXfDj4Dieye", label: "Dental Tips",              tag: "Education"  },
+  { id: "DXPXRWPjr8P", label: "Our Clinic",               tag: "Tour"       },
+  { id: "DXE5AbjDiZP", label: "Smile Makeover",           tag: "Cosmetic"   },
+];
+
+// Teal/dark gradient per card for variety
+const GRADIENTS = [
+  ["#003D38", "#001A18"],
+  ["#004D42", "#001E1B"],
+  ["#002C29", "#000E0D"],
+  ["#003830", "#001A14"],
+  ["#004038", "#00100E"],
+  ["#002828", "#001212"],
+  ["#004848", "#001A1A"],
+];
+
+const CARD_W = 220;
+const GAP    = 16;
+const STEP   = CARD_W + GAP;
+
+function IgIcon({ size = 16 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }
 
-const REELS = [
-  "DZvgqjsJByB",
-  "DZp4KIyM4sA",
-  "DZav4zuJ_a7",
-  "DYFmNYWpwKH",
-  "DXfDj4Dieye",
-  "DXPXRWPjr8P",
-  "DXE5AbjDiZP",
-];
-
-const CARD_W = 280;
-const GAP    = 16;
-const STEP   = CARD_W + GAP;
-
 export default function InstagramReels() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
   function scrollDir(dir: "left" | "right") {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir === "right" ? STEP : -STEP, behavior: "smooth" });
+    scrollRef.current?.scrollBy({ left: dir === "right" ? STEP : -STEP, behavior: "smooth" });
   }
 
   function onScroll() {
     const el = scrollRef.current;
-    if (!el) return;
-    setActive(Math.round(el.scrollLeft / STEP));
+    if (el) setActive(Math.round(el.scrollLeft / STEP));
   }
 
   return (
@@ -48,21 +56,20 @@ export default function InstagramReels() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
+        <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
             <a
               href="https://www.instagram.com/dentin_family_dentistry/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-white/50 hover:text-white text-xs font-semibold uppercase tracking-widest mb-3 transition-colors"
+              className="inline-flex items-center gap-1.5 text-white/40 hover:text-white text-xs font-semibold uppercase tracking-widest mb-3 transition-colors"
             >
-              <IgIcon size={12} />
-              @dentin_family_dentistry
+              <IgIcon size={12} /> @dentin_family_dentistry
             </a>
             <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               Watch Us in{" "}
               <span style={{
-                background: "linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
+                background: "linear-gradient(90deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -70,83 +77,98 @@ export default function InstagramReels() {
                 Action
               </span>
             </h2>
-            <p className="text-white/50 text-sm mt-2">
-              Real patients. Real results. Follow our latest reels.
-            </p>
+            <p className="text-white/40 text-sm mt-2">Real patients. Real results. Tap a card to watch.</p>
           </div>
 
-          {/* Nav arrows */}
           <div className="flex gap-2 shrink-0">
-            <button
-              onClick={() => scrollDir("left")}
-              disabled={active === 0}
-              className="w-10 h-10 bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed rounded-full flex items-center justify-center text-white transition-colors"
-              aria-label="Previous reel"
-            >
+            <button onClick={() => scrollDir("left")} disabled={active === 0}
+              className="w-10 h-10 bg-white/8 hover:bg-white/15 disabled:opacity-25 disabled:cursor-not-allowed rounded-full flex items-center justify-center text-white transition-colors border border-white/10">
               <ChevronLeft size={18} />
             </button>
-            <button
-              onClick={() => scrollDir("right")}
-              disabled={active >= REELS.length - 1}
-              className="w-10 h-10 bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed rounded-full flex items-center justify-center text-white transition-colors"
-              aria-label="Next reel"
-            >
+            <button onClick={() => scrollDir("right")} disabled={active >= REELS.length - 1}
+              className="w-10 h-10 bg-white/8 hover:bg-white/15 disabled:opacity-25 disabled:cursor-not-allowed rounded-full flex items-center justify-center text-white transition-colors border border-white/10">
               <ChevronRight size={18} />
             </button>
           </div>
         </div>
 
         {/* Carousel */}
-        <div
-          ref={scrollRef}
-          onScroll={onScroll}
-          className="flex gap-4 overflow-x-auto pb-2 no-scrollbar"
-        >
-          {REELS.map((id, i) => (
-            <div
-              key={id}
-              className="shrink-0 rounded-2xl overflow-hidden border border-white/10 bg-black shadow-xl"
-              style={{ width: CARD_W, height: 498 }}
-            >
-              <iframe
-                src={`https://www.instagram.com/reel/${id}/embed/`}
-                width={CARD_W}
-                height={498}
-                frameBorder={0}
-                scrolling="no"
-                allow="encrypted-media; autoplay"
-                loading={i < 3 ? "eager" : "lazy"}
-                title={`Dentin Family Dentistry — Instagram Reel ${i + 1}`}
-                className="w-full h-full"
-              />
-            </div>
-          ))}
+        <div ref={scrollRef} onScroll={onScroll}
+          className="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
+          {REELS.map(({ id, label, tag }, i) => {
+            const [g1, g2] = GRADIENTS[i % GRADIENTS.length];
+            return (
+              <a
+                key={id}
+                href={`https://www.instagram.com/reel/${id}/`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 group relative rounded-3xl overflow-hidden flex flex-col justify-between"
+                style={{
+                  width: CARD_W,
+                  height: 390,
+                  background: `linear-gradient(160deg, ${g1} 0%, ${g2} 100%)`,
+                  // Instagram story ring via box-shadow gradient border
+                  boxShadow: "0 0 0 2px rgba(255,255,255,0.07)",
+                }}
+              >
+                {/* Instagram gradient ring on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{ boxShadow: "inset 0 0 0 2px transparent, 0 0 0 2px #dc2743" }} />
+
+                {/* Subtle dot-grid texture */}
+                <div className="absolute inset-0 opacity-[0.04]"
+                  style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+
+                {/* Top: tag + IG icon */}
+                <div className="relative flex items-center justify-between px-4 pt-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">{tag}</span>
+                  <IgIcon size={14} />
+                </div>
+
+                {/* Centre: play button */}
+                <div className="relative flex flex-col items-center justify-center flex-1 gap-3">
+                  <div className="w-16 h-16 rounded-full border-2 border-white/20 group-hover:border-white/60 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/10"
+                    style={{ background: "rgba(255,255,255,0.06)" }}>
+                    <Play size={24} className="text-white/70 group-hover:text-white transition-colors ml-1" fill="currentColor" />
+                  </div>
+                  <span className="text-white/30 text-[10px] uppercase tracking-widest group-hover:text-white/60 transition-colors">
+                    Watch on Instagram
+                  </span>
+                </div>
+
+                {/* Bottom: label */}
+                <div className="relative px-4 pb-5">
+                  <div className="h-px bg-white/8 mb-3" />
+                  <div className="flex items-end justify-between gap-2">
+                    <p className="text-white text-sm font-semibold leading-tight">{label}</p>
+                    <ExternalLink size={13} className="text-white/30 group-hover:text-white/60 transition-colors shrink-0 mb-0.5" />
+                  </div>
+                  <p className="text-white/30 text-[10px] mt-1">@dentin_family_dentistry</p>
+                </div>
+              </a>
+            );
+          })}
         </div>
 
         {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-5">
+        <div className="flex justify-center gap-2 mt-6">
           {REELS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => {
-                scrollRef.current?.scrollTo({ left: i * STEP, behavior: "smooth" });
-                setActive(i);
-              }}
-              className={`rounded-full transition-all duration-200 ${
-                i === active ? "w-5 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/30 hover:bg-white/60"
-              }`}
-              aria-label={`Go to reel ${i + 1}`}
+            <button key={i}
+              onClick={() => { scrollRef.current?.scrollTo({ left: i * STEP, behavior: "smooth" }); setActive(i); }}
+              className={`rounded-full transition-all duration-200 ${i === active ? "w-5 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/20 hover:bg-white/50"}`}
+              aria-label={`Reel ${i + 1}`}
             />
           ))}
         </div>
 
         {/* Follow CTA */}
-        <div className="text-center mt-7">
+        <div className="text-center mt-8">
           <a
             href="https://www.instagram.com/dentin_family_dentistry/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm px-7 py-3 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white border border-white/15 hover:border-white/40 px-7 py-3 rounded-full transition-all duration-200"
           >
             <IgIcon size={15} />
             Follow @dentin_family_dentistry

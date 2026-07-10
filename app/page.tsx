@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle, Sparkles, Layers, ArrowRight, Globe, Award, Users } from "lucide-react";
 import FAQAccordion from "./components/FAQAccordion";
+import InstagramReels from "./components/InstagramReels";
 
 export default function HomePage() {
   return (
@@ -609,6 +610,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── INSTAGRAM REELS ── */}
+      <InstagramReels />
 
       {/* ── PATIENT EDUCATION ── */}
       <section className="py-20 px-4 bg-[#F0F0FF]">

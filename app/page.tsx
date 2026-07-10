@@ -87,7 +87,7 @@ export default function HomePage() {
           </div>
 
           {/* Right — image */}
-          <div className="order-1 lg:order-2 flex items-end justify-center lg:justify-end relative">
+          <div className="order-1 lg:order-2 flex items-center justify-center lg:justify-end relative">
             {/* Glow ring behind the card */}
             <div className="absolute right-0 bottom-0 w-full h-full pointer-events-none"
               style={{ background: "radial-gradient(ellipse 60% 80% at 70% 80%, rgba(13,148,136,0.18) 0%, transparent 70%)" }} />

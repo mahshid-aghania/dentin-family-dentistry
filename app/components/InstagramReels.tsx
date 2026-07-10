@@ -13,15 +13,15 @@ const REELS = [
   { id: "DXE5AbjDiZP", label: "Smile Makeover",           tag: "Cosmetic"   },
 ];
 
-// Teal/dark gradient per card for variety
-const GRADIENTS = [
-  ["#003D38", "#001A18"],
-  ["#004D42", "#001E1B"],
-  ["#002C29", "#000E0D"],
-  ["#003830", "#001A14"],
-  ["#004038", "#00100E"],
-  ["#002828", "#001212"],
-  ["#004848", "#001A1A"],
+// Each card: [glow color, base dark]
+const CARD_COLORS = [
+  { glow: "#0D9488", base: "#001A18" },  // teal (brand)
+  { glow: "#7C3AED", base: "#0D0619" },  // purple
+  { glow: "#2563EB", base: "#060D1A" },  // blue
+  { glow: "#E11D48", base: "#1A0610" },  // rose
+  { glow: "#D97706", base: "#1A0E00" },  // amber
+  { glow: "#059669", base: "#001A0D" },  // emerald
+  { glow: "#0284C7", base: "#031120" },  // sky
 ];
 
 const CARD_W = 220;
@@ -96,7 +96,7 @@ export default function InstagramReels() {
         <div ref={scrollRef} onScroll={onScroll}
           className="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
           {REELS.map(({ id, label, tag }, i) => {
-            const [g1, g2] = GRADIENTS[i % GRADIENTS.length];
+            const { glow, base } = CARD_COLORS[i % CARD_COLORS.length];
             return (
               <a
                 key={id}
@@ -107,14 +107,17 @@ export default function InstagramReels() {
                 style={{
                   width: CARD_W,
                   height: 390,
-                  background: `linear-gradient(160deg, ${g1} 0%, ${g2} 100%)`,
-                  // Instagram story ring via box-shadow gradient border
-                  boxShadow: "0 0 0 2px rgba(255,255,255,0.07)",
+                  background: base,
+                  boxShadow: `0 0 0 1px ${glow}33`,
                 }}
               >
-                {/* Instagram gradient ring on hover */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                  style={{ boxShadow: "inset 0 0 0 2px transparent, 0 0 0 2px #dc2743" }} />
+                {/* Colored radial glow — unique per card */}
+                <div className="absolute inset-0 pointer-events-none"
+                  style={{ background: `radial-gradient(ellipse 160px 160px at 50% 45%, ${glow}30 0%, transparent 70%)` }} />
+
+                {/* Hover: brighten glow */}
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: `radial-gradient(ellipse 180px 180px at 50% 45%, ${glow}50 0%, transparent 70%)` }} />
 
                 {/* Subtle dot-grid texture */}
                 <div className="absolute inset-0 opacity-[0.04]"
@@ -128,8 +131,8 @@ export default function InstagramReels() {
 
                 {/* Centre: play button */}
                 <div className="relative flex flex-col items-center justify-center flex-1 gap-3">
-                  <div className="w-16 h-16 rounded-full border-2 border-white/20 group-hover:border-white/60 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/10"
-                    style={{ background: "rgba(255,255,255,0.06)" }}>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                    style={{ background: `${glow}22`, border: `2px solid ${glow}55` }}>
                     <Play size={24} className="text-white/70 group-hover:text-white transition-colors ml-1" fill="currentColor" />
                   </div>
                   <span className="text-white/30 text-[10px] uppercase tracking-widest group-hover:text-white/60 transition-colors">

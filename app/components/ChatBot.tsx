@@ -320,22 +320,25 @@ export default function ChatBot() {
       {open && minimized && (
         <button
           onClick={() => setMinimized(false)}
-          className="fixed bottom-20 right-4 sm:right-6 z-50 w-72 bg-[#002C29] rounded-2xl shadow-xl flex items-center gap-3 px-4 py-3 hover:bg-[#003D38] transition-colors text-left"
+          className="fixed bottom-20 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm bg-[#002C29] rounded-2xl shadow-2xl flex items-center gap-4 px-5 py-4 hover:bg-[#003D38] transition-colors text-left"
           aria-label="Open Denny chat assistant"
         >
-          <div className="w-8 h-8 bg-[#0D9488] rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0 relative">
-            D
+          <div className="relative shrink-0">
+            <div className="w-12 h-12 bg-[#0D9488] rounded-full flex items-center justify-center text-white font-bold text-lg">
+              D
+            </div>
+            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-[#002C29]" />
             {unread > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                 {unread}
               </span>
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-white text-xs font-semibold leading-none">Denny · Virtual Dental Assistant</p>
-            <p className="text-white/50 text-[10px] mt-1 truncate">Ask me anything about our services…</p>
+            <p className="text-white text-sm font-bold leading-tight">Denny — Dental Assistant</p>
+            <p className="text-white/60 text-xs mt-1 truncate">👋 Hi! Ask me anything — I&apos;m here 24/7</p>
           </div>
-          <ChevronUp size={14} className="text-white/50 shrink-0" />
+          <ChevronUp size={18} className="text-white/50 shrink-0" />
         </button>
       )}
 

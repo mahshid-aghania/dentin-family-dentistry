@@ -7,8 +7,9 @@ import {
   Menu, X, Phone, ChevronDown,
   Shield, Sparkles, Layers, Scissors,
   Stethoscope, Smile, Activity, AlertCircle,
-  Clock, MapPin,
+  Clock, MapPin, User, LogOut,
 } from "lucide-react";
+import { useAuth } from "./AuthContext";
 
 const serviceLinks = [
   {
@@ -39,8 +40,9 @@ const serviceLinks = [
 const allServiceLinks = serviceLinks.flatMap((g) => g.items);
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen]           = useState(false);
+  const [mobileOpen, setMobileOpen]                 = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const { user, logout }                            = useAuth();
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -198,6 +200,37 @@ export default function Navbar() {
             <Phone size={15} />
             <span>(437) 900-2200</span>
           </a>
+
+          {user ? (
+            <div className="flex items-center gap-2">
+              <Link
+                href="/account"
+                className="flex items-center gap-2 border border-[#0D9488]/30 text-[#002C29] hover:border-[#0D9488] hover:text-[#0D9488] text-sm font-semibold transition-colors"
+                style={{ borderRadius: "100px", padding: "9px 18px" }}
+              >
+                <div className="w-5 h-5 bg-[#0D9488] rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0">
+                  {user.firstName[0]}{user.lastName[0]}
+                </div>
+                My Account
+              </Link>
+              <button
+                onClick={logout}
+                className="text-[#555574] hover:text-red-500 transition-colors p-2"
+                title="Sign out"
+              >
+                <LogOut size={16} />
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="flex items-center gap-1.5 border border-[#002C29]/20 text-[#002C29] hover:border-[#0D9488] hover:text-[#0D9488] text-sm font-semibold transition-colors"
+              style={{ borderRadius: "100px", padding: "9px 18px" }}
+            >
+              <User size={14} /> Sign In
+            </Link>
+          )}
+
           <Link
             href="/appointment"
             className="bg-[#0D9488] text-white text-sm font-semibold hover:bg-[#09625C] transition-colors"
@@ -303,6 +336,31 @@ export default function Navbar() {
               >
                 <Phone size={15} /> (437) 900-2200
               </a>
+              {user ? (
+                <>
+                  <Link
+                    href="/account"
+                    className="flex items-center justify-center gap-2 border border-gray-200 text-[#002C29] font-semibold py-3 rounded-full hover:bg-[#F0F0FF] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <User size={15} /> My Account
+                  </Link>
+                  <button
+                    onClick={() => { logout(); setMobileOpen(false); }}
+                    className="flex items-center justify-center gap-2 text-red-500 border border-red-200 font-semibold py-3 rounded-full hover:bg-red-50 transition-colors"
+                  >
+                    <LogOut size={15} /> Sign Out
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/login"
+                  className="flex items-center justify-center gap-2 border border-gray-200 text-[#002C29] font-semibold py-3 rounded-full hover:bg-[#F0F0FF] transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <User size={15} /> Sign In / Register
+                </Link>
+              )}
               <Link
                 href="/appointment"
                 className="block text-center bg-[#0D9488] text-white font-semibold py-3 rounded-full hover:bg-[#09625C] transition-colors"

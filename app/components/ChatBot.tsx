@@ -238,7 +238,7 @@ function getBotReply(input: string): Message {
 }
 
 export default function ChatBot() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([
     {
       from: "bot",
@@ -247,7 +247,7 @@ export default function ChatBot() {
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
-  const [unread, setUnread] = useState(1);
+  const [unread, setUnread] = useState(0);
   const [showBubble, setShowBubble] = useState(false);
   const [bubbleDismissed, setBubbleDismissed] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);

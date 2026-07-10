@@ -4,29 +4,34 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play, ExternalLink } from "lucide-react";
 
 const REELS = [
-  { id: "DZvgqjsJByB", label: "Smile Transformation",   tag: "Cosmetic"   },
-  { id: "DZp4KIyM4sA", label: "Implant Results",         tag: "Implants"   },
-  { id: "DZav4zuJ_a7", label: "Patient Experience",       tag: "Care"       },
-  { id: "DYFmNYWpwKH", label: "Before & After",           tag: "Results"    },
-  { id: "DXfDj4Dieye", label: "Dental Tips",              tag: "Education"  },
-  { id: "DXPXRWPjr8P", label: "Our Clinic",               tag: "Tour"       },
-  { id: "DXE5AbjDiZP", label: "Smile Makeover",           tag: "Cosmetic"   },
+  { id: "DZvgqjsJByB", label: "Smile Transformation", tag: "Cosmetic"   },
+  { id: "DZp4KIyM4sA", label: "Implant Results",       tag: "Implants"  },
+  { id: "DZav4zuJ_a7", label: "Patient Experience",     tag: "Care"      },
+  { id: "DYFmNYWpwKH", label: "Before & After",         tag: "Results"   },
+  { id: "DXfDj4Dieye", label: "Dental Tips",            tag: "Education" },
+  { id: "DXPXRWPjr8P", label: "Our Clinic",             tag: "Tour"      },
+  { id: "DXE5AbjDiZP", label: "Smile Makeover",         tag: "Cosmetic"  },
 ];
 
-// Each card: [glow color, base dark]
 const CARD_COLORS = [
-  { glow: "#0D9488", base: "#001A18" },  // teal (brand)
-  { glow: "#7C3AED", base: "#0D0619" },  // purple
-  { glow: "#2563EB", base: "#060D1A" },  // blue
-  { glow: "#E11D48", base: "#1A0610" },  // rose
-  { glow: "#D97706", base: "#1A0E00" },  // amber
-  { glow: "#059669", base: "#001A0D" },  // emerald
-  { glow: "#0284C7", base: "#031120" },  // sky
+  { glow: "#0D9488", base: "#001A18" },
+  { glow: "#7C3AED", base: "#0D0619" },
+  { glow: "#2563EB", base: "#060D1A" },
+  { glow: "#E11D48", base: "#1A0610" },
+  { glow: "#D97706", base: "#1A0E00" },
+  { glow: "#059669", base: "#001A0D" },
+  { glow: "#0284C7", base: "#031120" },
 ];
 
-const CARD_W = 220;
-const GAP    = 16;
-const STEP   = CARD_W + GAP;
+const CARD_W  = 240;
+const GAP     = 16;
+const STEP    = CARD_W + GAP;
+// Instagram embed natural width (their minimum)
+const IG_W    = 326;
+const SCALE   = CARD_W / IG_W;          // ≈ 0.736
+const PEEK_H  = 220;                    // visible px of the scaled iframe
+// Skip Instagram's header bar (~48px natural → ~35px visual)
+const IG_SKIP = 48;
 
 function IgIcon({ size = 16 }: { size?: number }) {
   return (
@@ -103,51 +108,61 @@ export default function InstagramReels() {
                 href={`https://www.instagram.com/reel/${id}/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 group relative rounded-3xl overflow-hidden flex flex-col justify-between"
-                style={{
-                  width: CARD_W,
-                  height: 390,
-                  background: base,
-                  boxShadow: `0 0 0 1px ${glow}33`,
-                }}
+                className="shrink-0 group relative rounded-3xl overflow-hidden flex flex-col"
+                style={{ width: CARD_W, height: 400, background: base, boxShadow: `0 0 0 1px ${glow}33` }}
               >
-                {/* Colored radial glow — unique per card */}
-                <div className="absolute inset-0 pointer-events-none"
-                  style={{ background: `radial-gradient(ellipse 160px 160px at 50% 45%, ${glow}30 0%, transparent 70%)` }} />
 
-                {/* Hover: brighten glow */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: `radial-gradient(ellipse 180px 180px at 50% 45%, ${glow}50 0%, transparent 70%)` }} />
+                {/* ── Instagram thumbnail peek ── */}
+                <div className="relative shrink-0 overflow-hidden" style={{ height: PEEK_H }}>
+                  {/* iframe scaled to fill card width, header clipped off */}
+                  <div style={{
+                    position: "absolute",
+                    top: 0, left: 0,
+                    width: IG_W,
+                    transform: `scale(${SCALE})`,
+                    transformOrigin: "top left",
+                    pointerEvents: "none",
+                  }}>
+                    <iframe
+                      src={`https://www.instagram.com/reel/${id}/embed/`}
+                      width={IG_W}
+                      height={Math.round((PEEK_H + IG_SKIP) / SCALE)}
+                      style={{ marginTop: -IG_SKIP, display: "block", border: "none" }}
+                      scrolling="no"
+                      loading="lazy"
+                      title={`Dentin reel ${i + 1}`}
+                    />
+                  </div>
 
-                {/* Subtle dot-grid texture */}
-                <div className="absolute inset-0 opacity-[0.04]"
-                  style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+                  {/* Fade bottom of peek into card background */}
+                  <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+                    style={{ background: `linear-gradient(to bottom, transparent, ${base})` }} />
 
-                {/* Top: tag + IG icon */}
-                <div className="relative flex items-center justify-between px-4 pt-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">{tag}</span>
-                  <IgIcon size={14} />
+                  {/* Play badge top-right */}
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md"
+                    style={{ background: `${glow}99` }}>
+                    <Play size={12} fill="white" className="text-white ml-0.5" />
+                  </div>
                 </div>
 
-                {/* Centre: play button */}
-                <div className="relative flex flex-col items-center justify-center flex-1 gap-3">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                    style={{ background: `${glow}22`, border: `2px solid ${glow}55` }}>
-                    <Play size={24} className="text-white/70 group-hover:text-white transition-colors ml-1" fill="currentColor" />
+                {/* ── Card info ── */}
+                <div className="flex flex-col flex-1 px-4 pt-2 pb-4">
+                  <div className="flex items-center justify-between mb-auto">
+                    <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
+                      style={{ background: `${glow}22`, color: glow }}>
+                      {tag}
+                    </span>
+                    <IgIcon size={13} />
                   </div>
-                  <span className="text-white/30 text-[10px] uppercase tracking-widest group-hover:text-white/60 transition-colors">
-                    Watch on Instagram
-                  </span>
-                </div>
 
-                {/* Bottom: label */}
-                <div className="relative px-4 pb-5">
-                  <div className="h-px bg-white/8 mb-3" />
-                  <div className="flex items-end justify-between gap-2">
-                    <p className="text-white text-sm font-semibold leading-tight">{label}</p>
-                    <ExternalLink size={13} className="text-white/30 group-hover:text-white/60 transition-colors shrink-0 mb-0.5" />
+                  <div className="mt-3">
+                    <div className="h-px mb-2" style={{ background: `${glow}20` }} />
+                    <div className="flex items-end justify-between gap-1">
+                      <p className="text-white text-sm font-semibold leading-tight">{label}</p>
+                      <ExternalLink size={12} className="text-white/30 group-hover:text-white/60 transition-colors shrink-0 mb-0.5" />
+                    </div>
+                    <p className="text-white/25 text-[9px] mt-0.5">@dentin_family_dentistry</p>
                   </div>
-                  <p className="text-white/30 text-[10px] mt-1">@dentin_family_dentistry</p>
                 </div>
               </a>
             );

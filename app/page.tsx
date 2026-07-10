@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle, Sparkles, Layers, ArrowRight } from "lucide-react";
+import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle, Sparkles, Layers, ArrowRight, Globe, Award, Users } from "lucide-react";
 import FAQAccordion from "./components/FAQAccordion";
 
 export default function HomePage() {
@@ -115,80 +115,136 @@ export default function HomePage() {
       </section>
 
       {/* ── ABOUT / DOCTOR ── */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
+      <section className="py-24 px-4 bg-white overflow-hidden" aria-label="About Dr. Mehdi Adibrad">
+        <div className="max-w-7xl mx-auto">
 
-          {/* Doctor image */}
-          <div className="relative max-w-sm mx-auto lg:mx-0">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-              <Image
-                src="/images/drMehdiRad-e1773681597167.jpg"
-                alt="Dr Mehdi Adibrad — Head and Implant Surgeon at Dentin Family Dentistry Vaughan"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/55 text-white text-xs py-3 text-center font-medium tracking-wide">
-                Dr. Mehdi Adibrad — Head &amp; Implant Surgeon
-              </div>
-            </div>
-            <div className="absolute top-6 right-[-12px] bg-[#0D9488] text-white rounded-2xl px-5 py-3 shadow-lg text-center">
-              <div className="text-2xl font-bold">12+</div>
-              <div className="text-xs font-medium">Years Exp.</div>
-            </div>
+          {/* Section label */}
+          <div className="text-center mb-14">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">Meet Your Doctor</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight">
+              Dr. Mehdi Adibrad —<br className="hidden sm:block" />
+              <span className="text-[#0D9488]"> Implant Surgeon &amp; Head Dentist in Vaughan, ON</span>
+            </h2>
           </div>
 
-          {/* Content */}
-          <div>
-            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">About Dr. Adibrad</div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] mb-5 leading-tight">
-              Vaughan&rsquo;s Expert Dentist &amp; Implant Surgeon
-            </h2>
-            <p className="text-[#555574] leading-relaxed mb-4">
-              Dr. Mehdi Adibrad is a highly skilled and compassionate dentist with over 12 years of experience. Before establishing himself in Canada, he built a respected reputation as a periodontist and oral surgeon, successfully completing the NDEB Equivalency Process on his first attempt.
-            </p>
-            <p className="text-[#555574] leading-relaxed mb-8">
-              As a member of the Ontario Dental Association and the International Team for Implantology (ITI), Dr. Adibrad specializes in One-Day Dental Implants using the latest surgical technology and a patient-first approach.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-16 xl:gap-20 items-start">
 
-            {/* Credentials */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-              {[
-                "Active RCDSO General Dentistry Licence",
-                "Ontario Dental Association Member",
-                "ITI (Implantology) Member",
-                "NDEB Equivalency — First Attempt Pass",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-2 text-sm text-[#555574]">
-                  <CheckCircle size={15} className="text-[#0D9488] shrink-0 mt-0.5" />
-                  {item}
+            {/* ── Left: photo column ── */}
+            <div className="relative max-w-sm mx-auto lg:mx-0 lg:sticky lg:top-28">
+              {/* Teal accent block behind photo */}
+              <div className="absolute -top-5 -left-5 w-full h-full bg-[#F0F0FF] rounded-3xl" />
+
+              <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
+                <Image
+                  src="/images/drMehdiRad-e1773681597167.jpg"
+                  alt="Dr. Mehdi Adibrad — Implant Surgeon and Head Dentist at Dentin Family Dentistry, Vaughan Ontario"
+                  fill
+                  className="object-cover object-top"
+                />
+                {/* Gradient name strip */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#001A18]/90 via-[#001A18]/40 to-transparent pt-12 pb-5 px-5">
+                  <p className="text-white font-bold text-sm">Dr. Mehdi Adibrad</p>
+                  <p className="text-white/70 text-xs mt-0.5">Head Dentist &amp; Implant Surgeon · Vaughan, ON</p>
                 </div>
-              ))}
+              </div>
+
+              {/* Floating badge — top right */}
+              <div className="absolute -top-3 -right-3 bg-[#0D9488] text-white rounded-2xl px-4 py-3 shadow-xl text-center z-10">
+                <div className="text-2xl font-extrabold leading-none">12+</div>
+                <div className="text-[10px] font-semibold mt-0.5 uppercase tracking-wide">Years Exp.</div>
+              </div>
+
+              {/* Floating badge — bottom left */}
+              <div className="absolute -bottom-4 -left-4 bg-white border border-gray-100 shadow-xl rounded-2xl px-4 py-3 flex items-center gap-3 z-10">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={13} fill="#0D9488" className="text-[#0D9488]" />
+                  ))}
+                </div>
+                <div>
+                  <p className="text-[#002C29] text-xs font-bold leading-none">5-Star Rated</p>
+                  <p className="text-[#555574] text-[10px] mt-0.5">Google Reviews</p>
+                </div>
+              </div>
             </div>
 
-            {/* Progress bars */}
-            <div className="space-y-4 mb-8">
-              {[
-                { label: "Patient Satisfaction Rate", value: 98 },
-                { label: "Successful Implant Procedures", value: 95 },
-              ].map(({ label, value }) => (
-                <div key={label}>
-                  <div className="flex justify-between mb-1.5 text-sm font-semibold text-[#002C29]">
-                    <span>{label}</span><span>{value}%</span>
-                  </div>
-                  <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-[#0D9488] rounded-full" style={{ width: `${value}%` }} />
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* ── Right: content column ── */}
+            <div className="flex flex-col gap-7">
 
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 bg-[#0D9488] text-white font-semibold hover:bg-[#09625C] transition-colors"
-              style={{ borderRadius: "100px", padding: "16px 28px" }}
-            >
-              About Dr. Adibrad <ArrowRight size={16} />
-            </Link>
+              {/* Bio */}
+              <div>
+                <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
+                  Dr. Mehdi Adibrad brings over 12 years of clinical expertise in implant surgery, periodontics, and cosmetic dentistry to his patients in Vaughan. Before establishing his practice in Canada, he built a respected career as a periodontist and oral surgeon — and completed the rigorous <strong className="text-[#002C29] font-semibold">NDEB Equivalency Process on his very first attempt</strong>, a benchmark achieved by fewer than half of candidates.
+                </p>
+                <p className="text-[#555574] leading-relaxed text-[15px]">
+                  As an active member of both the <strong className="text-[#002C29] font-semibold">International Team for Implantology (ITI)</strong> and the <strong className="text-[#002C29] font-semibold">Ontario Dental Association</strong>, Dr. Adibrad stays at the leading edge of dental innovation — with a particular focus on One-Day Implant solutions that deliver permanent, natural-looking results.
+                </p>
+              </div>
+
+              {/* Pull quote */}
+              <blockquote className="relative border-l-[3px] border-[#0D9488] pl-6 py-1">
+                <p className="text-[#002C29] font-semibold italic text-[15px] leading-relaxed">
+                  &ldquo;When it comes to dental implants, precision, experience, and advanced technology make all the difference — and so does genuinely listening to each patient.&rdquo;
+                </p>
+                <cite className="text-[#555574] text-sm mt-2 block not-italic font-medium">— Dr. Mehdi Adibrad, Head &amp; Implant Surgeon</cite>
+              </blockquote>
+
+              {/* Credential cards */}
+              <div>
+                <p className="text-[10px] font-bold text-[#002C29] uppercase tracking-widest mb-3">Credentials &amp; Affiliations</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    { Icon: Shield, label: "RCDSO General Dentistry Licence", sub: "Active licence — Province of Ontario" },
+                    { Icon: Globe,  label: "ITI — International Implantology", sub: "International Team for Implantology" },
+                    { Icon: Users,  label: "Ontario Dental Association", sub: "ODA member in good standing" },
+                    { Icon: Award,  label: "NDEB Equivalency — First Attempt", sub: "National Dental Examining Board of Canada" },
+                  ].map(({ Icon, label, sub }) => (
+                    <div key={label} className="flex items-start gap-3 bg-[#F8F8FF] border border-gray-100 rounded-xl px-4 py-3.5">
+                      <div className="w-8 h-8 bg-[#0D9488]/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon size={15} className="text-[#0D9488]" />
+                      </div>
+                      <div>
+                        <p className="text-[#002C29] text-xs font-semibold leading-tight">{label}</p>
+                        <p className="text-[#555574] text-[10px] mt-0.5">{sub}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Stats strip */}
+              <div className="grid grid-cols-4 gap-4 border-t border-b border-gray-100 py-5">
+                {[
+                  { value: "12+",  label: "Years Experience" },
+                  { value: "500+", label: "Happy Patients"   },
+                  { value: "ITI",  label: "Intl. Member"     },
+                  { value: "24/7", label: "Emergency Care"   },
+                ].map(({ value, label }) => (
+                  <div key={label} className="text-center">
+                    <p className="text-xl font-extrabold text-[#0D9488] leading-none">{value}</p>
+                    <p className="text-[#555574] text-[10px] font-medium mt-1.5 leading-tight">{label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/appointment"
+                  className="inline-flex items-center gap-2 bg-[#0D9488] text-white font-bold hover:bg-[#09625C] transition-colors shadow-sm shadow-[#0D9488]/20"
+                  style={{ borderRadius: "100px", padding: "16px 30px" }}
+                >
+                  Book a Consultation <ArrowRight size={16} />
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 border-2 border-[#002C29]/15 text-[#002C29] font-semibold hover:border-[#0D9488] hover:text-[#0D9488] transition-colors"
+                  style={{ borderRadius: "100px", padding: "14px 26px" }}
+                >
+                  Full Profile
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
+import InstagramBar from "./components/InstagramBar";
 import { AuthProvider } from "./components/AuthContext";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -30,6 +31,7 @@ export default function RootLayout({
         <AuthProvider>
           <Navbar />
           <main>{children}</main>
+          <InstagramBar />
           <Footer />
           <ChatBot />
         </AuthProvider>

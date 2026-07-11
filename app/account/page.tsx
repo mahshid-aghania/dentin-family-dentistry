@@ -8,7 +8,8 @@ import {
   LogOut, Phone, MapPin, Clock, AlertCircle, CheckCircle,
   XCircle, ArrowRight, ChevronRight, Stethoscope, Sparkles,
   Layers, Shield, Activity, Smile, Scissors, User, Save,
-  CalendarCheck, Ban, Mail,
+  CalendarCheck, Ban, Mail, PlayCircle, Gift, Star,
+  Trophy, ExternalLink, ThumbsUp, Video, BookOpen,
 } from "lucide-react";
 import { useAuth, Appointment } from "../components/AuthContext";
 
@@ -17,47 +18,103 @@ import { useAuth, Appointment } from "../components/AuthContext";
 // ─────────────────────────────────────────────
 
 const SERVICES = [
-  { id: "General Dentistry",   desc: "Cleanings & preventive care",    Icon: Stethoscope, urgent: false },
-  { id: "Cosmetic Dentistry",  desc: "Veneers, whitening & makeovers", Icon: Sparkles,    urgent: false },
-  { id: "Dental Implants",     desc: "Same-day implant solutions",      Icon: Layers,      urgent: false },
-  { id: "Restorative Dentistry", desc: "Crowns, bridges & dentures",   Icon: Shield,      urgent: false },
-  { id: "Endodontics",         desc: "Root canal therapy",              Icon: Activity,    urgent: false },
-  { id: "Pediatric Dentistry", desc: "Gentle care for children",        Icon: Smile,       urgent: false },
-  { id: "Oral Surgery",        desc: "Extractions & procedures",        Icon: Scissors,    urgent: false },
-  { id: "Emergency Care",      desc: "Urgent dental care — 24/7",      Icon: AlertCircle, urgent: true  },
+  { id: "General Dentistry",    desc: "Cleanings & preventive care",    Icon: Stethoscope, urgent: false },
+  { id: "Cosmetic Dentistry",   desc: "Veneers, whitening & makeovers", Icon: Sparkles,    urgent: false },
+  { id: "Dental Implants",      desc: "Same-day implant solutions",      Icon: Layers,      urgent: false },
+  { id: "Restorative Dentistry",desc: "Crowns, bridges & dentures",     Icon: Shield,      urgent: false },
+  { id: "Endodontics",          desc: "Root canal therapy",              Icon: Activity,    urgent: false },
+  { id: "Pediatric Dentistry",  desc: "Gentle care for children",        Icon: Smile,       urgent: false },
+  { id: "Oral Surgery",         desc: "Extractions & procedures",        Icon: Scissors,    urgent: false },
+  { id: "Emergency Care",       desc: "Urgent dental care — 24/7",      Icon: AlertCircle, urgent: true  },
 ];
 
 const TIME_SLOTS = [
-  "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-  "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM",
-  "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM",
+  "9:00 AM","10:00 AM","11:00 AM","12:00 PM",
+  "1:00 PM","2:00 PM","3:00 PM","4:00 PM",
+  "5:00 PM","6:00 PM","7:00 PM","8:00 PM",
 ];
+
+const TUTORIALS = [
+  {
+    title: "How to Brush Your Teeth Properly",
+    category: "Daily Care",
+    duration: "3 min",
+    desc: "Master the Modified Bass technique recommended by dentists worldwide.",
+    color: "#0D9488",
+    Icon: Sparkles,
+    href: "https://www.youtube.com/results?search_query=how+to+brush+teeth+properly+dentist",
+  },
+  {
+    title: "Flossing the Right Way",
+    category: "Daily Care",
+    duration: "2 min",
+    desc: "Step-by-step guide to effective flossing for healthy gums.",
+    color: "#2563EB",
+    Icon: Activity,
+    href: "https://www.youtube.com/results?search_query=how+to+floss+teeth+correctly",
+  },
+  {
+    title: "Dental Implants: What to Expect",
+    category: "Treatments",
+    duration: "6 min",
+    desc: "Everything about the implant process from consultation to final crown.",
+    color: "#7C3AED",
+    Icon: Layers,
+    href: "https://www.youtube.com/results?search_query=dental+implants+procedure+explained",
+  },
+  {
+    title: "Post-Procedure Care Guide",
+    category: "After Care",
+    duration: "4 min",
+    desc: "How to care for your mouth after extractions, root canals, or implants.",
+    color: "#D97706",
+    Icon: Shield,
+    href: "/essential-tips-for-a-healthy-smile",
+  },
+  {
+    title: "Why Regular Checkups Matter",
+    category: "Prevention",
+    duration: "5 min",
+    desc: "Prevent costly problems by catching issues early — read our full guide.",
+    color: "#059669",
+    Icon: Stethoscope,
+    href: "/benefit-of-regular-dental-checkup",
+  },
+  {
+    title: "Children's Dental Care Tips",
+    category: "Pediatric",
+    duration: "4 min",
+    desc: "Build healthy oral habits for kids from their very first tooth.",
+    color: "#E11D48",
+    Icon: Smile,
+    href: "https://www.youtube.com/results?search_query=children+dental+care+tips+kids",
+  },
+];
+
+const REWARD_TIERS = [
+  { name: "Bronze",   min: 0,   max: 99,  color: "#A0522D", bg: "#FFF8F0", perks: ["Priority booking line", "Birthday discount 5%"] },
+  { name: "Silver",   min: 100, max: 249, color: "#6B7280", bg: "#F8F8FF", perks: ["10% off whitening", "Free sensitivity check", "Priority booking"] },
+  { name: "Gold",     min: 250, max: 499, color: "#D97706", bg: "#FFFBEB", perks: ["15% off treatments", "Free cleaning upgrade", "VIP appointment slots"] },
+  { name: "Platinum", min: 500, max: Infinity, color: "#7C3AED", bg: "#F5F3FF", perks: ["20% off all treatments", "Free annual whitening", "Dedicated care coordinator"] },
+];
+
+function getTier(pts: number) {
+  return REWARD_TIERS.find((t) => pts >= t.min && pts <= t.max) ?? REWARD_TIERS[0];
+}
 
 // ─────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────
 
-function fmtDate(dateStr: string) {
-  return new Date(dateStr + "T00:00:00").toLocaleDateString("en-CA", {
-    weekday: "long", year: "numeric", month: "long", day: "numeric",
-  });
+function fmtDate(d: string) {
+  return new Date(d + "T00:00:00").toLocaleDateString("en-CA", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 }
-
-function fmtDateShort(dateStr: string) {
-  return new Date(dateStr + "T00:00:00").toLocaleDateString("en-CA", {
-    month: "short", day: "numeric", year: "numeric",
-  });
+function fmtDateShort(d: string) {
+  return new Date(d + "T00:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric", year: "numeric" });
 }
-
-function isSunday(dateStr: string) {
-  return new Date(dateStr + "T00:00:00").getDay() === 0;
-}
+function isSunday(d: string) { return new Date(d + "T00:00:00").getDay() === 0; }
 
 const todayStr = new Date().toISOString().split("T")[0];
-
-// ─────────────────────────────────────────────
-// Status badge
-// ─────────────────────────────────────────────
 
 function StatusBadge({ status }: { status: Appointment["status"] }) {
   const cfg = {
@@ -76,24 +133,27 @@ function StatusBadge({ status }: { status: Appointment["status"] }) {
 // Tab: Overview
 // ─────────────────────────────────────────────
 
-function OverviewTab({
-  user, appointments, onBook,
-}: {
+function OverviewTab({ user, appointments, onBook, onTab }: {
   user: { firstName: string; lastName: string; email: string; createdAt: string };
   appointments: Appointment[];
   onBook: () => void;
+  onTab: (t: TabId) => void;
 }) {
-  const upcoming = appointments.filter((a) => a.status === "upcoming");
-  const nextAppt = upcoming.sort((a, b) => a.date.localeCompare(b.date))[0];
+  const upcoming  = appointments.filter((a) => a.status === "upcoming");
+  const completed = appointments.filter((a) => a.status === "completed");
+  const nextAppt  = [...upcoming].sort((a, b) => a.date.localeCompare(b.date))[0];
+  const points    = completed.length * 10;
+  const tier      = getTier(points);
 
   return (
     <div className="space-y-6">
       {/* Stats row */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: "Upcoming", value: upcoming.length, sub: "appointments", color: "text-[#0D9488]" },
-          { label: "Total Booked", value: appointments.filter(a => a.status !== "cancelled").length, sub: "all time", color: "text-[#002C29]" },
-          { label: "Member Since", value: new Date(user.createdAt).toLocaleDateString("en-CA", { month: "short", year: "numeric" }), sub: "patient portal", color: "text-[#002C29]" },
+          { label: "Upcoming",    value: upcoming.length,  sub: "appointments",  color: "text-[#0D9488]" },
+          { label: "Completed",   value: completed.length, sub: "all time",      color: "text-[#002C29]" },
+          { label: "Reward Pts",  value: points,           sub: tier.name + " tier", color: "text-[#D97706]" },
+          { label: "Member Since",value: new Date(user.createdAt).toLocaleDateString("en-CA", { month: "short", year: "numeric" }), sub: "patient portal", color: "text-[#002C29]" },
         ].map((s) => (
           <div key={s.label} className="bg-white rounded-2xl border border-gray-100 p-5">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#555574] mb-1">{s.label}</p>
@@ -136,15 +196,46 @@ function OverviewTab({
         )}
       </div>
 
+      {/* Rewards snapshot */}
+      <div>
+        <h2 className="text-xs font-bold text-[#002C29] uppercase tracking-widest mb-3">Your Rewards</h2>
+        <button onClick={() => onTab("rewards")} className="w-full text-left">
+          <div className="rounded-2xl p-5 flex items-center gap-4 border hover:shadow-md transition-shadow"
+            style={{ background: tier.bg, borderColor: tier.color + "33" }}>
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+              style={{ background: tier.color + "20" }}>
+              <Trophy size={22} style={{ color: tier.color }} />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: tier.color }}>{tier.name} Member</span>
+              </div>
+              <p className="font-bold text-[#002C29]">{points} pts</p>
+              {points < 500 && (
+                <div className="mt-2">
+                  <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden w-full">
+                    <div className="h-full rounded-full transition-all" style={{ width: `${Math.min((points / 500) * 100, 100)}%`, background: tier.color }} />
+                  </div>
+                  <p className="text-[10px] text-gray-400 mt-1">
+                    {500 - points} pts to Platinum
+                  </p>
+                </div>
+              )}
+            </div>
+            <ChevronRight size={16} className="text-gray-400 shrink-0" />
+          </div>
+        </button>
+      </div>
+
       {/* Quick actions */}
       <div>
         <h2 className="text-xs font-bold text-[#002C29] uppercase tracking-widest mb-3">Quick Actions</h2>
         <div className="grid sm:grid-cols-2 gap-3">
           {[
-            { Icon: PlusCircle,  title: "Book Appointment",  desc: "Schedule a visit with Dr. Adibrad",     action: onBook,           urgent: false },
-            { Icon: AlertCircle, title: "Emergency Care",    desc: "24/7 urgent dental care",               href: "tel:4379002200",   urgent: true  },
-            { Icon: Phone,       title: "Call the Clinic",   desc: "(437) 900-2200 · Mon–Sat 9 AM–9 PM",   href: "tel:4379002200",   urgent: false },
-            { Icon: MapPin,      title: "Get Directions",    desc: "3300 Steeles Ave W, Unit #6, Vaughan",  href: "/contact",         urgent: false },
+            { Icon: PlusCircle,  title: "Book Appointment",   desc: "Schedule a visit with Dr. Adibrad",    action: onBook,                  urgent: false },
+            { Icon: AlertCircle, title: "Emergency Care",     desc: "24/7 urgent dental care",              href: "tel:4379002200",           urgent: true  },
+            { Icon: Video,       title: "Watch Tutorials",    desc: "Dental care tips & how-to videos",     tab: "tutorials" as TabId,        urgent: false },
+            { Icon: Star,        title: "Leave a Review",     desc: "Share your experience with us",        tab: "reviews" as TabId,          urgent: false },
           ].map((item) => {
             const inner = (
               <div className={`flex items-start gap-4 bg-white rounded-2xl p-5 border transition-all duration-200 group cursor-pointer
@@ -159,9 +250,9 @@ function OverviewTab({
                 <ChevronRight size={14} className="text-gray-300 group-hover:text-[#0D9488] transition-colors mt-0.5 shrink-0" />
               </div>
             );
-            return item.action
-              ? <button key={item.title} onClick={item.action} className="text-left w-full">{inner}</button>
-              : <a key={item.title} href={item.href}>{inner}</a>;
+            if (item.action) return <button key={item.title} onClick={item.action} className="text-left w-full">{inner}</button>;
+            if (item.tab) return <button key={item.title} onClick={() => onTab(item.tab!)} className="text-left w-full">{inner}</button>;
+            return <a key={item.title} href={item.href}>{inner}</a>;
           })}
         </div>
       </div>
@@ -173,9 +264,7 @@ function OverviewTab({
 // Tab: My Appointments
 // ─────────────────────────────────────────────
 
-function AppointmentsTab({
-  appointments, onCancel, onBook,
-}: {
+function AppointmentsTab({ appointments, onCancel, onBook }: {
   appointments: Appointment[];
   onCancel: (id: string) => void;
   onBook: () => void;
@@ -183,7 +272,7 @@ function AppointmentsTab({
   const [filter, setFilter] = useState<"all" | "upcoming" | "completed" | "cancelled">("all");
   const [cancellingId, setCancellingId] = useState<string | null>(null);
 
-  const sorted = [...appointments].sort((a, b) => b.date.localeCompare(a.date));
+  const sorted  = [...appointments].sort((a, b) => b.date.localeCompare(a.date));
   const visible = filter === "all" ? sorted : sorted.filter((a) => a.status === filter);
 
   function handleCancel(id: string) {
@@ -193,14 +282,13 @@ function AppointmentsTab({
 
   return (
     <div className="space-y-5">
-      {/* Filter pills */}
       <div className="flex gap-2 flex-wrap">
         {(["all", "upcoming", "completed", "cancelled"] as const).map((f) => (
           <button key={f} onClick={() => setFilter(f)}
             className={`text-xs font-semibold capitalize px-4 py-1.5 rounded-full border transition-colors ${
               filter === f ? "bg-[#0D9488] text-white border-[#0D9488]" : "border-gray-200 text-[#555574] hover:border-[#0D9488] hover:text-[#0D9488]"
             }`}>
-            {f} {f === "all" ? `(${appointments.length})` : `(${appointments.filter(a => a.status === f).length})`}
+            {f} ({f === "all" ? appointments.length : appointments.filter(a => a.status === f).length})
           </button>
         ))}
       </div>
@@ -222,11 +310,11 @@ function AppointmentsTab({
       ) : (
         <div className="space-y-3">
           {visible.map((appt) => {
-            const svc = SERVICES.find((s) => s.id === appt.service);
+            const svc  = SERVICES.find((s) => s.id === appt.service);
             const Icon = svc?.Icon ?? CalendarDays;
             return (
               <div key={appt.id}
-                className={`bg-white border rounded-2xl p-5 transition-opacity duration-300 ${cancellingId === appt.id ? "opacity-40" : "opacity-100"} ${appt.status === "cancelled" ? "border-gray-100" : "border-gray-100"}`}>
+                className={`bg-white border rounded-2xl p-5 transition-opacity duration-300 border-gray-100 ${cancellingId === appt.id ? "opacity-40" : ""}`}>
                 <div className="flex items-start gap-4">
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${svc?.urgent ? "bg-red-50" : "bg-[#F0F0FF]"}`}>
                     <Icon size={20} className={svc?.urgent ? "text-red-500" : "text-[#0D9488]"} />
@@ -251,8 +339,7 @@ function AppointmentsTab({
                 </div>
                 {appt.status === "upcoming" && (
                   <div className="mt-4 pt-4 border-t border-gray-100 flex gap-3">
-                    <a href="tel:4379002200"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0D9488] hover:underline">
+                    <a href="tel:4379002200" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0D9488] hover:underline">
                       <Phone size={12} /> Call to Reschedule
                     </a>
                     <button onClick={() => handleCancel(appt.id)}
@@ -276,13 +363,13 @@ function AppointmentsTab({
 
 function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
   const { bookAppointment } = useAuth();
-  const [step, setStep]               = useState<1 | 2 | 3 | "success">(1);
-  const [service, setService]         = useState("");
-  const [date, setDate]               = useState("");
-  const [time, setTime]               = useState("");
-  const [notes, setNotes]             = useState("");
-  const [booked, setBooked]           = useState<Appointment | null>(null);
-  const [submitting, setSubmitting]   = useState(false);
+  const [step, setStep]             = useState<1 | 2 | 3 | "success">(1);
+  const [service, setService]       = useState("");
+  const [date, setDate]             = useState("");
+  const [time, setTime]             = useState("");
+  const [notes, setNotes]           = useState("");
+  const [booked, setBooked]         = useState<Appointment | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
   function goNext() { setStep((s) => (s === 1 ? 2 : s === 2 ? 3 : s) as 1 | 2 | 3); }
   function goBack() { setStep((s) => (s === 3 ? 2 : s === 2 ? 1 : s) as 1 | 2 | 3); }
@@ -298,9 +385,7 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
     onBooked(appt);
   }
 
-  function reset() {
-    setStep(1); setService(""); setDate(""); setTime(""); setNotes(""); setBooked(null);
-  }
+  function reset() { setStep(1); setService(""); setDate(""); setTime(""); setNotes(""); setBooked(null); }
 
   if (step === "success" && booked) {
     return (
@@ -314,9 +399,9 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
         </p>
         <div className="bg-[#F8F8FF] rounded-xl p-5 text-left space-y-2.5 mb-6 border border-gray-100">
           {[
-            { label: "Service",  value: booked.service },
-            { label: "Date",     value: fmtDateShort(booked.date) },
-            { label: "Time",     value: booked.time },
+            { label: "Service", value: booked.service },
+            { label: "Date",    value: fmtDateShort(booked.date) },
+            { label: "Time",    value: booked.time },
           ].map((row) => (
             <div key={row.label} className="flex justify-between text-sm">
               <span className="text-[#555574]">{row.label}</span>
@@ -328,8 +413,7 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
           className="inline-flex items-center gap-2 bg-[#0D9488] text-white text-sm font-semibold hover:bg-[#09625C] transition-colors px-6 py-3 rounded-full mb-3 w-full justify-center">
           <Phone size={14} /> Call to Confirm · (437) 900-2200
         </a>
-        <button onClick={reset}
-          className="text-sm text-[#0D9488] hover:underline font-semibold">
+        <button onClick={reset} className="text-sm text-[#0D9488] hover:underline font-semibold">
           Book Another Appointment
         </button>
       </div>
@@ -338,13 +422,8 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
 
   return (
     <div className="max-w-2xl">
-      {/* Step progress */}
       <div className="flex items-center gap-2 mb-7">
-        {[
-          { n: 1, label: "Service" },
-          { n: 2, label: "Date & Time" },
-          { n: 3, label: "Confirm" },
-        ].map(({ n, label }, i) => (
+        {[{ n: 1, label: "Service" }, { n: 2, label: "Date & Time" }, { n: 3, label: "Confirm" }].map(({ n, label }, i) => (
           <div key={n} className="flex items-center gap-2">
             {i > 0 && <div className={`h-px w-8 ${(step as number) >= n ? "bg-[#0D9488]" : "bg-gray-200"}`} />}
             <div className="flex items-center gap-1.5">
@@ -359,7 +438,6 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
         ))}
       </div>
 
-      {/* Step 1: Service */}
       {step === 1 && (
         <div>
           <h2 className="text-lg font-bold text-[#002C29] mb-1">Choose a Service</h2>
@@ -368,8 +446,7 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
             {SERVICES.map(({ id, desc, Icon, urgent }) => (
               <button key={id} onClick={() => { setService(id); goNext(); }}
                 className={`flex items-start gap-3 p-4 border-2 rounded-xl text-left transition-all hover:shadow-sm ${
-                  service === id
-                    ? urgent ? "border-red-400 bg-red-50" : "border-[#0D9488] bg-[#F0F0FF]"
+                  service === id ? urgent ? "border-red-400 bg-red-50" : "border-[#0D9488] bg-[#F0F0FF]"
                     : urgent ? "border-red-100 hover:border-red-300" : "border-gray-100 hover:border-[#0D9488]/40"
                 }`}>
                 <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${urgent ? "bg-red-100" : "bg-[#F0F0FF]"}`}>
@@ -385,30 +462,21 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
         </div>
       )}
 
-      {/* Step 2: Date & Time */}
       {step === 2 && (
         <div>
           <h2 className="text-lg font-bold text-[#002C29] mb-1">Choose Date &amp; Time</h2>
-          <p className="text-[#555574] text-sm mb-5">
-            Clinic hours: Monday – Saturday, 9:00 AM – 9:00 PM.
-          </p>
-
+          <p className="text-[#555574] text-sm mb-5">Clinic hours: Monday – Saturday, 9:00 AM – 9:00 PM.</p>
           <div className="mb-5">
             <label className="block text-xs font-bold text-[#002C29] uppercase tracking-widest mb-2">Preferred Date</label>
-            <input
-              type="date"
-              value={date}
-              min={todayStr}
+            <input type="date" value={date} min={todayStr}
               onChange={(e) => { setDate(e.target.value); setTime(""); }}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29] bg-white"
-            />
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29] bg-white" />
             {date && isSunday(date) && (
               <p className="text-red-500 text-xs mt-2 flex items-center gap-1">
                 <AlertCircle size={12} /> We&apos;re closed on Sundays. Please choose another day.
               </p>
             )}
           </div>
-
           {date && !isSunday(date) && (
             <div>
               <label className="block text-xs font-bold text-[#002C29] uppercase tracking-widest mb-2">Preferred Time</label>
@@ -416,9 +484,7 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
                 {TIME_SLOTS.map((slot) => (
                   <button key={slot} onClick={() => setTime(slot)}
                     className={`py-2.5 text-sm font-semibold rounded-xl border-2 transition-colors ${
-                      time === slot
-                        ? "border-[#0D9488] bg-[#0D9488] text-white"
-                        : "border-gray-200 text-[#555574] hover:border-[#0D9488] hover:text-[#0D9488]"
+                      time === slot ? "border-[#0D9488] bg-[#0D9488] text-white" : "border-gray-200 text-[#555574] hover:border-[#0D9488] hover:text-[#0D9488]"
                     }`}>
                     {slot}
                   </button>
@@ -426,12 +492,8 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
               </div>
             </div>
           )}
-
           <div className="flex gap-3 mt-6">
-            <button onClick={goBack}
-              className="border border-gray-200 text-[#555574] text-sm font-semibold px-5 py-2.5 rounded-full hover:border-gray-300 transition-colors">
-              Back
-            </button>
+            <button onClick={goBack} className="border border-gray-200 text-[#555574] text-sm font-semibold px-5 py-2.5 rounded-full hover:border-gray-300 transition-colors">Back</button>
             <button onClick={goNext} disabled={!date || !time || isSunday(date)}
               className="bg-[#0D9488] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#09625C] disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors">
               Continue
@@ -440,49 +502,32 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
         </div>
       )}
 
-      {/* Step 3: Review & confirm */}
       {step === 3 && (
         <form onSubmit={handleSubmit}>
           <h2 className="text-lg font-bold text-[#002C29] mb-1">Review &amp; Confirm</h2>
           <p className="text-[#555574] text-sm mb-5">Check your details, add any notes, then submit.</p>
-
-          {/* Summary card */}
           <div className="bg-[#F8F8FF] border border-gray-100 rounded-xl p-5 mb-5 space-y-2.5">
-            {[
-              { label: "Service", value: service },
-              { label: "Date",    value: fmtDate(date) },
-              { label: "Time",    value: time },
-            ].map((row) => (
+            {[{ label: "Service", value: service }, { label: "Date", value: fmtDate(date) }, { label: "Time", value: time }].map((row) => (
               <div key={row.label} className="flex justify-between text-sm">
                 <span className="text-[#555574]">{row.label}</span>
                 <span className="font-semibold text-[#002C29]">{row.value}</span>
               </div>
             ))}
           </div>
-
           <div className="mb-5">
             <label className="block text-xs font-bold text-[#002C29] uppercase tracking-widest mb-2">
-              Notes for the Clinic <span className="font-normal text-gray-400 normal-case">(optional)</span>
+              Notes <span className="font-normal text-gray-400 normal-case">(optional)</span>
             </label>
-            <textarea
-              rows={3}
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
+            <textarea rows={3} value={notes} onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. I have sensitivity on my upper left molar…"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29] placeholder-gray-400 bg-white resize-none"
-            />
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29] placeholder-gray-400 bg-white resize-none" />
           </div>
-
           <p className="text-xs text-[#555574] bg-[#F0F0FF] rounded-xl px-4 py-3 mb-5 border border-[#0D9488]/10">
-            Our team will call you within 1 business hour to confirm your slot.
-            For emergencies, call <a href="tel:4379002200" className="text-[#0D9488] font-semibold">(437) 900-2200</a> directly.
+            Our team will call within 1 business hour to confirm. For emergencies call{" "}
+            <a href="tel:4379002200" className="text-[#0D9488] font-semibold">(437) 900-2200</a>.
           </p>
-
           <div className="flex gap-3">
-            <button type="button" onClick={goBack}
-              className="border border-gray-200 text-[#555574] text-sm font-semibold px-5 py-2.5 rounded-full hover:border-gray-300 transition-colors">
-              Back
-            </button>
+            <button type="button" onClick={goBack} className="border border-gray-200 text-[#555574] text-sm font-semibold px-5 py-2.5 rounded-full hover:border-gray-300 transition-colors">Back</button>
             <button type="submit" disabled={submitting}
               className="flex-1 bg-[#0D9488] text-white text-sm font-bold py-2.5 rounded-full hover:bg-[#09625C] disabled:bg-[#0D9488]/60 transition-colors flex items-center justify-center gap-2">
               {submitting
@@ -497,6 +542,315 @@ function BookTab({ onBooked }: { onBooked: (appt: Appointment) => void }) {
 }
 
 // ─────────────────────────────────────────────
+// Tab: Tutorials & Videos
+// ─────────────────────────────────────────────
+
+function TutorialsTab() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-lg font-bold text-[#002C29] mb-1">Dental Care Tutorials</h2>
+        <p className="text-[#555574] text-sm">Evidence-based tips and how-to guides curated by Dr. Adibrad.</p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {TUTORIALS.map((t) => (
+          <a key={t.title} href={t.href} target={t.href.startsWith("http") ? "_blank" : undefined}
+            rel={t.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
+            {/* Thumbnail */}
+            <div className="relative h-36 flex items-center justify-center"
+              style={{ background: `linear-gradient(135deg, ${t.color}22 0%, ${t.color}08 100%)` }}>
+              <div className="w-14 h-14 rounded-full flex items-center justify-center"
+                style={{ background: t.color + "20" }}>
+                <t.Icon size={26} style={{ color: t.color }} />
+              </div>
+              <div className="absolute top-3 right-3">
+                <PlayCircle size={20} className="text-gray-300 group-hover:text-[#0D9488] transition-colors" />
+              </div>
+              <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                style={{ background: t.color + "20", color: t.color }}>
+                {t.category}
+              </span>
+            </div>
+            {/* Body */}
+            <div className="p-4">
+              <div className="flex items-center justify-between mb-1.5">
+                <h3 className="font-bold text-[#002C29] text-sm leading-snug group-hover:text-[#0D9488] transition-colors flex-1 pr-2">{t.title}</h3>
+                <span className="text-[10px] text-gray-400 font-medium shrink-0">{t.duration}</span>
+              </div>
+              <p className="text-xs text-[#555574] leading-relaxed">{t.desc}</p>
+              <div className="mt-3 flex items-center gap-1 text-xs font-semibold" style={{ color: t.color }}>
+                {t.href.startsWith("http") ? "Watch Video" : "Read Guide"} <ExternalLink size={11} className="ml-0.5" />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div className="bg-[#002C29] text-white rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className="w-12 h-12 bg-[#0D9488] rounded-xl flex items-center justify-center shrink-0">
+          <BookOpen size={22} />
+        </div>
+        <div className="flex-1">
+          <p className="font-bold mb-0.5">Want personalised oral care advice?</p>
+          <p className="text-white/60 text-sm">Dr. Adibrad reviews your history and shares tailored tips at every visit.</p>
+        </div>
+        <a href="tel:4379002200"
+          className="inline-flex items-center gap-2 bg-[#0D9488] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#0BB8A8] transition-colors shrink-0">
+          <Phone size={14} /> Book a Visit
+        </a>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Tab: Rewards
+// ─────────────────────────────────────────────
+
+function RewardsTab({ appointments }: { appointments: Appointment[] }) {
+  const completed = appointments.filter((a) => a.status === "completed");
+  const points    = completed.length * 10;
+  const tier      = getTier(points);
+  const nextTier  = REWARD_TIERS.find((t) => t.min > points);
+
+  const WAYS_TO_EARN = [
+    { label: "Completed appointment",  pts: "+10 pts", done: completed.length > 0 },
+    { label: "Leave a Google review",  pts: "+25 pts", done: false },
+    { label: "Refer a friend",         pts: "+50 pts", done: false },
+    { label: "Annual member bonus",    pts: "+20 pts", done: false },
+  ];
+
+  const REDEEM = [
+    { label: "$10 off your next visit",     cost: 100 },
+    { label: "Free whitening consultation", cost: 200 },
+    { label: "$30 off any treatment",       cost: 300 },
+    { label: "$75 off implant procedure",   cost: 750 },
+  ];
+
+  return (
+    <div className="space-y-6 max-w-2xl">
+      {/* Tier card */}
+      <div className="rounded-2xl p-6 border" style={{ background: tier.bg, borderColor: tier.color + "33" }}>
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-14 h-14 rounded-2xl flex items-center justify-center"
+            style={{ background: tier.color + "25" }}>
+            <Trophy size={28} style={{ color: tier.color }} />
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest mb-0.5" style={{ color: tier.color }}>{tier.name} Member</p>
+            <p className="text-3xl font-bold text-[#002C29]">{points} <span className="text-base font-semibold text-[#555574]">pts</span></p>
+          </div>
+        </div>
+
+        {nextTier ? (
+          <>
+            <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
+              <div className="h-full rounded-full transition-all duration-700"
+                style={{ width: `${Math.min(((points - tier.min) / (nextTier.min - tier.min)) * 100, 100)}%`, background: tier.color }} />
+            </div>
+            <p className="text-xs text-gray-500">
+              <strong style={{ color: tier.color }}>{nextTier.min - points} pts</strong> to reach {nextTier.name}
+            </p>
+          </>
+        ) : (
+          <p className="text-xs font-semibold" style={{ color: tier.color }}>You&apos;ve reached the highest tier!</p>
+        )}
+
+        <div className="mt-4 pt-4 border-t" style={{ borderColor: tier.color + "22" }}>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#002C29] mb-2">Your {tier.name} Perks</p>
+          <ul className="space-y-1.5">
+            {tier.perks.map((p) => (
+              <li key={p} className="flex items-center gap-2 text-sm text-[#555574]">
+                <CheckCircle size={14} style={{ color: tier.color }} className="shrink-0" /> {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Ways to earn */}
+      <div className="bg-white border border-gray-100 rounded-2xl p-5">
+        <h3 className="text-sm font-bold text-[#002C29] uppercase tracking-widest mb-4">Ways to Earn Points</h3>
+        <div className="space-y-3">
+          {WAYS_TO_EARN.map((w) => (
+            <div key={w.label} className={`flex items-center justify-between py-2.5 px-3 rounded-xl ${w.done ? "bg-teal-50" : "bg-gray-50"}`}>
+              <div className="flex items-center gap-2.5">
+                {w.done
+                  ? <CheckCircle size={16} className="text-[#0D9488] shrink-0" />
+                  : <div className="w-4 h-4 rounded-full border-2 border-gray-300 shrink-0" />}
+                <span className={`text-sm font-medium ${w.done ? "text-[#0D9488]" : "text-[#555574]"}`}>{w.label}</span>
+              </div>
+              <span className={`text-xs font-bold ${w.done ? "text-[#0D9488]" : "text-[#002C29]"}`}>{w.pts}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Redeem */}
+      <div className="bg-white border border-gray-100 rounded-2xl p-5">
+        <h3 className="text-sm font-bold text-[#002C29] uppercase tracking-widest mb-4">Redeem Points</h3>
+        <div className="space-y-3">
+          {REDEEM.map((r) => {
+            const canRedeem = points >= r.cost;
+            return (
+              <div key={r.label} className={`flex items-center justify-between p-3 rounded-xl border ${canRedeem ? "border-[#0D9488]/30 bg-[#F0F0FF]" : "border-gray-100 bg-gray-50 opacity-60"}`}>
+                <div>
+                  <p className={`text-sm font-semibold ${canRedeem ? "text-[#002C29]" : "text-gray-500"}`}>{r.label}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{r.cost} pts required</p>
+                </div>
+                {canRedeem ? (
+                  <a href="tel:4379002200"
+                    className="text-xs font-bold bg-[#0D9488] text-white px-3 py-1.5 rounded-full hover:bg-[#09625C] transition-colors">
+                    Redeem
+                  </a>
+                ) : (
+                  <span className="text-xs font-semibold text-gray-400">{r.cost - points} more pts</span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <p className="text-[10px] text-gray-400 mt-4">
+          To redeem, call us at <a href="tel:4379002200" className="text-[#0D9488]">(437) 900-2200</a> and mention your reward. Points are applied to your next completed appointment.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Tab: Reviews
+// ─────────────────────────────────────────────
+
+function ReviewsTab({ userId }: { userId: string }) {
+  const storageKey = `dentin_review_${userId}`;
+
+  const saved = typeof window !== "undefined"
+    ? (() => { try { return JSON.parse(localStorage.getItem(storageKey) ?? "null"); } catch { return null; } })()
+    : null;
+
+  const [rating, setRating]       = useState<number>(saved?.rating ?? 0);
+  const [hover, setHover]         = useState(0);
+  const [comment, setComment]     = useState(saved?.comment ?? "");
+  const [submitted, setSubmitted] = useState(!!saved);
+  const [saving, setSaving]       = useState(false);
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!rating) return;
+    setSaving(true);
+    await new Promise((r) => setTimeout(r, 600));
+    localStorage.setItem(storageKey, JSON.stringify({ rating, comment, date: new Date().toISOString() }));
+    setSaving(false);
+    setSubmitted(true);
+  }
+
+  const LABELS = ["", "Poor", "Fair", "Good", "Great", "Excellent!"];
+
+  return (
+    <div className="space-y-6 max-w-xl">
+      <div>
+        <h2 className="text-lg font-bold text-[#002C29] mb-1">Share Your Experience</h2>
+        <p className="text-[#555574] text-sm">Your feedback helps us improve and helps other Vaughan families find great dental care.</p>
+      </div>
+
+      {submitted ? (
+        <div className="bg-white border border-gray-100 rounded-2xl p-8 text-center">
+          <div className="w-14 h-14 bg-[#0D9488] rounded-full flex items-center justify-center mx-auto mb-4">
+            <ThumbsUp size={26} className="text-white" />
+          </div>
+          <h3 className="font-bold text-[#002C29] text-lg mb-1">Thank you, {"{"}{"}"} !</h3>
+          <p className="text-[#555574] text-sm mb-4">Your review means a lot to us and to Dr. Adibrad.</p>
+          {/* Stars display */}
+          <div className="flex justify-center gap-1 mb-5">
+            {[1,2,3,4,5].map((s) => (
+              <Star key={s} size={28} className={s <= rating ? "fill-[#F59E0B] text-[#F59E0B]" : "text-gray-200"} />
+            ))}
+          </div>
+          {comment && (
+            <p className="text-sm text-[#555574] italic bg-[#F8F8FF] rounded-xl px-4 py-3 border border-gray-100 mb-5">
+              &ldquo;{comment}&rdquo;
+            </p>
+          )}
+          <div className="border-t border-gray-100 pt-5">
+            <p className="text-sm font-semibold text-[#002C29] mb-3">Also share on Google — it makes a huge difference!</p>
+            <a
+              href="https://g.page/r/dentin-family-dentistry/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#002C29] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#0D9488] transition-colors">
+              <ExternalLink size={14} /> Leave a Google Review
+            </a>
+          </div>
+          <button onClick={() => setSubmitted(false)}
+            className="block text-xs text-gray-400 hover:text-[#555574] mt-4 mx-auto">
+            Edit my review
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="bg-white border border-gray-100 rounded-2xl p-6 space-y-5">
+          {/* Star selector */}
+          <div>
+            <p className="text-xs font-bold text-[#002C29] uppercase tracking-widest mb-3">Rate your experience</p>
+            <div className="flex gap-2 items-center">
+              {[1,2,3,4,5].map((s) => (
+                <button key={s} type="button"
+                  onMouseEnter={() => setHover(s)}
+                  onMouseLeave={() => setHover(0)}
+                  onClick={() => setRating(s)}
+                  className="transition-transform hover:scale-110">
+                  <Star size={36}
+                    className={`transition-colors ${s <= (hover || rating) ? "fill-[#F59E0B] text-[#F59E0B]" : "text-gray-200"}`} />
+                </button>
+              ))}
+              {(hover || rating) > 0 && (
+                <span className="text-sm font-semibold text-[#002C29] ml-2">{LABELS[hover || rating]}</span>
+              )}
+            </div>
+          </div>
+
+          {/* Comment */}
+          <div>
+            <label className="block text-xs font-bold text-[#002C29] uppercase tracking-widest mb-2">
+              Tell us about your visit <span className="font-normal text-gray-400 normal-case">(optional)</span>
+            </label>
+            <textarea rows={4} value={comment} onChange={(e) => setComment(e.target.value)}
+              placeholder="How was your experience with Dr. Adibrad and our team?"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#0D9488] text-[#002C29] placeholder-gray-400 bg-white resize-none" />
+          </div>
+
+          <button type="submit" disabled={!rating || saving}
+            className="w-full bg-[#0D9488] text-white text-sm font-bold py-3 rounded-full hover:bg-[#09625C] disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2">
+            {saving
+              ? <><div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> Saving…</>
+              : <><Star size={15} /> Submit Review</>}
+          </button>
+        </form>
+      )}
+
+      {/* Google CTA (always visible if not submitted) */}
+      {!submitted && (
+        <div className="bg-[#F8F8FF] border border-gray-100 rounded-2xl p-5 flex items-start gap-4">
+          <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center border border-gray-100 shrink-0">
+            <ExternalLink size={18} className="text-[#0D9488]" />
+          </div>
+          <div className="flex-1">
+            <p className="font-semibold text-[#002C29] text-sm mb-0.5">Prefer to review on Google?</p>
+            <p className="text-xs text-[#555574] mb-3">Google reviews help new patients in Vaughan find our clinic.</p>
+            <a href="https://g.page/r/dentin-family-dentistry/review" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0D9488] hover:underline">
+              Open Google Reviews <ExternalLink size={11} />
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
 // Tab: My Profile
 // ─────────────────────────────────────────────
 
@@ -504,8 +858,8 @@ function ProfileTab({ user, onUpdate }: {
   user: { firstName: string; lastName: string; email: string; phone: string; createdAt: string };
   onUpdate: (d: { firstName?: string; lastName?: string; phone?: string }) => void;
 }) {
-  const [form, setForm]     = useState({ firstName: user.firstName, lastName: user.lastName, phone: user.phone });
-  const [saved, setSaved]   = useState(false);
+  const [form, setForm]   = useState({ firstName: user.firstName, lastName: user.lastName, phone: user.phone });
+  const [saved, setSaved] = useState(false);
 
   function handleSave(e: FormEvent) {
     e.preventDefault();
@@ -518,7 +872,6 @@ function ProfileTab({ user, onUpdate }: {
 
   return (
     <div className="max-w-lg space-y-6">
-      {/* Avatar */}
       <div className="bg-white border border-gray-100 rounded-2xl p-6 flex items-center gap-4">
         <div className="w-16 h-16 bg-[#0D9488] rounded-full flex items-center justify-center text-white text-2xl font-bold shrink-0">
           {initials}
@@ -532,7 +885,6 @@ function ProfileTab({ user, onUpdate }: {
         </div>
       </div>
 
-      {/* Edit form */}
       <div className="bg-white border border-gray-100 rounded-2xl p-6">
         <h2 className="text-sm font-bold text-[#002C29] uppercase tracking-widest mb-5">Personal Information</h2>
         <form onSubmit={handleSave} className="space-y-4">
@@ -560,7 +912,7 @@ function ProfileTab({ user, onUpdate }: {
               <input type="email" value={user.email} disabled
                 className="w-full border border-gray-100 rounded-xl pl-9 pr-3 py-3 text-sm text-gray-400 bg-gray-50 cursor-not-allowed" />
             </div>
-            <p className="text-[10px] text-gray-400 mt-1">Email cannot be changed — it&apos;s your account identifier.</p>
+            <p className="text-[10px] text-gray-400 mt-1">Email cannot be changed.</p>
           </div>
           <div>
             <label className="block text-xs font-semibold text-[#002C29] mb-1.5 uppercase tracking-wide">Phone Number</label>
@@ -581,7 +933,6 @@ function ProfileTab({ user, onUpdate }: {
         </form>
       </div>
 
-      {/* Practice info */}
       <div className="bg-[#002C29] text-white rounded-2xl p-6">
         <p className="text-[#0D9488] text-xs font-bold uppercase tracking-widest mb-4">Practice Info</p>
         <div className="space-y-3 text-sm text-white/70">
@@ -607,13 +958,16 @@ function ProfileTab({ user, onUpdate }: {
 // Main page
 // ─────────────────────────────────────────────
 
-type TabId = "overview" | "appointments" | "book" | "profile";
+type TabId = "overview" | "appointments" | "book" | "tutorials" | "rewards" | "reviews" | "profile";
 
 const TABS: { id: TabId; label: string; Icon: typeof LayoutDashboard }[] = [
-  { id: "overview",     label: "Overview",         Icon: LayoutDashboard },
-  { id: "appointments", label: "My Appointments",  Icon: CalendarDays    },
-  { id: "book",         label: "Book Appointment", Icon: PlusCircle      },
-  { id: "profile",      label: "My Profile",       Icon: UserCircle      },
+  { id: "overview",     label: "Overview",        Icon: LayoutDashboard },
+  { id: "appointments", label: "Appointments",    Icon: CalendarDays    },
+  { id: "book",         label: "Book",            Icon: PlusCircle      },
+  { id: "tutorials",    label: "Tutorials",       Icon: Video           },
+  { id: "rewards",      label: "Rewards",         Icon: Gift            },
+  { id: "reviews",      label: "Reviews",         Icon: Star            },
+  { id: "profile",      label: "Profile",         Icon: UserCircle      },
 ];
 
 export default function AccountPage() {
@@ -634,6 +988,7 @@ export default function AccountPage() {
   }
 
   const initials = `${user.firstName[0]}${user.lastName[0]}`.toUpperCase();
+  const upcomingCount = appointments.filter(a => a.status === "upcoming").length;
 
   return (
     <>
@@ -659,18 +1014,16 @@ export default function AccountPage() {
       {/* Tab nav */}
       <div className="bg-white border-b border-gray-100 sticky top-[73px] z-30">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex gap-1 overflow-x-auto">
+          <div className="flex gap-0.5 overflow-x-auto no-scrollbar">
             {TABS.map(({ id, label, Icon }) => (
               <button key={id} onClick={() => setTab(id)}
-                className={`flex items-center gap-2 px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors ${
-                  tab === id
-                    ? "border-[#0D9488] text-[#0D9488]"
-                    : "border-transparent text-[#555574] hover:text-[#002C29]"
+                className={`flex items-center gap-1.5 px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors ${
+                  tab === id ? "border-[#0D9488] text-[#0D9488]" : "border-transparent text-[#555574] hover:text-[#002C29]"
                 }`}>
-                <Icon size={15} /> {label}
-                {id === "appointments" && appointments.filter(a => a.status === "upcoming").length > 0 && (
+                <Icon size={14} /> {label}
+                {id === "appointments" && upcomingCount > 0 && (
                   <span className="w-4 h-4 bg-[#0D9488] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                    {appointments.filter(a => a.status === "upcoming").length}
+                    {upcomingCount}
                   </span>
                 )}
               </button>
@@ -682,22 +1035,13 @@ export default function AccountPage() {
       {/* Content */}
       <section className="py-8 px-4 bg-[#F8F8FF] min-h-[60vh]">
         <div className="max-w-7xl mx-auto">
-          {tab === "overview" && (
-            <OverviewTab user={user} appointments={appointments} onBook={() => setTab("book")} />
-          )}
-          {tab === "appointments" && (
-            <AppointmentsTab
-              appointments={appointments}
-              onCancel={cancelAppointment}
-              onBook={() => setTab("book")}
-            />
-          )}
-          {tab === "book" && (
-            <BookTab onBooked={() => setTimeout(() => setTab("appointments"), 2500)} />
-          )}
-          {tab === "profile" && (
-            <ProfileTab user={user} onUpdate={updateProfile} />
-          )}
+          {tab === "overview"     && <OverviewTab user={user} appointments={appointments} onBook={() => setTab("book")} onTab={setTab} />}
+          {tab === "appointments" && <AppointmentsTab appointments={appointments} onCancel={cancelAppointment} onBook={() => setTab("book")} />}
+          {tab === "book"         && <BookTab onBooked={() => setTimeout(() => setTab("appointments"), 2500)} />}
+          {tab === "tutorials"    && <TutorialsTab />}
+          {tab === "rewards"      && <RewardsTab appointments={appointments} />}
+          {tab === "reviews"      && <ReviewsTab userId={user.id} />}
+          {tab === "profile"      && <ProfileTab user={user} onUpdate={updateProfile} />}
         </div>
       </section>
     </>

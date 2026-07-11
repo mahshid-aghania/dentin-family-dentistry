@@ -27,7 +27,7 @@ const posts = [
     category: "Preventive Care",
     readTime: "4 min read",
     href: "/benefit-of-regular-dental-checkup",
-    image: "/images/Zoom-Teeth-Whitening-1280x850.jpg",
+    image: "/images/dental-checkup.png",
   },
 ];
 

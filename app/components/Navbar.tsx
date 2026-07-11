@@ -88,7 +88,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/images/logo2_cropped.png"
+            src="/images/logo-color.png"
             alt="Dentin Family Dentistry — Vaughan"
             width={160}
             height={50}

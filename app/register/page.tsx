@@ -64,11 +64,11 @@ export default function RegisterPage() {
         <div className="relative z-10 text-center max-w-xs">
           <Link href="/">
             <Image
-              src="/images/logo2_cropped.png"
+              src="/images/logo-color.png"
               alt="Dentin Family Dentistry"
               width={180}
               height={56}
-              className="h-14 w-auto object-contain mx-auto mb-10 brightness-0 invert"
+              className="h-14 w-auto object-contain mx-auto mb-10"
             />
           </Link>
           <h2 className="text-white text-2xl font-bold leading-snug mb-4">
@@ -101,7 +101,7 @@ export default function RegisterPage() {
           <div className="lg:hidden mb-8 text-center">
             <Link href="/">
               <Image
-                src="/images/logo-on-dark.png"
+                src="/images/logo-color.png"
                 alt="Dentin Family Dentistry"
                 width={200}
                 height={64}
@@ -116,7 +116,7 @@ export default function RegisterPage() {
               <div className="hidden lg:block mb-6">
                 <Link href="/">
                   <Image
-                    src="/images/logo-on-dark.png"
+                    src="/images/logo-color.png"
                     alt="Dentin Family Dentistry"
                     width={180}
                     height={56}

@@ -86,7 +86,7 @@ const localBusinessSchema = {
   telephone: "+14379002200",
   email: "dfdentistry3300@gmail.com",
   image: `${SITE_URL}/images/dr-adibrad.jpg`,
-  logo: `${SITE_URL}/images/logo2_cropped.png`,
+  logo: `${SITE_URL}/images/logo-color.png`,
   priceRange: "$$",
   currenciesAccepted: "CAD",
   paymentAccepted: "Cash, Credit Card, Insurance, CDCP",

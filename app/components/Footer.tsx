@@ -54,13 +54,15 @@ export default function Footer() {
           {/* Column 1 — Brand */}
           <div>
             <Link href="/" className="inline-block mb-5">
-              <Image
-                src="/images/logo2_cropped.png"
-                alt="Dentin Family Dentistry — Vaughan"
-                width={160}
-                height={50}
-                className="h-12 w-auto object-contain brightness-0 invert"
-              />
+              <div className="bg-white rounded-xl px-4 py-2 inline-block">
+                <Image
+                  src="/images/logo-color.png"
+                  alt="Dentin Family Dentistry — Vaughan"
+                  width={160}
+                  height={50}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
             </Link>
             <p className="text-sm leading-relaxed mb-5">
               Dentin Family Dentistry provides compassionate, high-quality dental care in Vaughan — from routine cleanings to dental implants and full smile makeovers.

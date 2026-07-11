@@ -17,7 +17,7 @@ export default function HomePage() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
           style={{ zIndex: 0 }}
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />

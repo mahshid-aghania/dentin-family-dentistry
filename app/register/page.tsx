@@ -100,18 +100,34 @@ export default function RegisterPage() {
           {/* Mobile logo */}
           <div className="lg:hidden mb-8 text-center">
             <Link href="/">
-              <Image
-                src="/images/logo2_cropped.png"
-                alt="Dentin Family Dentistry"
-                width={150}
-                height={48}
-                className="h-11 w-auto object-contain mx-auto"
-              />
+              <div className="inline-block bg-[#002C29] rounded-2xl px-6 py-3">
+                <Image
+                  src="/images/logo2_cropped.png"
+                  alt="Dentin Family Dentistry"
+                  width={150}
+                  height={48}
+                  className="h-11 w-auto object-contain mx-auto"
+                />
+              </div>
             </Link>
           </div>
 
           <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 sm:p-10">
             <div className="mb-7">
+              {/* Desktop logo inside form card */}
+              <div className="hidden lg:block mb-6">
+                <Link href="/">
+                  <div className="inline-block bg-[#002C29] rounded-xl px-5 py-2.5">
+                    <Image
+                      src="/images/logo2_cropped.png"
+                      alt="Dentin Family Dentistry"
+                      width={140}
+                      height={44}
+                      className="h-9 w-auto object-contain"
+                    />
+                  </div>
+                </Link>
+              </div>
               <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-2">Patient Portal</div>
               <h1 className="text-2xl font-bold text-[#002C29]">Create your account</h1>
               <p className="text-[#555574] text-sm mt-1">It&apos;s free and takes less than a minute</p>

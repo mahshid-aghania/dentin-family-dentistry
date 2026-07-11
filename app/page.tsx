@@ -298,22 +298,23 @@ export default function HomePage() {
                 title: "Dental Implants",
                 category: "Implant Surgery",
                 desc: "Same-day implant solutions by Dr. Adibrad — a permanent, natural-looking replacement for missing teeth.",
-                image: "/images/PHOTO-2026-02-20-15-20-10-2.jpg",
+                image: "/images/dental-implant-diagram.png",
                 href: "/services/dental-implants",
                 Icon: Layers,
                 accent: "#2563EB",
+                contain: true,
               },
             ].map((s) => (
               <Link key={s.title} href={s.href}
                 className="group relative rounded-3xl overflow-hidden block"
-                style={{ aspectRatio: "3/4" }}>
+                style={{ aspectRatio: "3/4", background: s.contain ? "#031120" : undefined }}>
 
                 {/* Photo */}
                 <Image
                   src={s.image}
                   alt={`${s.title} at Dentin Family Dentistry Vaughan`}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className={`${s.contain ? "object-contain p-6 group-hover:scale-105" : "object-cover group-hover:scale-105"} transition-transform duration-700`}
                   sizes="(max-width: 640px) 100vw, 33vw"
                 />
 

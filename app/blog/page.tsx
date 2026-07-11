@@ -17,7 +17,7 @@ const posts = [
     category: "Oral Health Tips",
     readTime: "4 min read",
     href: "/essential-tips-for-a-healthy-smile",
-    image: "/images/post-1-1.jpg",
+    image: "/images/service-img-1-1.jpg",
   },
   {
     title: "The Benefits of Regular Dental Checkups",
@@ -27,7 +27,7 @@ const posts = [
     category: "Preventive Care",
     readTime: "4 min read",
     href: "/benefit-of-regular-dental-checkup",
-    image: "/images/post-1-1.jpg",
+    image: "/images/Zoom-Teeth-Whitening-1280x850.jpg",
   },
 ];
 
@@ -69,6 +69,7 @@ export default function BlogPage() {
                       src={post.image}
                       alt={post.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

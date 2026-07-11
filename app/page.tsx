@@ -4,9 +4,57 @@ import { Phone, CheckCircle, Star, Clock, Shield, AlertCircle, Sparkles, Layers,
 import FAQAccordion from "./components/FAQAccordion";
 import InstagramReels from "./components/InstagramReels";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do you accept insurance?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, we accept most major dental insurance plans, including the Canadian Dental Care Plan (CDCP). Please contact us at (437) 900-2200 to verify your specific coverage before your appointment.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What services do you offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We provide a full range of dental services including general dentistry, cosmetic dentistry (veneers, whitening), restorative treatments (crowns, bridges, implants), oral surgery, endodontics, pediatric dentistry, and 24/7 emergency dental care.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How often should I visit the dentist?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We recommend visiting the dentist every six months for routine cleanings and exams. Patients with gum disease or a history of cavities may need more frequent visits.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you offer emergency dental care?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We offer 24/7 emergency dental care for toothaches, broken teeth, lost fillings, swelling, and dental trauma. Call us immediately at (437) 900-2200 and we will prioritize your appointment.",
+      },
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* ── HERO ── */}
       <section className="relative overflow-hidden min-h-[88vh] flex items-center"
         style={{ background: "#001A18" }}>
@@ -17,6 +65,7 @@ export default function HomePage() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
           style={{ zIndex: 0 }}
         >
@@ -56,7 +105,7 @@ export default function HomePage() {
               <span className="text-[#4ECDC4]">in Vaughan</span>
             </h1>
 
-            <p className="text-white/72 text-lg mb-10 leading-relaxed max-w-lg">
+            <p className="text-white/80 text-lg mb-10 leading-relaxed max-w-lg">
               From routine checkups to advanced dental implants and full smile makeovers — compassionate, high-quality care for every patient.
             </p>
 
@@ -140,6 +189,7 @@ export default function HomePage() {
                   src="/images/dr-adibrad.jpg"
                   alt="Dr. Mehdi Adibrad — Implant Surgeon and Head Dentist at Dentin Family Dentistry, Vaughan Ontario"
                   fill
+                  sizes="(max-width: 1024px) 90vw, 400px"
                   className="object-cover object-top"
                 />
                 {/* Gradient name strip */}
@@ -364,6 +414,7 @@ export default function HomePage() {
               src="/images/4d8ccd35-434e-49fd-8ed0-c6bd7b132369-768x625-1.jpg"
               alt="Dentin Family Dentistry clinic — modern dental facility in Vaughan"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -726,6 +777,7 @@ export default function HomePage() {
                     src={post.image}
                     alt={post.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Gradient overlay */}

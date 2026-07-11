@@ -3,9 +3,18 @@ import Link from "next/link";
 import { CheckCircle, Award, Users, Star, ArrowRight, Phone, Shield } from "lucide-react";
 
 export const metadata = {
-  title: "About Us | Dentin Family Dentistry Vaughan",
+  title: "About Us",
   description:
-    "Meet Dr. Mehdi Adibrad — Head & Implant Surgeon at Dentin Family Dentistry in Vaughan. 12+ years of experience in implants, cosmetic, and restorative dentistry.",
+    "Meet Dr. Mehdi Adibrad — Periodontist & Implant Surgeon at Dentin Family Dentistry in Vaughan. AFK top scorer, NDEB first-attempt pass, 10+ published articles, 12+ years of surgical experience in implants and periodontics.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Dr. Mehdi Adibrad | Dentin Family Dentistry Vaughan",
+    description:
+      "Meet Dr. Mehdi Adibrad — Periodontist & Implant Surgeon at Dentin Family Dentistry in Vaughan. Serving Vaughan patients with compassion and expertise.",
+    images: [{ url: "/images/dr-adibrad.jpg", alt: "Dr. Mehdi Adibrad — Dentin Family Dentistry Vaughan" }],
+  },
 };
 
 export default function AboutPage() {
@@ -37,6 +46,7 @@ export default function AboutPage() {
                 src="/images/dr-adibrad.jpg"
                 alt="Dr Mehdi Adibrad — Head and Implant Surgeon at Dentin Family Dentistry Vaughan"
                 fill
+                sizes="(max-width: 768px) 90vw, 400px"
                 className="object-cover"
                 priority
               />
@@ -66,9 +76,9 @@ export default function AboutPage() {
               {[
                 "Active General Dentistry Licence (RCDSO)",
                 "Ontario Dental Association Member",
-                "International Team for Implantology (ITI)",
+                "Canadian AFK Examination — Top Score",
                 "NDEB Equivalency — First Attempt Pass",
-                "AFK Examination Certified",
+                "10+ Peer-Reviewed Publications",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2 text-sm text-[#555574]">
                   <CheckCircle size={15} className="text-[#0D9488] shrink-0 mt-0.5" />
@@ -168,7 +178,7 @@ export default function AboutPage() {
                 },
                 {
                   title: "Experienced Implant Specialist On-Site",
-                  desc: "Dr. Adibrad — an ITI member with 12+ years of surgical expertise — performs all implant procedures at our Vaughan clinic.",
+                  desc: "Dr. Adibrad — a published periodontist and implant surgeon with 12+ years of expertise — performs all implant procedures at our Vaughan clinic.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4">

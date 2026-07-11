@@ -496,9 +496,9 @@ export default function HomePage() {
               },
               {
                 case: "Case 2",
-                label: "Implant + Laminate Veneers",
-                before: { src: "/images/Implant-and-Laminate-Veneers.jpg",    alt: "Before — Implant and laminate veneers" },
-                after:  { src: "/images/Implant-and-Laminate-Veneers-after.jpg", alt: "After — Implant and laminate veneers" },
+                label: "Single Tooth Implant",
+                before: { src: "/images/PHOTO-2026-02-20-15-20-10.jpg",   alt: "Before — missing tooth, implant abutment visible" },
+                after:  { src: "/images/PHOTO-2026-02-20-15-20-10-2.jpg", alt: "After — single tooth implant crown restored"       },
               },
             ].map((c) => (
               <div key={c.case} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">

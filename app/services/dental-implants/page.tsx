@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, Smile } from "lucide-react";
 
 export const metadata = {
@@ -75,6 +76,17 @@ export default function DentalImplantsPage() {
           </div>
 
           <div>
+            <div className="relative rounded-2xl overflow-hidden mb-6 shadow-sm bg-white border border-gray-100" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src="/images/dental-implant-diagram-2.png"
+                alt="Dental implant anatomy diagram — crown, abutment, screw, fixture"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain p-4"
+                priority
+              />
+            </div>
+
             <h3 className="text-2xl font-bold text-[#002C29] mb-6">Why Choose Implants?</h3>
             <div className="space-y-4">
               {benefits.map((b) => (

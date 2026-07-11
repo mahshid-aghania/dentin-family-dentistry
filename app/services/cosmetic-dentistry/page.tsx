@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, Sparkles } from "lucide-react";
 
 export const metadata = {
@@ -68,6 +69,17 @@ export default function CosmeticDentistryPage() {
           </div>
 
           <div>
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-6 shadow-sm">
+              <Image
+                src="/images/cosmetic-veneers-result.png"
+                alt="Porcelain veneers result — cosmetic dentistry at Dentin Family Dentistry Vaughan"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+
             <div className="bg-[#F0F0FF] rounded-2xl p-8 mb-6">
               <h3 className="text-xl font-bold text-[#002C29] mb-4">Is Cosmetic Dentistry Right for You?</h3>
               <p className="text-[#555574] text-sm mb-4">You may be a great candidate if you want to address:</p>

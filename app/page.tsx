@@ -426,12 +426,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative rounded-3xl overflow-hidden aspect-square hidden lg:block shadow-xl">
-            <Image
-              src="/images/Screenshot-2025-02-05-at-3.21.38-PM-1.png"
-              alt="Dentin Family Dentistry Vaughan — state-of-the-art dental facility"
-              fill
-              className="object-cover"
+          <div className="relative rounded-3xl overflow-hidden aspect-[9/16] hidden lg:block shadow-xl max-h-[640px]">
+            <video
+              src="/videos/excellence-reel.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
         </div>

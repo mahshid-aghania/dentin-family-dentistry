@@ -53,8 +53,8 @@ export default function Footer() {
 
           {/* Column 1 — Brand */}
           <div>
-            <Link href="/" className="inline-block mb-5">
-              <div className="bg-white rounded-xl px-4 py-2 inline-block">
+            <Link href="/" className="inline-block mb-5 group">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 inline-block shadow-md shadow-black/20 ring-1 ring-white/10 group-hover:shadow-lg group-hover:bg-white transition-all duration-200">
                 <Image
                   src="/images/logo-color.png"
                   alt="Dentin Family Dentistry — Vaughan"

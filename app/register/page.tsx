@@ -100,13 +100,15 @@ export default function RegisterPage() {
           {/* Mobile logo */}
           <div className="lg:hidden mb-8 text-center">
             <Link href="/">
-              <Image
-                src="/images/logo-color.png"
-                alt="Dentin Family Dentistry"
-                width={200}
-                height={64}
-                className="h-14 w-auto object-contain mx-auto rounded-xl"
-              />
+              <div className="inline-block bg-white rounded-2xl px-5 py-3 shadow-md">
+                <Image
+                  src="/images/logo-color.png"
+                  alt="Dentin Family Dentistry"
+                  width={180}
+                  height={56}
+                  className="h-11 w-auto object-contain mx-auto"
+                />
+              </div>
             </Link>
           </div>
 
@@ -120,7 +122,7 @@ export default function RegisterPage() {
                     alt="Dentin Family Dentistry"
                     width={180}
                     height={56}
-                    className="h-12 w-auto object-contain rounded-xl"
+                    className="h-11 w-auto object-contain rounded-2xl"
                   />
                 </Link>
               </div>

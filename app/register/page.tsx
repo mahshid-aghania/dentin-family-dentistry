@@ -100,15 +100,13 @@ export default function RegisterPage() {
           {/* Mobile logo */}
           <div className="lg:hidden mb-8 text-center">
             <Link href="/">
-              <div className="inline-block bg-[#002C29] rounded-2xl px-6 py-3">
-                <Image
-                  src="/images/logo2_cropped.png"
-                  alt="Dentin Family Dentistry"
-                  width={150}
-                  height={48}
-                  className="h-11 w-auto object-contain mx-auto"
-                />
-              </div>
+              <Image
+                src="/images/logo-on-dark.png"
+                alt="Dentin Family Dentistry"
+                width={200}
+                height={64}
+                className="h-14 w-auto object-contain mx-auto rounded-xl"
+              />
             </Link>
           </div>
 
@@ -117,15 +115,13 @@ export default function RegisterPage() {
               {/* Desktop logo inside form card */}
               <div className="hidden lg:block mb-6">
                 <Link href="/">
-                  <div className="inline-block bg-[#002C29] rounded-xl px-5 py-2.5">
-                    <Image
-                      src="/images/logo2_cropped.png"
-                      alt="Dentin Family Dentistry"
-                      width={140}
-                      height={44}
-                      className="h-9 w-auto object-contain"
-                    />
-                  </div>
+                  <Image
+                    src="/images/logo-on-dark.png"
+                    alt="Dentin Family Dentistry"
+                    width={180}
+                    height={56}
+                    className="h-12 w-auto object-contain rounded-xl"
+                  />
                 </Link>
               </div>
               <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-2">Patient Portal</div>

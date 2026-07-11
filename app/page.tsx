@@ -486,24 +486,41 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
             {[
-              { src: "/images/transformation-img-1.jpg", label: "Before", alt: "Before dental transformation — case 1" },
-              { src: "/images/transformation-img-2.jpg", label: "After",  alt: "After dental transformation — case 1" },
-              { src: "/images/transformation-img-3-1.jpg", label: "Before", alt: "Before dental transformation — case 2" },
-              { src: "/images/transformation-img-4-1.jpg", label: "After",  alt: "After dental transformation — case 2" },
-            ].map((img, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-2xl shadow-sm">
-                <div className="relative aspect-square">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+              {
+                case: "Case 1",
+                label: "Implant + Composite Veneers",
+                before: { src: "/images/Implant-and-composite-veneers.jpg",   alt: "Before — Implant and composite veneers" },
+                after:  { src: "/images/Implant-and-composite-veneers-2.jpg", alt: "After — Implant and composite veneers"  },
+              },
+              {
+                case: "Case 2",
+                label: "Implant + Laminate Veneers",
+                before: { src: "/images/Implant-and-Laminate-Veneers.jpg",    alt: "Before — Implant and laminate veneers" },
+                after:  { src: "/images/Implant-and-Laminate-Veneers-after.jpg", alt: "After — Implant and laminate veneers" },
+              },
+            ].map((c) => (
+              <div key={c.case} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="px-5 pt-5 pb-3 flex items-center gap-3">
+                  <span className="text-[10px] font-bold uppercase tracking-widest bg-[#F0F0FF] text-[#0D9488] px-2.5 py-1 rounded-full">{c.case}</span>
+                  <span className="text-sm font-semibold text-[#002C29]">{c.label}</span>
                 </div>
-                <div className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full backdrop-blur-sm ${img.label === "Before" ? "bg-black/60 text-white" : "bg-[#0D9488]/90 text-white"}`}>
-                  {img.label}
+                <div className="grid grid-cols-2 gap-2 px-4 pb-4">
+                  {[c.before, c.after].map((img, j) => (
+                    <div key={j} className="relative aspect-[3/4] overflow-hidden rounded-2xl group">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 50vw, 300px"
+                      />
+                      <div className={`absolute top-2 left-2 text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-sm ${j === 0 ? "bg-black/60 text-white" : "bg-[#0D9488]/90 text-white"}`}>
+                        {j === 0 ? "Before" : "After"}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}

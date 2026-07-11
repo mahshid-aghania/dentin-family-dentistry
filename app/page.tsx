@@ -145,7 +145,7 @@ export default function HomePage() {
                 {/* Gradient name strip */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#001A18]/90 via-[#001A18]/40 to-transparent pt-12 pb-5 px-5">
                   <p className="text-white font-bold text-sm">Dr. Mehdi Adibrad</p>
-                  <p className="text-white/70 text-xs mt-0.5">Head Dentist &amp; Implant Surgeon · Vaughan, ON</p>
+                  <p className="text-white/70 text-xs mt-0.5">Periodontist &amp; Implant Surgeon · Vaughan, ON</p>
                 </div>
               </div>
 
@@ -175,19 +175,22 @@ export default function HomePage() {
               {/* Bio */}
               <div>
                 <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
-                  Dr. Mehdi Adibrad brings over 12 years of clinical expertise in implant surgery, periodontics, and cosmetic dentistry to his patients in Vaughan. Before establishing his practice in Canada, he built a respected career as a periodontist and oral surgeon — and completed the rigorous <strong className="text-[#002C29] font-semibold">NDEB Equivalency Process on his very first attempt</strong>, a benchmark achieved by fewer than half of candidates.
+                  With a track record of over <strong className="text-[#002C29] font-semibold">10 published articles in renowned peer-reviewed journals</strong>, Dr. Adibrad excelled as a periodontist, implantologist, and surgeon before establishing himself in the Canadian dental landscape.
+                </p>
+                <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
+                  His achievements include <strong className="text-[#002C29] font-semibold">topping the Canadian Assessment of Fundamental Knowledge (AFK) examination</strong> and securing his general dentistry licence through the <strong className="text-[#002C29] font-semibold">NDEB Equivalency Process on his very first attempt</strong> — a benchmark achieved by fewer than half of candidates.
                 </p>
                 <p className="text-[#555574] leading-relaxed text-[15px]">
-                  As an active member of both the <strong className="text-[#002C29] font-semibold">International Team for Implantology (ITI)</strong> and the <strong className="text-[#002C29] font-semibold">Ontario Dental Association</strong>, Dr. Adibrad stays at the leading edge of dental innovation — with a particular focus on One-Day Implant solutions that deliver permanent, natural-looking results.
+                  He specialises in periodontics, dental implants, and oral surgery — from treating gum disease to placing implants and performing bone grafting — applying meticulous, evidence-based techniques to achieve lasting, natural-looking results.
                 </p>
               </div>
 
               {/* Pull quote */}
               <blockquote className="relative border-l-[3px] border-[#0D9488] pl-6 py-1">
                 <p className="text-[#002C29] font-semibold italic text-[15px] leading-relaxed">
-                  &ldquo;When it comes to dental implants, precision, experience, and advanced technology make all the difference — and so does genuinely listening to each patient.&rdquo;
+                  &ldquo;Precision, expertise, and compassion — where your smile is the masterpiece in the making.&rdquo;
                 </p>
-                <cite className="text-[#555574] text-sm mt-2 block not-italic font-medium">— Dr. Mehdi Adibrad, Head &amp; Implant Surgeon</cite>
+                <cite className="text-[#555574] text-sm mt-2 block not-italic font-medium">— Dr. Mehdi Adibrad, Periodontist &amp; Implant Surgeon</cite>
               </blockquote>
 
               {/* Credential cards */}
@@ -195,10 +198,10 @@ export default function HomePage() {
                 <p className="text-[10px] font-bold text-[#002C29] uppercase tracking-widest mb-3">Credentials &amp; Affiliations</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {[
-                    { Icon: Shield, label: "RCDSO General Dentistry Licence", sub: "Active licence — Province of Ontario" },
-                    { Icon: Globe,  label: "ITI — International Implantology", sub: "International Team for Implantology" },
-                    { Icon: Users,  label: "Ontario Dental Association", sub: "ODA member in good standing" },
-                    { Icon: Award,  label: "NDEB Equivalency — First Attempt", sub: "National Dental Examining Board of Canada" },
+                    { Icon: Shield, label: "RCDSO — Active Licence",           sub: "Royal College of Dental Surgeons of Ontario" },
+                    { Icon: Award,  label: "Canadian AFK — Top Score",          sub: "Assessment of Fundamental Knowledge exam"    },
+                    { Icon: Users,  label: "ODA · CDA Member",                  sub: "Ontario & Canadian Dental Association"       },
+                    { Icon: Globe,  label: "NDEB Equivalency — First Attempt",  sub: "National Dental Examining Board of Canada"   },
                   ].map(({ Icon, label, sub }) => (
                     <div key={label} className="flex items-start gap-3 bg-[#F8F8FF] border border-gray-100 rounded-xl px-4 py-3.5">
                       <div className="w-8 h-8 bg-[#0D9488]/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
@@ -216,10 +219,10 @@ export default function HomePage() {
               {/* Stats strip */}
               <div className="grid grid-cols-4 gap-4 border-t border-b border-gray-100 py-5">
                 {[
-                  { value: "12+",  label: "Years Experience" },
-                  { value: "500+", label: "Happy Patients"   },
-                  { value: "ITI",  label: "Intl. Member"     },
-                  { value: "24/7", label: "Emergency Care"   },
+                  { value: "10+",     label: "Published Articles" },
+                  { value: "500+",    label: "Happy Patients"     },
+                  { value: "#1",      label: "AFK Score"          },
+                  { value: "24/7",    label: "Emergency Care"     },
                 ].map(({ value, label }) => (
                   <div key={label} className="text-center">
                     <p className="text-xl font-extrabold text-[#0D9488] leading-none">{value}</p>
@@ -251,73 +254,101 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-20 px-4 bg-[#F0F0FF]">
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
+
+          {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
-              <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">Our Services</div>
+              <div className="inline-flex items-center gap-1.5 text-[#0D9488] font-bold uppercase text-xs tracking-widest mb-3">
+                <Sparkles size={11} /> Our Services
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight max-w-xl">
-                Comprehensive Dental Care Under One Roof
+                Comprehensive Dental Care<br className="hidden md:block" /> Under One Roof
               </h2>
             </div>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 border-2 border-[#0D9488] text-[#0D9488] font-semibold hover:bg-[#0D9488] hover:text-white transition-colors shrink-0"
-              style={{ borderRadius: "100px", padding: "13px 26px" }}
-            >
-              View All Services <ArrowRight size={15} />
+            <Link href="/services"
+              className="inline-flex items-center gap-2 bg-[#002C29] hover:bg-[#0D9488] text-white text-sm font-semibold transition-colors shrink-0 px-6 py-3 rounded-full">
+              View All Services <ArrowRight size={14} />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Cards — full-bleed portrait with overlay */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
               {
                 title: "General Dentistry",
+                category: "Family Care",
                 desc: "Routine cleanings, exams, X-rays, and preventive treatments to keep your entire family's smile healthy.",
                 image: "/images/service-img-1-1.jpg",
                 href: "/services/general-dentistry",
-                icon: <Shield size={16} />,
+                Icon: Shield,
+                accent: "#0D9488",
               },
               {
                 title: "Cosmetic Dentistry",
-                desc: "Porcelain veneers, teeth whitening, dental bonding, and smile makeovers tailored to your unique features.",
-                image: "/images/Screenshot-2026-03-14-at-4.13.07-PM.png",
+                category: "Smile Design",
+                desc: "Porcelain veneers, teeth whitening, and smile makeovers tailored to your unique features.",
+                image: "/images/Implant-and-composite-veneers-2.jpg",
                 href: "/services/cosmetic-dentistry",
-                icon: <Sparkles size={16} />,
+                Icon: Sparkles,
+                accent: "#7C3AED",
               },
               {
                 title: "Dental Implants",
+                category: "Implant Surgery",
                 desc: "Same-day implant solutions by Dr. Adibrad — a permanent, natural-looking replacement for missing teeth.",
-                image: "/images/restorative-dentistry.png",
+                image: "/images/PHOTO-2026-02-20-15-20-10-2.jpg",
                 href: "/services/dental-implants",
-                icon: <Layers size={16} />,
+                Icon: Layers,
+                accent: "#2563EB",
               },
-            ].map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={`${service.title} at Dentin Family Dentistry Vaughan`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-400"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-[#0D9488] mb-2">
-                    {service.icon}
-                    <h3 className="font-bold text-[#002C29] text-lg group-hover:text-[#0D9488] transition-colors">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="text-[#555574] text-sm leading-relaxed mb-4">{service.desc}</p>
-                  <span className="text-[#0D9488] text-xs font-semibold flex items-center gap-1 group-hover:underline">
-                    Learn More <ArrowRight size={12} />
+            ].map((s) => (
+              <Link key={s.title} href={s.href}
+                className="group relative rounded-3xl overflow-hidden block"
+                style={{ aspectRatio: "3/4" }}>
+
+                {/* Photo */}
+                <Image
+                  src={s.image}
+                  alt={`${s.title} at Dentin Family Dentistry Vaughan`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+
+                {/* Top: category pill */}
+                <div className="absolute top-5 left-5">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest backdrop-blur-md text-white px-3 py-1.5 rounded-full border border-white/20"
+                    style={{ background: s.accent + "cc" }}>
+                    <s.Icon size={11} /> {s.category}
                   </span>
                 </div>
+
+                {/* Bottom: text content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-white text-xl font-bold leading-tight mb-2 group-hover:text-[#4ECDC4] transition-colors duration-300">
+                    {s.title}
+                  </h3>
+                  <p className="text-white/65 text-sm leading-relaxed mb-5">{s.desc}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300"
+                    style={{ color: "#4ECDC4" }}>
+                    Learn More <ArrowRight size={14} />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom service tags row */}
+          <div className="flex flex-wrap gap-2 mt-8 justify-center">
+            {["Emergency Care","Endodontics","Oral Surgery","Pediatric Dentistry","Restorative Dentistry","Periodontics"].map((tag) => (
+              <Link key={tag} href="/services"
+                className="text-xs font-semibold text-[#555574] hover:text-[#0D9488] bg-[#F8F8FF] hover:bg-[#F0F0FF] border border-gray-100 hover:border-[#0D9488]/30 px-4 py-2 rounded-full transition-all duration-200">
+                {tag}
               </Link>
             ))}
           </div>

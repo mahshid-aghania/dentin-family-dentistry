@@ -164,6 +164,31 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── CLINIC HIGHLIGHTS (videos) ── */}
+      <section className="py-16 px-4 bg-[#001A18]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">See Us in Action</div>
+            <h2 className="text-3xl font-bold text-white">Clinic Highlights</h2>
+            <p className="text-white/60 mt-2 text-sm max-w-md mx-auto">Short clips from our clinic in Vaughan — real patients, real care.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <div key={n} className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-[#0D2420]">
+                <video
+                  src={`/videos/dr-adibrad-${n}.mp4`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── ABOUT / DOCTOR ── */}
       <section className="py-24 px-4 bg-white" aria-label="About Dr. Mehdi Adibrad">
         <div className="max-w-7xl mx-auto">

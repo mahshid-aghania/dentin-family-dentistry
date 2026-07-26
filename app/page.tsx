@@ -165,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* ── ABOUT / DOCTOR ── */}
-      <section className="py-24 px-4 bg-white overflow-hidden" aria-label="About Dr. Mehdi Adibrad">
+      <section className="py-24 px-4 bg-white" aria-label="About Dr. Mehdi Adibrad">
         <div className="max-w-7xl mx-auto">
 
           {/* Section label */}
@@ -181,12 +181,12 @@ export default function HomePage() {
 
             {/* ── Left: photo column ── */}
             <div className="relative max-w-sm mx-auto lg:mx-0 lg:sticky lg:top-28">
-              {/* Teal accent block behind photo */}
-              <div className="absolute -top-5 -left-5 w-full h-full bg-[#F0F0FF] rounded-3xl" />
+              {/* Teal accent block behind photo — hidden on mobile to avoid horizontal overflow */}
+              <div className="absolute -top-5 -left-5 w-full h-full bg-[#F0F0FF] rounded-3xl hidden lg:block" />
 
               <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
                 <Image
-                  src="/images/dr-adibrad.jpg"
+                  src="/images/dr-adibrad-portrait.jpg"
                   alt="Dr. Mehdi Adibrad — Implant Surgeon and Head Dentist at Dentin Family Dentistry, Vaughan Ontario"
                   fill
                   sizes="(max-width: 1024px) 90vw, 400px"

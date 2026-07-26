@@ -43,18 +43,18 @@ export default function AboutPage() {
           <div className="relative max-w-sm mx-auto md:mx-0">
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
               <Image
-                src="/images/dr-adibrad.jpg"
+                src="/images/dr-adibrad-portrait.jpg"
                 alt="Dr Mehdi Adibrad — Head and Implant Surgeon at Dentin Family Dentistry Vaughan"
                 fill
                 sizes="(max-width: 768px) 90vw, 400px"
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black/55 text-white text-xs py-3 text-center font-medium tracking-wide">
                 Dr. Mehdi Adibrad — Head &amp; Implant Surgeon
               </div>
             </div>
-            <div className="absolute top-6 right-[-12px] bg-[#0D9488] text-white rounded-2xl px-5 py-4 shadow-lg text-center">
+            <div className="absolute top-6 right-2 md:right-[-12px] bg-[#0D9488] text-white rounded-2xl px-5 py-4 shadow-lg text-center">
               <div className="text-2xl font-bold">12+</div>
               <div className="text-xs font-medium">Years Exp.</div>
             </div>
@@ -110,6 +110,62 @@ export default function AboutPage() {
                 <Phone size={15} /> (437) 900-2200
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dr. Adibrad Photo Gallery */}
+      <section className="py-16 px-4 bg-[#F8F8FF]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">At the Clinic</div>
+            <h2 className="text-3xl font-bold text-[#002C29]">Dr. Adibrad in Action</h2>
+            <p className="text-[#555574] mt-2 text-sm max-w-md mx-auto">A look at the care and precision Dr. Adibrad brings to every patient visit.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { src: "/images/dr-adibrad.jpg", alt: "Dr. Adibrad at Dentin Family Dentistry Vaughan" },
+              { src: "/images/drMehdiRad-e1773681597167.jpg", alt: "Dr. Mehdi Adibrad — dental surgeon Vaughan" },
+              { src: "/images/PHOTO-2026-02-20-15-20-10.jpg", alt: "Dr. Adibrad treating a patient" },
+              { src: "/images/PHOTO-2026-02-20-15-20-10-2.jpg", alt: "Dr. Adibrad in the dental clinic" },
+              { src: "/images/Screenshot-2025-01-27-at-7.00-Photoroom-1.png", alt: "Dr. Mehdi Adibrad portrait" },
+              { src: "/images/Screenshot-2026-03-14-at-4.13.07-PM.png", alt: "Dr. Adibrad patient consultation" },
+            ].map((photo) => (
+              <div key={photo.src} className="relative aspect-square rounded-2xl overflow-hidden shadow-sm bg-[#e8e8f0]">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover object-top"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Gallery */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">See Us in Action</div>
+            <h2 className="text-3xl font-bold text-[#002C29]">Clinic Highlights</h2>
+            <p className="text-[#555574] mt-2 text-sm max-w-md mx-auto">Short clips from our clinic in Vaughan — real patients, real care.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <div key={n} className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-md bg-[#001A18]">
+                <video
+                  src={`/videos/dr-adibrad-${n}.mp4`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

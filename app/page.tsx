@@ -226,7 +226,7 @@ export default function HomePage() {
 
               {/* Floating badge — top right */}
               <div className="absolute -top-3 -right-3 bg-[#0D9488] text-white rounded-2xl px-4 py-3 shadow-xl text-center z-10">
-                <div className="text-2xl font-extrabold leading-none">12+</div>
+                <div className="text-2xl font-extrabold leading-none">17+</div>
                 <div className="text-[10px] font-semibold mt-0.5 uppercase tracking-wide">Years Exp.</div>
               </div>
 
@@ -250,7 +250,10 @@ export default function HomePage() {
               {/* Bio */}
               <div>
                 <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
-                  With a track record of over <strong className="text-[#002C29] font-semibold">10 published articles in renowned peer-reviewed journals</strong>, Dr. Adibrad excelled as a periodontist, implantologist, and surgeon before establishing himself in the Canadian dental landscape.
+                  With <strong className="text-[#002C29] font-semibold">over 17 years of experience</strong> and a track record of over <strong className="text-[#002C29] font-semibold">10 published articles in renowned peer-reviewed journals</strong>, Dr. Adibrad excelled as a periodontist, implantologist, and surgeon before establishing himself in the Canadian dental landscape.
+                </p>
+                <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
+                  He also serves as <strong className="text-[#002C29] font-semibold">Head of the ConfiDentist Group</strong>, where he mentors internationally trained dentists through the Canadian licensing process.
                 </p>
                 <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
                   His achievements include <strong className="text-[#002C29] font-semibold">topping the Canadian Assessment of Fundamental Knowledge (AFK) examination</strong> and securing his general dentistry licence through the <strong className="text-[#002C29] font-semibold">NDEB Equivalency Process on his very first attempt</strong> — a benchmark achieved by fewer than half of candidates.
@@ -277,6 +280,8 @@ export default function HomePage() {
                     { Icon: Award,  label: "Canadian AFK — Top Score",          sub: "Assessment of Fundamental Knowledge exam"    },
                     { Icon: Users,  label: "ODA · CDA Member",                  sub: "Ontario & Canadian Dental Association"       },
                     { Icon: Globe,  label: "NDEB Equivalency — First Attempt",  sub: "National Dental Examining Board of Canada"   },
+                    { Icon: Award,  label: "Head — ConfiDentist Group",         sub: "Licensing mentor for internationally trained dentists" },
+                    { Icon: Shield, label: "17+ Years of Experience",           sub: "Periodontics, implants & oral surgery"        },
                   ].map(({ Icon, label, sub }) => (
                     <div key={label} className="flex items-start gap-3 bg-[#F8F8FF] border border-gray-100 rounded-xl px-4 py-3.5">
                       <div className="w-8 h-8 bg-[#0D9488]/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">

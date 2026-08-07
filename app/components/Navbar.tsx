@@ -42,6 +42,7 @@ const allServiceLinks = serviceLinks.flatMap((g) => g.items);
 export default function Navbar() {
   const [mobileOpen, setMobileOpen]                 = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen]       = useState(false);
   const { user, logout }                            = useAuth();
 
   return (
@@ -106,10 +107,29 @@ export default function Navbar() {
             </Link>
           </li>
 
-          <li>
-            <Link href="/about" className="px-3 py-2 rounded-lg hover:bg-[#F0F0FF] hover:text-[#0D9488] transition-colors block">
-              About Us
+          {/* About Us dropdown */}
+          <li className="relative group">
+            <Link
+              href="/about"
+              className="flex items-center gap-1 px-3 py-2 rounded-lg hover:bg-[#F0F0FF] hover:text-[#0D9488] transition-colors"
+            >
+              About Us <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
             </Link>
+
+            <div className="absolute top-full left-0 mt-1 hidden group-hover:block w-44 bg-white shadow-xl rounded-xl border border-gray-100 py-2 z-50">
+              <Link
+                href="/about"
+                className="block px-4 py-2 text-sm text-[#002C29] hover:bg-[#F0F0FF] hover:text-[#0D9488] transition-colors"
+              >
+                About Us
+              </Link>
+              <Link
+                href="/about/drs"
+                className="block px-4 py-2 text-sm text-[#002C29] hover:bg-[#F0F0FF] hover:text-[#0D9488] transition-colors"
+              >
+                Drs
+              </Link>
+            </div>
           </li>
 
           {/* Services mega-dropdown */}
@@ -255,20 +275,44 @@ export default function Navbar() {
         <div className="lg:hidden bg-white border-t border-gray-100 px-4 pb-6 max-h-[80vh] overflow-y-auto">
           <ul className="flex flex-col text-sm font-medium text-[#002C29] mt-3 gap-0.5">
 
-            {[
-              { href: "/", label: "Home" },
-              { href: "/about", label: "About Us" },
-            ].map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="flex items-center py-3 border-b border-gray-100 hover:text-[#0D9488] transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link
+                href="/"
+                className="flex items-center py-3 border-b border-gray-100 hover:text-[#0D9488] transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+
+            {/* Mobile About Us */}
+            <li>
+              <button
+                className="w-full text-left py-3 flex items-center justify-between border-b border-gray-100 hover:text-[#0D9488] transition-colors"
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+              >
+                About Us
+                <ChevronDown size={14} className={`transition-transform duration-200 ${mobileAboutOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileAboutOpen && (
+                <div className="pb-2 pt-1">
+                  <Link
+                    href="/about"
+                    className="flex items-center px-2 py-2 rounded-lg text-[#555574] hover:text-[#0D9488] hover:bg-[#F0F0FF] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/about/drs"
+                    className="flex items-center px-2 py-2 rounded-lg text-[#555574] hover:text-[#0D9488] hover:bg-[#F0F0FF] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Drs
+                  </Link>
+                </div>
+              )}
+            </li>
 
             {/* Mobile services */}
             <li>

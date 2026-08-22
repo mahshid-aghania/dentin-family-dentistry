@@ -92,7 +92,7 @@ export default function ServicesPage() {
             <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">What We Offer</div>
             <h2 className="text-3xl font-bold text-[#002C29] mb-3">Everything Your Smile Needs</h2>
             <p className="text-[#555574] max-w-xl mx-auto text-sm leading-relaxed">
-              Dr. Adibrad and our specialist team provide a complete range of dental services — so you never need to be referred elsewhere for routine or complex care.
+              Dr. Adibrad and our experienced team provide a complete range of dental services — so you never need to be referred elsewhere for routine or complex care.
             </p>
           </div>
 

@@ -3,17 +3,17 @@ import Link from "next/link";
 import { CheckCircle, Award, Users, Star, ArrowRight, Phone, Shield } from "lucide-react";
 
 export const metadata = {
-  title: "About Us",
+  title: { absolute: "Dr. Mehdi Adibrad | Implant Dentist in Vaughan" },
   description:
-    "Meet Dr. Mehdi Adibrad — Periodontist & Implant Surgeon at Dentin Family Dentistry in Vaughan. AFK top scorer, NDEB first-attempt pass, 10+ published articles, 12+ years of surgical experience in implants and periodontics.",
+    "Dr. Mehdi Adibrad, DDS, MSc — Ontario-licensed general dentist and experienced implant dentist at Dentin Family Dentistry in Vaughan. Book a consultation.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Dr. Mehdi Adibrad | Dentin Family Dentistry Vaughan",
+    title: "Dr. Mehdi Adibrad | Implant Dentist in Vaughan",
     description:
-      "Meet Dr. Mehdi Adibrad — Periodontist & Implant Surgeon at Dentin Family Dentistry in Vaughan. Serving Vaughan patients with compassion and expertise.",
-    images: [{ url: "/images/dr-adibrad.jpg", alt: "Dr. Mehdi Adibrad — Dentin Family Dentistry Vaughan" }],
+      "Ontario-licensed general dentist and experienced implant dentist at Dentin Family Dentistry in Vaughan — internationally trained in periodontics and implant dentistry.",
+    images: [{ url: "/images/dr-adibrad.jpg", alt: "Dr. Mehdi Adibrad, general dentist and implant dentist at Dentin Family Dentistry in Vaughan" }],
   },
 };
 
@@ -44,18 +44,18 @@ export default function AboutPage() {
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
               <Image
                 src="/images/dr-adibrad-portrait.jpg"
-                alt="Dr Mehdi Adibrad — Head and Implant Surgeon at Dentin Family Dentistry Vaughan"
+                alt="Dr. Mehdi Adibrad — head dentist and implant dentist at Dentin Family Dentistry in Vaughan"
                 fill
                 sizes="(max-width: 768px) 90vw, 400px"
                 className="object-cover object-top"
                 priority
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black/55 text-white text-xs py-3 text-center font-medium tracking-wide">
-                Dr. Mehdi Adibrad — Head &amp; Implant Surgeon
+                Dr. Mehdi Adibrad — Head Dentist &amp; Implant Dentist
               </div>
             </div>
             <div className="absolute top-6 right-2 md:right-[-12px] bg-[#0D9488] text-white rounded-2xl px-5 py-4 shadow-lg text-center">
-              <div className="text-2xl font-bold">12+</div>
+              <div className="text-2xl font-bold">17+</div>
               <div className="text-xs font-medium">Years Exp.</div>
             </div>
           </div>
@@ -63,22 +63,29 @@ export default function AboutPage() {
           <div>
             <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">Your Trusted Dentist</div>
             <h2 className="text-3xl font-bold text-[#002C29] mb-5 leading-tight">
-              Dr. Mehdi Adibrad — Head &amp; Implant Surgeon
+              Dr. Mehdi Adibrad — Head Dentist &amp; Implant Dentist
             </h2>
             <p className="text-[#555574] leading-relaxed mb-4">
-              Dr. Mehdi Adibrad is a highly skilled and compassionate dentist with over 12 years of experience. Before establishing himself in Canada, he built a respected reputation as a periodontist and oral surgeon, and served as head instructor at the ConfiDentist Group — helping internationally trained dentists achieve Canadian licensing.
+              Dr. Mehdi Adibrad, DDS, MSc, is an Ontario-licensed general dentist and the head dentist at Dentin Family Dentistry, with more than 17 years of experience and active membership in the Royal College of Dental Surgeons of Ontario (RCDSO). He completed his dental education at Shahid Beheshti University and earned a Master&rsquo;s degree in Periodontics and Implantology in Iran, where he trained and was previously licensed as a periodontist and implant specialist.
+            </p>
+            <p className="text-[#555574] leading-relaxed mb-4">
+              As an experienced implant dentist in Vaughan, he draws on extensive international training in periodontics, implant dentistry, and oral surgery to provide dental implants in Vaughan, periodontal care, gum-disease treatment, bone grafting, and comprehensive general dentistry — always with a patient-centred, evidence-based approach.
             </p>
             <p className="text-[#555574] leading-relaxed mb-6">
-              &ldquo;When it comes to dental implants, precision, experience, and advanced technology make all the difference.&rdquo; Dr. Adibrad specializes in One-Day Implant solutions using meticulous planning and high-quality materials.
+              Dr. Adibrad is also the Founder and ConfiDentist Head Instructor, where he mentors internationally trained dentists pursuing Canadian dental licensure. &ldquo;Precision, experience, and careful planning make all the difference,&rdquo; he says of his approach to patient care.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
               {[
-                "Active General Dentistry Licence (RCDSO)",
-                "Ontario Dental Association Member",
+                "DDS, MSc · 17+ years of experience",
+                "Ontario-Licensed General Dentist (RCDSO)",
+                "Master's in Periodontics & Implantology (Iran)",
+                "Trained & previously licensed as a periodontist in Iran",
+                "Top Rank — Iran's Periodontology Board Exam",
                 "Canadian AFK Examination — Top Score",
-                "NDEB Equivalency — First Attempt Pass",
+                "NDEB Equivalency — First-Attempt Pass",
                 "10+ Peer-Reviewed Publications",
+                "Founder & Head Instructor, ConfiDentist",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2 text-sm text-[#555574]">
                   <CheckCircle size={15} className="text-[#0D9488] shrink-0 mt-0.5" />
@@ -124,7 +131,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { src: "/images/dr-adibrad.jpg", alt: "Dr. Adibrad at Dentin Family Dentistry Vaughan" },
+              { src: "/images/dr-adibrad-portrait.jpg", alt: "Dr. Mehdi Adibrad, general dentist and implant dentist at Dentin Family Dentistry in Vaughan" },
               { src: "/images/drMehdiRad-e1773681597167.jpg", alt: "Dr. Mehdi Adibrad — dental surgeon Vaughan" },
               { src: "/images/PHOTO-2026-02-20-15-20-10.jpg", alt: "Dr. Adibrad treating a patient" },
               { src: "/images/PHOTO-2026-02-20-15-20-10-2.jpg", alt: "Dr. Adibrad in the dental clinic" },
@@ -233,8 +240,8 @@ export default function AboutPage() {
                   desc: "We're proud to accept the Canadian Dental Care Plan and work with all major dental insurance providers.",
                 },
                 {
-                  title: "Experienced Implant Specialist On-Site",
-                  desc: "Dr. Adibrad — a published periodontist and implant surgeon with 12+ years of expertise — performs all implant procedures at our Vaughan clinic.",
+                  title: "Experienced Implant Dentist On-Site",
+                  desc: "Dr. Adibrad — an experienced implant dentist, internationally trained in periodontics, with 17+ years of expertise — performs implant procedures at our Vaughan clinic.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex gap-4">

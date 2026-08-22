@@ -101,7 +101,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[3.8rem] font-bold text-white leading-[1.08] mb-6">
-              Trusted Dentist &amp;<br />Implant Surgeon<br />
+              Trusted Dentist &amp;<br />Implant Dentist<br />
               <span className="text-[#4ECDC4]">in Vaughan</span>
             </h1>
 
@@ -198,7 +198,7 @@ export default function HomePage() {
             <div className="text-[#0D9488] font-semibold uppercase text-xs tracking-widest mb-3">Meet Your Doctor</div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#002C29] leading-tight">
               Dr. Mehdi Adibrad —<br className="hidden sm:block" />
-              <span className="text-[#0D9488]"> Implant Surgeon &amp; Head Dentist in Vaughan, ON</span>
+              <span className="text-[#0D9488]"> Head Dentist &amp; Implant Dentist in Vaughan, ON</span>
             </h2>
           </div>
 
@@ -212,7 +212,7 @@ export default function HomePage() {
               <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-xl">
                 <Image
                   src="/images/dr-adibrad-portrait.jpg"
-                  alt="Dr. Mehdi Adibrad — Implant Surgeon and Head Dentist at Dentin Family Dentistry, Vaughan Ontario"
+                  alt="Dr. Mehdi Adibrad — head dentist and implant dentist at Dentin Family Dentistry, Vaughan Ontario"
                   fill
                   sizes="(max-width: 1024px) 90vw, 400px"
                   className="object-cover object-top"
@@ -220,7 +220,7 @@ export default function HomePage() {
                 {/* Gradient name strip */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#001A18]/90 via-[#001A18]/40 to-transparent pt-12 pb-5 px-5">
                   <p className="text-white font-bold text-sm">Dr. Mehdi Adibrad</p>
-                  <p className="text-white/70 text-xs mt-0.5">Periodontist &amp; Implant Surgeon · Vaughan, ON</p>
+                  <p className="text-white/70 text-xs mt-0.5">General Dentist &amp; Implant Dentist · Vaughan, ON</p>
                 </div>
               </div>
 
@@ -250,10 +250,10 @@ export default function HomePage() {
               {/* Bio */}
               <div>
                 <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
-                  With <strong className="text-[#002C29] font-semibold">over 17 years of experience</strong> and a track record of over <strong className="text-[#002C29] font-semibold">10 published articles in renowned peer-reviewed journals</strong>, Dr. Adibrad excelled as a periodontist, implantologist, and surgeon before establishing himself in the Canadian dental landscape.
+                  With <strong className="text-[#002C29] font-semibold">over 17 years of experience</strong> and a track record of over <strong className="text-[#002C29] font-semibold">10 published articles in peer-reviewed journals</strong>, Dr. Adibrad trained and was previously licensed as a periodontist and implant specialist in Iran before establishing himself in Canada as an Ontario-licensed general dentist and experienced implant dentist.
                 </p>
                 <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
-                  He also serves as <strong className="text-[#002C29] font-semibold">Head of the ConfiDentist Group</strong>, where he mentors internationally trained dentists through the Canadian licensing process.
+                  He is also the <strong className="text-[#002C29] font-semibold">Founder &amp; Head Instructor at ConfiDentist</strong>, where he mentors internationally trained dentists through the Canadian licensing process.
                 </p>
                 <p className="text-[#555574] leading-relaxed text-[15px] mb-4">
                   His achievements include <strong className="text-[#002C29] font-semibold">topping the Canadian Assessment of Fundamental Knowledge (AFK) examination</strong> and securing his general dentistry licence through the <strong className="text-[#002C29] font-semibold">NDEB Equivalency Process on his very first attempt</strong> — a benchmark achieved by fewer than half of candidates.
@@ -268,7 +268,7 @@ export default function HomePage() {
                 <p className="text-[#002C29] font-semibold italic text-[15px] leading-relaxed">
                   &ldquo;Precision, expertise, and compassion — where your smile is the masterpiece in the making.&rdquo;
                 </p>
-                <cite className="text-[#555574] text-sm mt-2 block not-italic font-medium">— Dr. Mehdi Adibrad, Periodontist &amp; Implant Surgeon</cite>
+                <cite className="text-[#555574] text-sm mt-2 block not-italic font-medium">— Dr. Mehdi Adibrad, DDS, MSc · General Dentist</cite>
               </blockquote>
 
               {/* Credential cards */}
@@ -454,13 +454,13 @@ export default function HomePage() {
               Committed to Your Oral Health &amp; Smile Aesthetics
             </h2>
             <p className="text-[#555574] leading-relaxed mb-6">
-              At Dentin Family Dentistry in Vaughan, our specialist team combines clinical precision with genuine compassion. Every treatment plan is personalised to your goals — whether that&rsquo;s a routine clean or a full-arch implant restoration.
+              At Dentin Family Dentistry in Vaughan, our experienced team combines clinical precision with genuine compassion. Every treatment plan is personalised to your goals — whether that&rsquo;s a routine clean or a full-arch implant restoration.
             </p>
             <div className="space-y-3 mb-8">
               {[
                 "Advanced digital imaging and diagnostic technology",
                 "Patient-centred, anxiety-free care environment",
-                "Specialist implant surgeon on-site — Dr. Adibrad",
+                "Experienced implant dentist on-site — Dr. Adibrad",
                 "All major services available under one roof in Vaughan",
                 "Accepting CDCP, most insurance plans, and new patients",
               ].map((item) => (

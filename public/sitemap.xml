@@ -109,4 +109,22 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://dentin-family-dentistry.vercel.app/blog/dental-implant-post-operative-instructions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dentin-family-dentistry.vercel.app/blog/why-dental-implants-are-better</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://dentin-family-dentistry.vercel.app/blog/dental-implant-procedure-step-by-step</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

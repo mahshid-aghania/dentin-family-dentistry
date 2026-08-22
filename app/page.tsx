@@ -773,27 +773,37 @@ export default function HomePage() {
           </div>
 
           {/* Cards */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Essential Tips for a Healthy Smile",
-                excerpt: "Maintaining a healthy smile goes beyond brushing twice a day. Learn the top habits that dental professionals recommend for optimal oral health.",
-                href: "/essential-tips-for-a-healthy-smile",
-                image: "/images/service-img-1-1.jpg",
-                date: "September 10, 2024",
-                category: "Oral Health Tips",
-                readTime: "4 min read",
+                title: "Dental Implant Post-Operative Instructions",
+                excerpt: "A practical dental implant aftercare guide — managing bleeding, swelling and pain, what to eat, healing time, and the warning signs to watch for.",
+                href: "/blog/dental-implant-post-operative-instructions",
+                image: "/images/dental-implant-recovery-aftercare.jpg",
+                date: "August 22, 2026",
+                category: "Dental Implants",
+                readTime: "9 min read",
                 accent: "#0D9488",
               },
               {
-                title: "The Benefits of Regular Dental Checkups",
-                excerpt: "Regular dental checkups are one of the most effective ways to prevent dental disease, detect problems early, and save money on treatment long-term.",
-                href: "/benefit-of-regular-dental-checkup",
-                image: "/images/PHOTO-2026-02-20-15-20-10.jpg",
-                date: "September 10, 2024",
-                category: "Preventive Care",
-                readTime: "4 min read",
-                accent: "#2563EB",
+                title: "Why Dental Implants Are Better: Implants vs Dentures and Bridges",
+                excerpt: "How implants compare with dentures and bridges on stability, jawbone health, longevity, and cost — and how to know what suits you.",
+                href: "/blog/why-dental-implants-are-better",
+                image: "/images/dental-implants-vs-dentures-bridges.jpg",
+                date: "August 22, 2026",
+                category: "Dental Implants",
+                readTime: "8 min read",
+                accent: "#0D9488",
+              },
+              {
+                title: "Dental Implant Procedure Step by Step",
+                excerpt: "From consultation and imaging to surgery, osseointegration, and your final crown — a clear walkthrough of every stage and the full timeline.",
+                href: "/blog/dental-implant-procedure-step-by-step",
+                image: "/images/dental-implant-procedure-steps.png",
+                date: "August 22, 2026",
+                category: "Dental Implants",
+                readTime: "10 min read",
+                accent: "#0D9488",
               },
             ].map((post) => (
               <Link

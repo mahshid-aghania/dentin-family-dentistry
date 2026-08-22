@@ -15,7 +15,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   preload: true,
 });
 
-const SITE_URL = "https://dentin-family-dentistry.vercel.app";
+const SITE_URL = "https://www.dfdentistry.ca";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

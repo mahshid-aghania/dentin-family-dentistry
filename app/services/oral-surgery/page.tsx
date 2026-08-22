@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 const benefits = [
-  { title: "Expert Surgeon On-Site", desc: "Dr. Adibrad is an experienced periodontist and oral surgeon." },
+  { title: "Experienced Clinician On-Site", desc: "Dr. Adibrad is an experienced implant dentist, internationally trained in periodontics and oral surgery." },
   { title: "Advanced Technology", desc: "3D imaging and precision surgical tools for safer, more accurate procedures." },
   { title: "Comfortable Experience", desc: "Sedation options available to ensure your comfort throughout the procedure." },
   { title: "Fast Recovery", desc: "Minimally invasive techniques reduce healing time and post-operative discomfort." },
@@ -27,7 +27,7 @@ export default function OralSurgeryPage() {
           </div>
           <h1 className="text-4xl font-bold">Oral Surgery</h1>
           <p className="text-gray-300 mt-2 max-w-xl">
-            Expert surgical procedures to treat dental and oral conditions, performed by our in-house oral surgeon.
+            Surgical procedures to treat dental and oral conditions, performed in-house by an experienced implant dentist internationally trained in oral surgery.
           </p>
         </div>
       </section>
@@ -41,8 +41,9 @@ export default function OralSurgeryPage() {
             </div>
             <p className="text-[#555574] leading-relaxed mb-4">
               Oral surgery encompasses a range of procedures that go beyond routine dental care. At Dentin
-              Family Dentistry, Dr. Mehdi Adibrad — a skilled periodontist and implant surgeon — performs a
-              full spectrum of oral surgical procedures right in our Vaughan office.
+              Family Dentistry, Dr. Mehdi Adibrad — an experienced implant dentist, internationally trained in
+              periodontics and oral surgery — performs a full spectrum of oral surgical procedures right in our
+              Vaughan office.
             </p>
             <p className="text-[#555574] leading-relaxed mb-6">
               Whether you need a wisdom tooth removed, a bone graft before an implant, or treatment for

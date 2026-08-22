@@ -24,15 +24,14 @@ export const metadata: Metadata = {
     template: "%s | Dentin Family Dentistry Vaughan",
   },
   description:
-    "Dentin Family Dentistry in Vaughan provides compassionate, high-quality dental care including implants, cosmetic, restorative, and emergency dentistry. Dr. Mehdi Adibrad — Periodontist & Implant Surgeon.",
+    "Dentin Family Dentistry in Vaughan provides compassionate, high-quality dental care including implants, cosmetic, restorative, and emergency dentistry. Dr. Mehdi Adibrad — Ontario-licensed general dentist & experienced implant dentist.",
   keywords: [
     "dentist Vaughan",
     "dental implants Vaughan",
+    "implant dentist in Vaughan",
     "cosmetic dentistry Vaughan",
     "family dentist Vaughan ON",
     "emergency dentist Vaughan",
-    "periodontist Vaughan",
-    "dental implant surgeon Vaughan",
     "CDCP dentist Vaughan",
     "Dr Mehdi Adibrad",
   ],
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Dentin Family Dentistry",
     title: "Dentin Family Dentistry | Best Dentist in Vaughan, ON",
     description:
-      "Compassionate, high-quality dental care in Vaughan — implants, cosmetic, restorative & emergency dentistry. Dr. Mehdi Adibrad, Periodontist & Implant Surgeon.",
+      "Compassionate, high-quality dental care in Vaughan — implants, cosmetic, restorative & emergency dentistry. Dr. Mehdi Adibrad, Ontario-licensed general dentist & experienced implant dentist.",
     images: [
       {
         url: "/images/dr-adibrad.jpg",
@@ -137,8 +136,10 @@ const localBusinessSchema = {
   founder: {
     "@type": "Person",
     name: "Dr. Mehdi Adibrad",
-    jobTitle: "Periodontist & Implant Surgeon",
-    alumniOf: "NDEB Equivalency Process",
+    jobTitle: "General Dentist",
+    description:
+      "Ontario-licensed general dentist, internationally trained in periodontics and implant dentistry; Founder and Head Instructor at ConfiDentist.",
+    alumniOf: "Shahid Beheshti University",
   },
 };
 

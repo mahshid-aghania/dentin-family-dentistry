@@ -183,7 +183,7 @@ function getBotReply(input: string): Message {
   ) {
     return {
       from: "bot",
-      text: "Dr. Mehdi Adibrad is our Head & Implant Surgeon with 12+ years of experience. He's a member of the ITI (International Team for Implantology) and the Ontario Dental Association, and passed his NDEB equivalency on the first attempt. Patients consistently describe his care as thorough, calm, and patient-first.",
+      text: "Dr. Mehdi Adibrad, DDS, MSc, is our head dentist — an Ontario-licensed general dentist (RCDSO) with 17+ years of experience, internationally trained in periodontics and implant dentistry. He achieved a top score on Canada's AFK exam and passed the NDEB Equivalency on his first attempt. Patients consistently describe his care as thorough, calm, and patient-first.",
       link: { label: "Meet Dr. Adibrad →", href: "/about" },
     };
   }

@@ -9,7 +9,7 @@ export const SITE_URL = "https://www.dfdentistry.ca";
 
 export const AUTHOR = {
   name: "Dr. Mehdi Adibrad",
-  role: "Implant Surgeon & Head Dentist at Dentin Family Dentistry",
+  role: "Head Dentist & Implant Dentist at Dentin Family Dentistry",
   location: "Vaughan, Ontario",
   profilePath: "/about",
 };
@@ -196,7 +196,7 @@ export function AuthorBox() {
         <div className="relative w-24 h-24 rounded-2xl overflow-hidden shrink-0 bg-[#e8e8f0]">
           <Image
             src="/images/dr-adibrad-portrait.jpg"
-            alt="Dr. Mehdi Adibrad, Implant Surgeon at Dentin Family Dentistry in Vaughan"
+            alt="Dr. Mehdi Adibrad, general dentist and implant dentist at Dentin Family Dentistry in Vaughan"
             fill
             sizes="96px"
             className="object-cover object-top"
@@ -213,11 +213,12 @@ export function AuthorBox() {
             {AUTHOR.role} · {AUTHOR.location}
           </p>
           <p className="text-sm text-[#555574] leading-relaxed mb-3">
-            Dr. Mehdi Adibrad is a periodontist and implant surgeon with more than 12 years of experience, and the
-            head dentist at Dentin Family Dentistry in Vaughan. He holds an active general dentistry licence with the
-            Royal College of Dental Surgeons of Ontario (RCDSO), is a member of the Ontario Dental Association, and has
-            authored 10+ peer-reviewed publications. He focuses on One-Day Implant solutions using detailed planning,
-            3D imaging, and high-quality materials.
+            Dr. Mehdi Adibrad, DDS, MSc, is an Ontario-licensed general dentist and the head dentist at Dentin Family
+            Dentistry in Vaughan, with more than 17 years of experience and active membership in the Royal College of
+            Dental Surgeons of Ontario (RCDSO). Internationally trained in periodontics and implant dentistry, he holds
+            a Master&apos;s degree in Periodontics and Implantology from Iran and is the Founder and Head Instructor at
+            ConfiDentist. As an experienced implant dentist, he focuses on implant dentistry, periodontal care, and
+            evidence-based general dentistry.
           </p>
           <Link
             href={AUTHOR.profilePath}
@@ -309,7 +310,7 @@ export function ArticleSchema({
         "@type": "Person",
         "@id": personId,
         name: AUTHOR.name,
-        jobTitle: "Periodontist & Implant Surgeon",
+        jobTitle: "General Dentist",
         url: `${SITE_URL}${AUTHOR.profilePath}`,
       },
       publisher: {

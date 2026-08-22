@@ -28,7 +28,7 @@ export default function DentalImplantsPage() {
           </div>
           <h1 className="text-4xl font-bold">Dental Implants</h1>
           <p className="text-gray-300 mt-2 max-w-xl">
-            State-of-the-art One-Day Implant solutions by expert implant surgeon Dr. Mehdi Adibrad.
+            State-of-the-art One-Day Implant solutions by experienced implant dentist Dr. Mehdi Adibrad.
           </p>
         </div>
       </section>

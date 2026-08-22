@@ -5,7 +5,7 @@ import type { FAQ } from "./ArticleFAQ";
 
 /* Keep this in sync with the SITE_URL used in app/layout.tsx so absolute
    URLs in structured data stay consistent across the site. */
-export const SITE_URL = "https://dentin-family-dentistry.vercel.app";
+export const SITE_URL = "https://www.dfdentistry.ca";
 
 export const AUTHOR = {
   name: "Dr. Mehdi Adibrad",

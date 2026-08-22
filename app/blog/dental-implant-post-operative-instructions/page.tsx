@@ -541,7 +541,7 @@ export default function ImplantPostOpPage() {
           {
             href: "/blog/dental-implant-procedure-step-by-step",
             category: "Dental Implants",
-            readTime: "10 min read",
+            readTime: "12 min read",
             title: "Dental Implant Procedure Step by Step",
             excerpt: "Every stage of the implant process — from consultation and surgery to osseointegration and your final crown.",
           },

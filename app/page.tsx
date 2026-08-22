@@ -802,7 +802,7 @@ export default function HomePage() {
                 image: "/images/dental-implant-procedure-steps.png",
                 date: "August 22, 2026",
                 category: "Dental Implants",
-                readTime: "10 min read",
+                readTime: "12 min read",
                 accent: "#0D9488",
               },
             ].map((post) => (

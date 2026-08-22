@@ -35,7 +35,7 @@ const posts = [
       "From consultation and imaging to surgery, osseointegration, and your final crown — a clear walkthrough of every stage of the dental implant process and timeline.",
     date: "August 22, 2026",
     category: "Dental Implants",
-    readTime: "10 min read",
+    readTime: "12 min read",
     href: "/blog/dental-implant-procedure-step-by-step",
     image: "/images/dental-implant-procedure-steps.png",
   },

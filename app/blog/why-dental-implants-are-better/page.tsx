@@ -316,7 +316,7 @@ export default function WhyImplantsBetterPage() {
           {
             href: "/blog/dental-implant-procedure-step-by-step",
             category: "Dental Implants",
-            readTime: "10 min read",
+            readTime: "12 min read",
             title: "Dental Implant Procedure Step by Step",
             excerpt: "What actually happens at each stage of getting a dental implant, from consultation to final crown.",
           },

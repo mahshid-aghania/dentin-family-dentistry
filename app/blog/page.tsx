@@ -20,12 +20,12 @@ const posts = [
     image: "/images/dental-implant-recovery-aftercare.jpg",
   },
   {
-    title: "Why Dental Implants Are Better: Implants vs Dentures and Bridges",
+    title: "Are Dental Implants Better Than Bridges or Dentures?",
     excerpt:
       "How dental implants compare with dentures and bridges on stability, appearance, jawbone health, maintenance, longevity, and cost — and how to know what suits you.",
     date: "August 22, 2026",
     category: "Dental Implants",
-    readTime: "8 min read",
+    readTime: "11 min read",
     href: "/blog/why-dental-implants-are-better",
     image: "/images/dental-implants-vs-dentures-bridges.jpg",
   },

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Patient Education | Dentin Family Dentistry Vaughan",
+  title: "Patient Education",
+  alternates: { canonical: "/blog" },
   description:
     "Dental health tips, oral care guides, and news from Dentin Family Dentistry in Vaughan. Stay informed and keep your smile healthy.",
 };

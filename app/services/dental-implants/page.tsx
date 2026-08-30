@@ -3,9 +3,39 @@ import Image from "next/image";
 import { CheckCircle, Smile } from "lucide-react";
 
 export const metadata = {
-  title: "Dental Implants Vaughan | Dentin Family Dentistry",
+  title: "Dental Implants in Vaughan",
   description:
     "Expert One-Day Dental Implant solutions in Vaughan by Dr. Mehdi Adibrad. Single implants, All-on-4, implant-supported bridges, bone grafting and more.",
+  alternates: { canonical: "/services/dental-implants" },
+};
+
+const faqs = [
+  {
+    q: "Am I a candidate for dental implants?",
+    a: "Most adults with good general health are candidates. Dr. Adibrad will assess your bone density and overall oral health during a consultation to determine the best approach for you.",
+  },
+  {
+    q: "How long does the implant procedure take?",
+    a: "With our One-Day Implant technology, many patients receive their implant and a temporary crown in a single visit. Full integration typically takes 3–6 months.",
+  },
+  {
+    q: "Are dental implants covered by insurance?",
+    a: "Coverage varies by plan. We accept the Canadian Dental Care Plan (CDCP) and will help you understand your benefits. Contact us at (437) 900-2200 for details.",
+  },
+  {
+    q: "How do I care for my implants?",
+    a: "Implants are cared for just like natural teeth — brush twice daily, floss, and visit us for regular cleanings. With good oral hygiene, implants can last a lifetime.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
 };
 
 const benefits = [
@@ -20,6 +50,10 @@ const benefits = [
 export default function DentalImplantsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="bg-[#002C29] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-gray-300 text-sm mb-2">
@@ -104,24 +138,7 @@ export default function DentalImplantsPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-[#002C29] mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-2xl">
-            {[
-              {
-                q: "Am I a candidate for dental implants?",
-                a: "Most adults with good general health are candidates. Dr. Adibrad will assess your bone density and overall oral health during a consultation to determine the best approach for you.",
-              },
-              {
-                q: "How long does the implant procedure take?",
-                a: "With our One-Day Implant technology, many patients receive their implant and a temporary crown in a single visit. Full integration typically takes 3–6 months.",
-              },
-              {
-                q: "Are dental implants covered by insurance?",
-                a: "Coverage varies by plan. We accept the Canadian Dental Care Plan (CDCP) and will help you understand your benefits. Contact us at (437) 900-2200 for details.",
-              },
-              {
-                q: "How do I care for my implants?",
-                a: "Implants are cared for just like natural teeth — brush twice daily, floss, and visit us for regular cleanings. With good oral hygiene, implants can last a lifetime.",
-              },
-            ].map((faq) => (
+            {faqs.map((faq) => (
               <div key={faq.q} className="bg-white rounded-xl p-6 shadow-sm">
                 <h3 className="font-semibold text-[#002C29] mb-2">{faq.q}</h3>
                 <p className="text-[#555574] text-sm">{faq.a}</p>

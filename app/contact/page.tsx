@@ -2,7 +2,8 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, AlertCircle, ArrowRight, Shield } from "lucide-react";
 
 export const metadata = {
-  title: "Contact Us | Dentin Family Dentistry Vaughan",
+  title: "Contact Us",
+  alternates: { canonical: "/contact" },
   description:
     "Contact Dentin Family Dentistry in Vaughan. Call (437) 900-2200, email us, or visit us at 3300 Steeles Ave W, Unit #6. Mon–Sat 9 AM–9 PM. 24/7 emergency care.",
 };

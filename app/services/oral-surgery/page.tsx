@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle, Scissors } from "lucide-react";
 
 export const metadata = {
-  title: "Oral Surgery Vaughan | Dentin Family Dentistry",
+  title: "Oral Surgery in Vaughan",
+  alternates: { canonical: "/services/oral-surgery" },
   description:
     "Expert oral surgery services in Vaughan including wisdom teeth extractions, bone grafting, gum surgery, and complex extractions by Dr. Mehdi Adibrad.",
 };

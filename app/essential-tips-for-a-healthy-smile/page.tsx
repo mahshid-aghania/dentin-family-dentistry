@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Essential Tips for a Healthy Smile | Dentin Family Dentistry Blog",
+  title: "Essential Tips for a Healthy Smile",
+  alternates: { canonical: "/essential-tips-for-a-healthy-smile" },
   description:
     "Maintain a healthy smile with expert advice from Dentin Family Dentistry. Learn the top habits dental professionals recommend for optimal oral health.",
 };

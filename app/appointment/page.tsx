@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Phone, Mail, Clock } from "lucide-react";
 
 export const metadata = {
-  title: "Book an Appointment | Dentin Family Dentistry Vaughan",
+  title: "Book an Appointment",
+  alternates: { canonical: "/appointment" },
   description:
     "Schedule your dental appointment at Dentin Family Dentistry in Vaughan. Call (437) 900-2200 or fill out our online booking form.",
 };

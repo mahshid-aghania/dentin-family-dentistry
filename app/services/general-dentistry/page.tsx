@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle, Stethoscope } from "lucide-react";
 
 export const metadata = {
-  title: "General Dentistry | Dentin Family Dentistry Vaughan",
+  title: "General Dentistry in Vaughan",
+  alternates: { canonical: "/services/general-dentistry" },
   description:
     "Preventive and general dentistry services in Vaughan. Cleanings, exams, fillings, fluoride, and more for the whole family.",
 };

@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AlertCircle, Phone, Clock, CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Emergency Dental Care | Dentin Family Dentistry Vaughan",
+  title: "Emergency Dental Care in Vaughan",
+  alternates: { canonical: "/services/emergency-dental-care" },
   description:
     "24/7 emergency dental care in Vaughan. Toothaches, broken teeth, lost fillings — call (437) 900-2200 now.",
 };

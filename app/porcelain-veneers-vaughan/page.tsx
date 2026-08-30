@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle, Star } from "lucide-react";
 
 export const metadata = {
-  title: "Porcelain Veneers Vaughan | Dentin Family Dentistry",
+  title: "Porcelain Veneers in Vaughan",
+  alternates: { canonical: "/porcelain-veneers-vaughan" },
   description:
     "Transform your smile with porcelain veneers in Vaughan. Expert cosmetic dentistry by Dr. Mehdi Adibrad at Dentin Family Dentistry.",
 };

@@ -255,10 +255,7 @@ export default function RegisterPage() {
                   className="mt-0.5 accent-[#0D9488] w-4 h-4 shrink-0"
                 />
                 <span className="text-xs text-[#555574] leading-relaxed">
-                  I agree to the{" "}
-                  <Link href="/terms" className="text-[#0D9488] hover:underline">Terms of Service</Link>
-                  {" "}and{" "}
-                  <Link href="/privacy" className="text-[#0D9488] hover:underline">Privacy Policy</Link>
+                  I agree to the Terms of Service and Privacy Policy
                 </span>
               </label>
 

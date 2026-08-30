@@ -42,30 +42,36 @@ const redirectGroups: Record<string, string[]> = {
     "/bar-attachment-denture",
   ],
   "/services/oral-surgery": [
+    "/impacted-canine-tooth-extraction",
+    "/wisdom-teeth-removal",
+    "/tooth-extractions",
+    "/after-tooth-extractions",
+  ],
+  "/services/periodontics": [
     "/periodontal-services-vaughan",
     "/periodontal-services",
     "/gum-disease-treatment-in-vaughan",
     "/osseous-surgery-vaughan",
-    "/osseous-surgery-with-bone-graft",
-    "/crown-lengthening-in-vaughan",
-    "/gum-recession",
-    "/gum-grafting-cost",
-    "/gum-graft-cost-for-4-teeth",
-    "/gingival-graft-cost",
-    "/gum-augmentation-surgery-benefits",
-    "/scaling-and-root-planing",
-    "/bone-grafting-in-vaughan",
     "/causes-of-periodontal-disease",
     "/types-of-periodontal-disease",
     "/signs-symptoms-of-periodontal-disease",
     "/periodontal-disease-and-osteoporosis",
     "/what-is-a-periodontist",
     "/when-to-see-a-periodontist",
-    "/impacted-canine-tooth-extraction",
-    "/wisdom-teeth-removal",
-    "/tooth-extractions",
-    "/after-tooth-extractions",
   ],
+  "/services/periodontics/scaling-and-root-planing": ["/scaling-and-root-planing"],
+  "/services/periodontics/gum-grafting": [
+    "/gum-recession",
+    "/gum-grafting-cost",
+    "/gum-graft-cost-for-4-teeth",
+    "/gingival-graft-cost",
+    "/gum-augmentation-surgery-benefits",
+  ],
+  "/services/periodontics/bone-grafting": [
+    "/bone-grafting-in-vaughan",
+    "/osseous-surgery-with-bone-graft",
+  ],
+  "/services/periodontics/crown-lengthening": ["/crown-lengthening-in-vaughan"],
   "/services/emergency-dental-care": [
     "/dental-emergency",
     "/front-broken-teeth",
@@ -97,7 +103,6 @@ const redirectGroups: Record<string, string[]> = {
   ],
   "/services/general-dentistry": [
     "/dental-cleanings-checkups",
-    "/professional-teeth-cleaning-vaughan",
     "/oral-hygiene-aids",
     "/dental-digital-x-rays-3",
     "/dentistry-faq",
@@ -110,7 +115,6 @@ const redirectGroups: Record<string, string[]> = {
     "/services-2/restorative-dentistry",
     "/services/cleanings-and-prevention",
     "/services/dental-emergencies",
-    "/services/periodontics",
     "/services/prosthodontics",
     "/services/restorations",
     "/temporomandibular-joints-tmj",
@@ -130,7 +134,6 @@ const redirectGroups: Record<string, string[]> = {
   ],
   "/services": [
     "/faq",
-    "/dentistry-faq",
   ],
   "/about": [
     "/about-us",
@@ -156,6 +159,42 @@ const redirectGroups: Record<string, string[]> = {
   ],
 };
 
+/**
+ * Additional redirects for legacy content URLs found in the post-migration
+ * 404 audit (old blog/portfolio posts and stray pages) → closest relevant
+ * destination. Kept separate so destination keys may repeat those above.
+ * (Pure WordPress theme-demo junk — /category/*, /tag/*, date archives, fake
+ * demo doctor/portfolio filler — is intentionally left to 404.)
+ */
+const additionalRedirects: Record<string, string[]> = {
+  "/services/dental-implants": ["/blog/get-the-perfect-smile-with-dental-implants-in-toronto"],
+  "/services/periodontics": [
+    "/blog/peridontics",
+    "/blog/periodontal-diseases",
+    "/portfolio/causes-and-treatment-of-gingivitis",
+  ],
+  "/services/oral-surgery": [
+    "/blog/5-reasons-why-you-may-need-a-tooth-extraction-from-dentist-in-vaughan",
+    "/blog/surgical-instruction",
+  ],
+  "/services/restorative-dentistry": [
+    "/offering-molar-crown-in-north-york",
+    "/portfolio/dental-bridge-everything-you-need-to-know",
+  ],
+  "/services/emergency-dental-care": ["/what-to-do-if-your-tooth-chips"],
+  "/professional-teeth-cleaning-vaughan": ["/blog/cleanings-and-preventions"],
+  "/blog/dental-implant-post-operative-instructions": ["/post-op"],
+  "/blog": [
+    "/what-is-the-soft-palate",
+    "/portfolio/what-is-the-soft-palate",
+    "/portfolio/do-braces-hurt-what-to-expect",
+    "/portfolio/everything-you-need-to-know-about-fluoride-treatment",
+    "/portfolio/what-to-know-about-antibiotics-and-tooth-infections",
+    "/portfolio/what-to-know-about-glossitis",
+    "/portfolio/why-does-my-tooth-still-hurt-after-a-filling",
+  ],
+};
+
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -163,7 +202,11 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
-    return Object.entries(redirectGroups).flatMap(([destination, sources]) =>
+    const groups = [
+      ...Object.entries(redirectGroups),
+      ...Object.entries(additionalRedirects),
+    ];
+    return groups.flatMap(([destination, sources]) =>
       sources.map((source) => ({ source, destination, permanent: true }))
     );
   },

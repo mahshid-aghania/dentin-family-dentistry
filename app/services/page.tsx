@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Stethoscope, Sparkles, Shield, AlertCircle, Smile, Users, Scissors, HeartPulse, ArrowRight, Phone } from "lucide-react";
+import { Stethoscope, Sparkles, Shield, AlertCircle, Smile, Users, Scissors, HeartPulse, Activity, ArrowRight, Phone } from "lucide-react";
 
 export const metadata = {
   title: "Dental Services in Vaughan",
@@ -57,6 +57,13 @@ const services = [
     description: "Expert surgical procedures — from wisdom teeth extractions to complex bone grafting — performed with precision and care.",
     href: "/services/oral-surgery",
     items: ["Wisdom Teeth Removal", "Complex Extractions", "Bone Grafting", "Gum Surgery", "Surgical Biopsy"],
+  },
+  {
+    icon: <Activity size={28} className="text-[#0D9488]" />,
+    title: "Periodontics",
+    description: "Gum disease treatment and periodontal care by Dr. Adibrad — deep cleaning, gum and bone grafting, crown lengthening, and pocket-reduction surgery.",
+    href: "/services/periodontics",
+    items: ["Gum Disease Treatment", "Scaling & Root Planing", "Gum Grafting", "Bone Grafting", "Crown Lengthening"],
   },
   {
     icon: <AlertCircle size={28} className="text-red-500" />,

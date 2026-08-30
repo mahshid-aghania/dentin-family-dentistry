@@ -157,4 +157,40 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.dfdentistry.ca/services/periodontics</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/periodontics/scaling-and-root-planing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/periodontics/gum-grafting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/periodontics/bone-grafting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/periodontics/crown-lengthening</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/professional-teeth-cleaning-vaughan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

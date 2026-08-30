@@ -124,7 +124,7 @@ export default function Navbar() {
                 About Us
               </Link>
               <Link
-                href="/about/drs"
+                href="/about"
                 className="block px-4 py-2 text-sm text-[#002C29] hover:bg-[#F0F0FF] hover:text-[#0D9488] transition-colors"
               >
                 Drs
@@ -304,7 +304,7 @@ export default function Navbar() {
                     About Us
                   </Link>
                   <Link
-                    href="/about/drs"
+                    href="/about"
                     className="flex items-center px-2 py-2 rounded-lg text-[#555574] hover:text-[#0D9488] hover:bg-[#F0F0FF] transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >

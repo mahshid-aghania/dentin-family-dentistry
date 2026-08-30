@@ -159,6 +159,42 @@ const redirectGroups: Record<string, string[]> = {
   ],
 };
 
+/**
+ * Additional redirects for legacy content URLs found in the post-migration
+ * 404 audit (old blog/portfolio posts and stray pages) → closest relevant
+ * destination. Kept separate so destination keys may repeat those above.
+ * (Pure WordPress theme-demo junk — /category/*, /tag/*, date archives, fake
+ * demo doctor/portfolio filler — is intentionally left to 404.)
+ */
+const additionalRedirects: Record<string, string[]> = {
+  "/services/dental-implants": ["/blog/get-the-perfect-smile-with-dental-implants-in-toronto"],
+  "/services/periodontics": [
+    "/blog/peridontics",
+    "/blog/periodontal-diseases",
+    "/portfolio/causes-and-treatment-of-gingivitis",
+  ],
+  "/services/oral-surgery": [
+    "/blog/5-reasons-why-you-may-need-a-tooth-extraction-from-dentist-in-vaughan",
+    "/blog/surgical-instruction",
+  ],
+  "/services/restorative-dentistry": [
+    "/offering-molar-crown-in-north-york",
+    "/portfolio/dental-bridge-everything-you-need-to-know",
+  ],
+  "/services/emergency-dental-care": ["/what-to-do-if-your-tooth-chips"],
+  "/professional-teeth-cleaning-vaughan": ["/blog/cleanings-and-preventions"],
+  "/blog/dental-implant-post-operative-instructions": ["/post-op"],
+  "/blog": [
+    "/what-is-the-soft-palate",
+    "/portfolio/what-is-the-soft-palate",
+    "/portfolio/do-braces-hurt-what-to-expect",
+    "/portfolio/everything-you-need-to-know-about-fluoride-treatment",
+    "/portfolio/what-to-know-about-antibiotics-and-tooth-infections",
+    "/portfolio/what-to-know-about-glossitis",
+    "/portfolio/why-does-my-tooth-still-hurt-after-a-filling",
+  ],
+};
+
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -166,7 +202,11 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
-    return Object.entries(redirectGroups).flatMap(([destination, sources]) =>
+    const groups = [
+      ...Object.entries(redirectGroups),
+      ...Object.entries(additionalRedirects),
+    ];
+    return groups.flatMap(([destination, sources]) =>
       sources.map((source) => ({ source, destination, permanent: true }))
     );
   },

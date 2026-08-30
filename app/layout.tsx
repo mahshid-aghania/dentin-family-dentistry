@@ -20,8 +20,8 @@ const SITE_URL = "https://www.dfdentistry.ca";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dentin Family Dentistry | Best Dentist in Vaughan, ON",
-    template: "%s | Dentin Family Dentistry Vaughan",
+    default: "Dentin Family Dentistry | Dentist in Vaughan, ON",
+    template: "%s | Dentin Family Dentistry",
   },
   description:
     "Dentin Family Dentistry in Vaughan provides compassionate, high-quality dental care including implants, cosmetic, restorative, and emergency dentistry. Dr. Mehdi Adibrad — Ontario-licensed general dentist & experienced implant dentist.",
@@ -35,15 +35,12 @@ export const metadata: Metadata = {
     "CDCP dentist Vaughan",
     "Dr Mehdi Adibrad",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_CA",
     url: SITE_URL,
     siteName: "Dentin Family Dentistry",
-    title: "Dentin Family Dentistry | Best Dentist in Vaughan, ON",
+    title: "Dentin Family Dentistry | Dentist in Vaughan, ON",
     description:
       "Compassionate, high-quality dental care in Vaughan — implants, cosmetic, restorative & emergency dentistry. Dr. Mehdi Adibrad, Ontario-licensed general dentist & experienced implant dentist.",
     images: [
@@ -57,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dentin Family Dentistry | Best Dentist in Vaughan, ON",
+    title: "Dentin Family Dentistry | Dentist in Vaughan, ON",
     description:
       "Compassionate, high-quality dental care in Vaughan — implants, cosmetic, restorative & emergency dentistry.",
     images: ["/images/dr-adibrad.jpg"],
@@ -115,13 +112,6 @@ const localBusinessSchema = {
     "https://www.instagram.com/dentin_family_dentistry/",
     "https://www.facebook.com/DentinFamilyDentistry/",
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: "87",
-  },
   medicalSpecialty: ["Dentistry", "Periodontics", "Oral Surgery"],
   availableService: [
     { "@type": "MedicalProcedure", name: "Dental Implants" },

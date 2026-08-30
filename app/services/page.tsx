@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Stethoscope, Sparkles, Shield, AlertCircle, Smile, Users, Scissors, HeartPulse, ArrowRight, Phone } from "lucide-react";
 
 export const metadata = {
-  title: "Dental Services Vaughan | Dentin Family Dentistry",
+  title: "Dental Services in Vaughan",
+  alternates: { canonical: "/services" },
   description:
     "Explore the full range of dental services at Dentin Family Dentistry in Vaughan — general dentistry, cosmetic, dental implants, oral surgery, and 24/7 emergency care.",
 };

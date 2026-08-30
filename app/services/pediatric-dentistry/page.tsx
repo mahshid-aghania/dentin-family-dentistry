@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle, Users } from "lucide-react";
 
 export const metadata = {
-  title: "Pediatric Dentistry Vaughan | Dentin Family Dentistry",
+  title: "Pediatric Dentistry in Vaughan",
+  alternates: { canonical: "/services/pediatric-dentistry" },
   description:
     "Gentle, child-friendly dental care in Vaughan. First visits, cleanings, sealants, fluoride, and orthodontic referrals for children of all ages.",
 };

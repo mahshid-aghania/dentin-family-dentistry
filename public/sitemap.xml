@@ -127,4 +127,34 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.dfdentistry.ca/services/dental-implants/single-tooth</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/dental-implants/full-mouth</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/dental-implants/implant-supported-dentures</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/services/dental-implants/cost</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dfdentistry.ca/cdcp-vaughan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

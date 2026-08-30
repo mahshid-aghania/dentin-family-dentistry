@@ -2,7 +2,8 @@ import Link from "next/link";
 import GalleryTabs from "../components/GalleryTabs";
 
 export const metadata = {
-  title: "Gallery | Dentin Family Dentistry Vaughan",
+  title: "Smile Gallery",
+  alternates: { canonical: "/gallery" },
   description:
     "Explore our Dental Gallery featuring captivating before-and-after images highlighting the artistry and precision of our cosmetic dentistry.",
 };

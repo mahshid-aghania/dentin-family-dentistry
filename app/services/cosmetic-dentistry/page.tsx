@@ -3,7 +3,8 @@ import Image from "next/image";
 import { CheckCircle, Sparkles } from "lucide-react";
 
 export const metadata = {
-  title: "Cosmetic Dentistry | Dentin Family Dentistry Vaughan",
+  title: "Cosmetic Dentistry in Vaughan",
+  alternates: { canonical: "/services/cosmetic-dentistry" },
   description:
     "Transform your smile with veneers, whitening, bonding, and smile makeovers at Dentin Family Dentistry in Vaughan.",
 };

@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle, Shield } from "lucide-react";
 
 export const metadata = {
-  title: "Restorative Dentistry | Dentin Family Dentistry Vaughan",
+  title: "Restorative Dentistry in Vaughan",
+  alternates: { canonical: "/services/restorative-dentistry" },
   description:
     "Restore your smile with crowns, bridges, dental implants, and more at Dentin Family Dentistry Vaughan.",
 };

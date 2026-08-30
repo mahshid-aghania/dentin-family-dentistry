@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Benefit of Regular Dental Checkup | Dentin Family Dentistry Blog",
+  title: "Benefits of Regular Dental Checkups",
+  alternates: { canonical: "/benefit-of-regular-dental-checkup" },
   description:
     "Discover why regular dental checkups are essential for preventing cavities, gum disease, and costly dental problems. Tips from Dentin Family Dentistry in Vaughan.",
 };

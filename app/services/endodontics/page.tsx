@@ -2,7 +2,8 @@ import Link from "next/link";
 import { CheckCircle, HeartPulse } from "lucide-react";
 
 export const metadata = {
-  title: "Endodontics & Root Canal Vaughan | Dentin Family Dentistry",
+  title: "Root Canal & Endodontics in Vaughan",
+  alternates: { canonical: "/services/endodontics" },
   description:
     "Specialized endodontic and root canal therapy in Vaughan. Save your natural teeth with gentle, effective treatment at Dentin Family Dentistry.",
 };

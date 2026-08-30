@@ -134,6 +134,25 @@ export default function DentalImplantsPage() {
         </div>
       </section>
 
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#002C29] mb-6">Explore Implant Treatments</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { href: "/services/dental-implants/single-tooth", title: "Single-Tooth Implant", desc: "Replace one missing tooth without affecting the neighbours." },
+              { href: "/services/dental-implants/full-mouth", title: "Full-Mouth / All-on-4", desc: "Restore a full arch with fixed, stable implant-supported teeth." },
+              { href: "/services/dental-implants/implant-supported-dentures", title: "Implant-Supported Dentures", desc: "Secure, snap-in dentures that don't slip." },
+              { href: "/services/dental-implants/cost", title: "Implant Cost & Coverage", desc: "What affects the price and how CDCP and financing can help." },
+            ].map((c) => (
+              <Link key={c.href} href={c.href} className="block bg-[#F0F0FF] rounded-xl p-5 hover:bg-[#E6E6FF] transition-colors">
+                <div className="font-semibold text-[#002C29] mb-1">{c.title}</div>
+                <div className="text-sm text-[#555574]">{c.desc}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 px-4 bg-[#F8F8FF]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-[#002C29] mb-6">Frequently Asked Questions</h2>

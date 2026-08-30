@@ -21,12 +21,7 @@ const redirectGroups: Record<string, string[]> = {
     "/dental-implants",
     "/best-dental-implants-vaughan",
     "/best-type-of-tooth-implants-north-york",
-    "/full-mouth-dental-implants-vaughan",
     "/dental-implant-surgery-vaughan",
-    "/single-tooth-implant",
-    "/implant-dentures-in-vaughan",
-    "/cost-of-dental-implants",
-    "/implant-cost",
     "/types-of-dental-implants",
     "/dental-implants-faq",
     "/after-dental-implant-surgery",
@@ -38,6 +33,12 @@ const redirectGroups: Record<string, string[]> = {
     "/choosing-the-right-dental-implant-office",
     "/finding-the-best-tooth-implant-services-nearby",
     "/top-dental-implants-a-comprehensive-guide",
+  ],
+  "/services/dental-implants/cost": ["/cost-of-dental-implants", "/implant-cost"],
+  "/services/dental-implants/full-mouth": ["/full-mouth-dental-implants-vaughan"],
+  "/services/dental-implants/single-tooth": ["/single-tooth-implant"],
+  "/services/dental-implants/implant-supported-dentures": [
+    "/implant-dentures-in-vaughan",
     "/bar-attachment-denture",
   ],
   "/services/oral-surgery": [
@@ -116,7 +117,7 @@ const redirectGroups: Record<string, string[]> = {
     "/tmj-disorders-symptoms-causes",
     "/bruxism",
   ],
-  "/services": [
+  "/cdcp-vaughan": [
     "/cdcp-in-vaughan",
     "/cdcp-markham",
     "/cdcp-northyork",
@@ -126,6 +127,8 @@ const redirectGroups: Record<string, string[]> = {
     "/cdcp-calculator",
     "/is-dental-covered-by-ohip-ontario-2025",
     "/no-insurance",
+  ],
+  "/services": [
     "/faq",
     "/dentistry-faq",
   ],

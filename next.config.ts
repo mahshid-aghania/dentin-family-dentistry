@@ -1,4 +1,16 @@
 import type { NextConfig } from "next";
+import { readFileSync } from "fs";
+import { join } from "path";
+
+/** Paths that have been restored as real article pages (must not be redirected). */
+function restoredArticlePaths(): Set<string> {
+  try {
+    const raw = readFileSync(join(process.cwd(), "app/content/articles.json"), "utf-8");
+    return new Set(Object.keys(JSON.parse(raw)));
+  } catch {
+    return new Set();
+  }
+}
 
 /**
  * Legacy WordPress → new site 301 redirect map.
@@ -202,12 +214,17 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
+    // Any legacy URL that has been restored as a real article page must NOT be
+    // redirected (a redirect source would shadow the page). Filter them out.
+    const restored = restoredArticlePaths();
     const groups = [
       ...Object.entries(redirectGroups),
       ...Object.entries(additionalRedirects),
     ];
     return groups.flatMap(([destination, sources]) =>
-      sources.map((source) => ({ source, destination, permanent: true }))
+      sources
+        .filter((source) => !restored.has(source))
+        .map((source) => ({ source, destination, permanent: true }))
     );
   },
 };

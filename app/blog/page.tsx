@@ -18,8 +18,7 @@ const posts = [
     category: "Patient Education",
     readTime: "8 min read",
     href: "/patient-education/fistula-pimple-on-gum-dental-infection",
-    // NOTE: interim placeholder image — replace with a dedicated gum-fistula image before publishing.
-    image: "/images/dental-checkup.png",
+    image: "/images/gum-fistula-pimple-mirror.jpg",
   },
   {
     title: "Dental Implant Post-Operative Instructions: Recovery and Aftercare Guide",

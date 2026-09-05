@@ -36,6 +36,7 @@ const staticPaths: string[] = [
   "/blog/dental-implant-post-operative-instructions",
   "/blog/why-dental-implants-are-better",
   "/blog/dental-implant-procedure-step-by-step",
+  "/patient-education/fistula-pimple-on-gum-dental-infection",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

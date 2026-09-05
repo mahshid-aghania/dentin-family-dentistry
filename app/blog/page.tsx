@@ -11,6 +11,17 @@ export const metadata = {
 
 const posts = [
   {
+    title: "A Pimple or Fistula on the Gum? Don’t Ignore This Sign of Dental Infection",
+    excerpt:
+      "Have you noticed a small bump, pimple, or opening on your gum that occasionally drains fluid or leaves a bad taste in your mouth?",
+    date: "September 5, 2026",
+    category: "Patient Education",
+    readTime: "8 min read",
+    href: "/patient-education/fistula-pimple-on-gum-dental-infection",
+    // NOTE: interim placeholder image — replace with a dedicated gum-fistula image before publishing.
+    image: "/images/dental-checkup.png",
+  },
+  {
     title: "Dental Implant Post-Operative Instructions: Recovery and Aftercare Guide",
     excerpt:
       "A practical dental implant aftercare guide — managing bleeding, swelling and pain, what to eat, healing time, and the warning signs to watch for after surgery.",

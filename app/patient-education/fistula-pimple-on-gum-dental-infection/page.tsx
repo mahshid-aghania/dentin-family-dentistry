@@ -21,11 +21,9 @@ const CATEGORY = "Patient Education";
 const DATE = "September 5, 2026";
 const LAST_REVIEWED = "September 5, 2026";
 const READ_TIME = "8 min read";
-// NOTE: interim placeholder image — replace with a dedicated gum-fistula / dental-infection
-// illustration before publishing (see review notes).
-const IMAGE = "/images/dental-checkup.png";
+const IMAGE = "/images/gum-fistula-pimple-mirror.jpg";
 const IMAGE_ALT =
-  "Dentist reviewing a patient’s gums and teeth during a dental examination in Vaughan";
+  "Woman looking in the mirror and lifting her lip to check a pimple-like bump on the gum above her upper front teeth";
 
 export const metadata = {
   title: { absolute: SEO_TITLE },
@@ -293,6 +291,20 @@ export default function GumFistulaArticlePage() {
             <p className="text-[#555574] leading-relaxed mb-4">
               A fistula can look different from one person to another.
             </p>
+            <figure className="not-prose my-6">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-sm bg-[#e8e8f0]">
+                <Image
+                  src="/images/gum-fistula-clinical-closeup.jpg"
+                  alt="Close-up of a small draining gum fistula (pimple) on the gum above a discoloured upper front tooth"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="text-xs text-gray-400 mt-2 text-center">
+                A small draining fistula on the gum above a discoloured upper front tooth.
+              </figcaption>
+            </figure>
             <p className="text-[#555574] leading-relaxed mb-3">You may notice:</p>
             <ul className="list-disc pl-6 text-[#555574] leading-relaxed mb-4 space-y-1.5">
               <li>A small <strong>pimple or bump on the gum</strong></li>
@@ -389,6 +401,21 @@ export default function GumFistulaArticlePage() {
                 <em>Dental X-rays:</em> A periapical radiograph may reveal bone changes around the root.
               </li>
             </ul>
+            <figure className="not-prose my-6">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-sm bg-[#e8e8f0]">
+                <Image
+                  src="/images/periapical-radiograph-apical-abscess.jpg"
+                  alt="Periapical dental X-ray of the upper front teeth showing a dark area of bone loss around the root tip, consistent with a chronic apical abscess"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-contain bg-black"
+                />
+              </div>
+              <figcaption className="text-xs text-gray-400 mt-2 text-center">
+                A periapical radiograph showing a dark area around the root tip — a possible sign of bone changes
+                from a long-standing infection.
+              </figcaption>
+            </figure>
             <p className="text-[#555574] leading-relaxed mb-4">
               In selected cases, additional imaging such as <em>CBCT</em> may be recommended if conventional
               radiographs do not provide enough information.
